@@ -1,0 +1,46 @@
+[
+  {
+    "Location": "Crop Circle",
+    "Search": "Key",
+    "NPC": "None",
+    "Look": {
+      "North": "Farm",
+      "South": "Corn",
+      "East": "Corn",
+      "West": "Corn"
+    }
+  },
+  {
+    "Location": "Barn",
+    "Search": "Map",
+    "NPC": "Farmer",
+    "Look": {
+      "North": "Town",
+      "South": "Crop Circle",
+      "East": "Corn",
+      "West": "Corn"
+    }
+  },
+  {
+    "Location": "Town Center",
+    "Search": null,
+    "NPC": "Townsperson",
+    "Look": {
+      "North": "Road",
+      "South": "Town",
+      "East": "Library",
+      "West": "Bar"
+    }
+  },
+  {
+    "Location": "Library",
+    "Search": "News Article",
+    "NPC": "Librarian",
+    "Look": {
+      "North": "Bar",
+      "South": "Farm",
+      "East": "Military Base",
+      "West": ""
+    }
+  }
+]
