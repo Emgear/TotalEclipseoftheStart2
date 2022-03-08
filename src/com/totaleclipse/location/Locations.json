@@ -1,0 +1,6 @@
+[
+  {"key": "0","Location": "Crop Circle", "Search": "Key", "NPC": "None", "Look": {"North": "Farm", "South": "Corn", "East": "Corn", "West": "Corn"}},
+  {"key": "1", "Location": "Barn", "Search": "Map", "NPC": "Farmer","Look": {"North": "Town", "South": "Crop Circle", "East": "Corn", "West": "Corn"}},
+  {"key": "2","Location": "Town Center","Search": null,"NPC": "Townsperson", "Look": {"North": "Road", "South": "Town", "East": "Library", "West": "Bar"}},
+  {"key": "3", "Location": "Library", "Search": "News Article", "NPC": "Librarian", "Look": { "North": "Bar", "South": "Farm", "East": "Military Base", "West": ""}}
+]
