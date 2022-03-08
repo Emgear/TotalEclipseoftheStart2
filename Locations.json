@@ -1,0 +1,83 @@
+[
+  {
+    "Location": "Crop Circle",
+    "Search": ["Key", "Grass"],
+    "NPC": "None",
+    "Look": {
+      "North": "Farm",
+      "South": "Corn",
+      "East": "Corn",
+      "West": "Corn"
+    }
+  },
+  {
+    "Location": "Bunker",
+    "Search": "Map",
+    "NPC": "Farmer",
+    "Look": {
+      "North": "Town",
+      "South": "Crop Circle",
+      "East": "Corn",
+      "West": "Corn"
+    }
+  },
+  {
+    "Location": "Town Center",
+    "Search": "Grass",
+    "NPC": "Townie",
+    "Look": {
+      "North": "Corn",
+      "South": "Bunker",
+      "East": "Library",
+      "West": "Bar"
+    }
+  },
+  {
+    "Location": "Library",
+    "Search": ["News Article", "Grass"],
+    "NPC": "Librarian",
+    "Look": {
+      "North": "Bar",
+      "South": "Farm",
+      "East": "Crash Site",
+      "West": "Corn"
+    }
+  },
+  {
+    "Location": "Bar",
+    "Search": ["Poster", "Grass"],
+    "NPC": ["Bartender", "Townie"],
+    "Look": {
+      "North": "Library",
+      "South": "Bunker",
+      "East": "Town Center",
+      "West": "Crash Site"
+    }
+  },
+  {
+    "Location": "Crash Site",
+    "Search": [
+      "Glowing Goo",
+      "Entry Badge",
+      "Grass"
+    ],
+    "NPC": "",
+    "Look": {
+      "North": "Area 51",
+      "South": "Corn",
+      "East": "Corn",
+      "West": "Library"
+    }
+  },
+  {
+    "Location": "Area 51",
+    "Search": ["Microscope", "Prison Cells", "Grass"],
+    "NPC": "Soldier",
+    "Look": {
+      "North": "Corn",
+      "South": "Corn",
+      "East": "Corn",
+      "West": "Crash Site"
+    }
+  }
+]
