@@ -14,6 +14,11 @@ public class Commands {
         getCommand(this.verb);
     }
 
+    /**
+     * Checks commandVerb for synonyms
+     * @param commandVerb parsed verb used to search for synonym
+     * @return keyword of synonym
+     */
     private String getSynonyms(String commandVerb) {
         for (var localCommands : LocalCommands.values()) {
             if (localCommands.synonyms!=null) {
@@ -27,6 +32,10 @@ public class Commands {
         return commandVerb;
     }
 
+    /**
+     * Checks to see which commandVerb keyword was entered.
+     * @param command verb parsed from command input
+     */
     private void getCommand(String command) {
         if (command.equalsIgnoreCase(LocalCommands.move.keyword)) {
             Actions.move();
@@ -36,9 +45,14 @@ public class Commands {
             Actions.look();
         } else if (this.verb.equalsIgnoreCase(LocalCommands.talk.keyword)) {
             Actions.talk();
+        }else if(this.verb.equalsIgnoreCase("help")){
+            Actions.help();
         }
     }
 
+    /**
+     * Local command enum to check for the parsed verb
+     */
     enum LocalCommands {
         move("move", "Moves the player in the selected direction, ie: 'move east'", "go", "walk", "run"),
         get("get", "Pick up an item, ie: 'get key'", "grab", "pickup"),
