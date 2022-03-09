@@ -1,0 +1,6 @@
+[
+  {"key": "0","location": "Crop Circle", "item": "Key", "npc": "None", "look": [ "Farm",  "Corn",  "Corn",  "Corn"]},
+  {"key": "1", "location": "Barn", "item": "Map", "npc": "Farmer","look": ["Town",  "Crop Circle",  "Corn",  "Corn"]},
+  {"key": "2","location": "Town Center","item": null,"npc": "Townsperson", "look": ["Road",  "Town",  "Library",  "Bar"]},
+  {"key": "3", "location": "Library", "item": "News Article", "npc": "Librarian", "look": [ "Bar",  "Farm",  "Military Base",  ""]}
+]

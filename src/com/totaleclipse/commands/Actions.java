@@ -1,5 +1,7 @@
 package com.totaleclipse.commands;
 
+import java.util.Locale;
+
 public class Actions {
 
     public static void help() {
@@ -8,10 +10,15 @@ public class Actions {
             helpString.append(localCommands);
             helpString.append(System.getProperty("line.separator"));
         }
-        System.out.println(helpString.toString());
+        System.out.println(helpString);
     }
-    protected static void move(){
-        System.out.println("move");
+    protected static void move(String noun){
+        switch(noun.toUpperCase()){
+            case "NORTH"-> System.out.println("Move North");
+            case "EAST"-> System.out.println("Move East");
+            case "SOUTH"-> System.out.println("Move South");
+            case "WEST"-> System.out.println("Move West");
+        }
     }
     protected static void look(){
         System.out.println("look");
