@@ -58,7 +58,7 @@ public class Commands {
         get("get", "Pick up an item, ie: 'get key'", "grab", "pickup"),
         look("look", "Looks around the current location, ie:'look around'", "search", "peek", "investigate"),
         save("save", "Saves user data to disk"),
-        talk("talk", "Speaks with an NPC, ie: 'talk librarian", "speak", "question", "interrogate"),
+        talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "question", "interrogate"),
         close("quit", "Closes Total Eclipse of the Start", "close");
         String keyword;
         String description;

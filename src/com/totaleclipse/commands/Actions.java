@@ -5,10 +5,10 @@ public class Actions {
     public static void help() {
         StringBuilder helpString = new StringBuilder();
         for (var localCommands : Commands.LocalCommands.values()) {
-            helpString.append(localCommands);
+            helpString.append(localCommands.keyword + ": " + localCommands.description);
             helpString.append(System.getProperty("line.separator"));
         }
-        System.out.println(helpString.toString());
+        System.out.println("The actions you can perform are:\n" + helpString);
     }
     protected static void move(){
         System.out.println("move");
