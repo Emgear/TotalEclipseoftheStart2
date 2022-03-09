@@ -38,7 +38,7 @@ public class Commands {
      */
     private void getCommand(String command) {
         if (command.equalsIgnoreCase(LocalCommands.move.keyword)) {
-            Actions.move();
+            Actions.move(this.noun);
         } else if (command.equalsIgnoreCase(LocalCommands.get.keyword)) {
             Actions.get();
         } else if (command.equalsIgnoreCase(LocalCommands.look.keyword)) {
@@ -47,6 +47,8 @@ public class Commands {
             Actions.talk();
         }else if(this.verb.equalsIgnoreCase("help")){
             Actions.help();
+        }else if(this.verb.equalsIgnoreCase(LocalCommands.close.keyword)){
+            System.exit(0);
         }
     }
 
@@ -58,8 +60,8 @@ public class Commands {
         get("get", "Pick up an item, ie: 'get key'", "grab", "pickup"),
         look("look", "Looks around the current location, ie:'look around'", "search", "peek", "investigate"),
         save("save", "Saves user data to disk"),
-        talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "question", "interrogate"),
-        close("quit", "Closes Total Eclipse of the Start", "close");
+        talk("talk", "Speaks with an NPC, ie: 'talk librarian", "speak", "question", "interrogate"),
+        close("close", "Closes Total Eclipse of the Start", "quit","exit");
         String keyword;
         String description;
         String[] synonyms;
