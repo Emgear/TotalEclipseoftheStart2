@@ -54,8 +54,8 @@ public class Location {
         this.item = item;
     }
 
-    public String[] getLook() {
-        return look;
+    public String getLook(int i) {
+        return look[i];
     }
 
     public void setLook(String[] look) {

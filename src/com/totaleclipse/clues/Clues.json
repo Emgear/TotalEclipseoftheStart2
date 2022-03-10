@@ -1,0 +1,48 @@
+[
+  {
+    "clue": "Key",
+    "npc": "",
+    "location": "Crop Circle"
+  },
+  {
+    "clue": "Map",
+    "npc": "Old Farmer Bob",
+    "location": "Bunker"
+  },
+  {
+    "clue": "Grass",
+    "npc": "Townie",
+    "location":
+      "Crash Site"
+  },
+  {
+    "clue": "News Article",
+    "npc": "Librarian",
+    "location": "Library"
+  },
+  {
+    "clue": "Poster",
+    "npc": "",
+    "location": "Bar"
+  },
+  {
+    "clue": "Glowing Goo",
+    "npc": "",
+    "location": "Crash Site"
+  },
+  {
+    "clue": "Entry Badge",
+    "npc": "",
+    "location": "Crash site"
+  },
+  {
+    "clue": "Microscope",
+    "npc": "",
+    "location": "Area 51"
+  },
+  {
+    "clue": "Prison Cells",
+    "npc": "Soldier",
+    "location": "Area 51"
+  }
+]
