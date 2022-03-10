@@ -8,22 +8,10 @@ public enum Commands {
     look("look", "Looks around the current location, ie:'look around'", "search", "peek", "investigate"),
     save("save", "Saves user data to disk"),
     talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "question", "interrogate"),
-    close("close", "Closes Total Eclipse of the Start", "quit","exit");
+    close("close", "Closes Total Eclipse of the Start", "quit", "exit");
     private String keyword;
     private String description;
     private String[] synonyms;
-
-    public String getKeyword() {
-        return keyword;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String[] getSynonyms() {
-        return synonyms;
-    }
 
     /**
      * No parameter command constructor
@@ -51,6 +39,18 @@ public enum Commands {
         }
     }
 
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String[] getSynonyms() {
+        return synonyms;
+    }
+
     @Override
     public String toString() {
         return "LocalCommands{" +
@@ -59,6 +59,4 @@ public enum Commands {
                 ", synonyms=" + Arrays.toString(synonyms) +
                 '}';
     }
-
-
 }
