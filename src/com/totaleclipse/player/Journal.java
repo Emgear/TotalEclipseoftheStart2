@@ -12,7 +12,7 @@ public class Journal {
     }
 
     String clue;
-    //won't be main method
+    //won't be main method, this is just for testing
     public static void main(String[] args){
         ArrayList<String> clues = new ArrayList<>();
         // instance variable string clue
