@@ -1,47 +1,37 @@
 [
   {
-    "clue": "Key",
+    "clue":"Go to the Crop Circle",
+    "item": "Key",
     "npc": "",
     "location": "Crop Circle"
   },
   {
-    "clue": "Map",
-    "npc": "Old Farmer Bob",
+    "clue": "Go to the bunker.",
+    "item": "Map",
+    "npc": "man",
     "location": "Bunker"
   },
   {
-    "clue": "Grass",
-    "npc": "Townie",
-    "location":
-      "Crash Site"
-  },
-  {
-    "clue": "News Article",
+    "clue": "Go to the library.",
+    "item": "Newspaper",
     "npc": "Librarian",
     "location": "Library"
   },
   {
-    "clue": "Poster",
-    "npc": "",
+    "clue": "Go to the bar.",
+    "item": "Poster",
+    "npc": "bartender",
     "location": "Bar"
   },
   {
-    "clue": "Glowing Goo",
-    "npc": "",
-    "location": "Crash Site"
-  },
-  {
-    "clue": "Entry Badge",
-    "npc": "",
+    "clue": "Go to the crash site.",
+    "item": "ID",
+    "npc": "pilot",
     "location": "Crash site"
   },
   {
-    "clue": "Microscope",
-    "npc": "",
-    "location": "Area 51"
-  },
-  {
-    "clue": "Prison Cells",
+    "clue":"Go south through the corn at the crop circle.",
+    "item": "Prison Cells",
     "npc": "Soldier",
     "location": "Area 51"
   }
