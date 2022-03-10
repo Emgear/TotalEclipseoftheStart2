@@ -1,24 +1,35 @@
 package com.totaleclipse.commands;
 
-import java.util.Locale;
-
+import com.totaleclipse.client.Client;
+import com.totaleclipse.player.Player;
 public class Actions {
-
-    public static void help() {
+    private Player player;
+    private Command command;
+    public Actions(Player player, Command command){
+        this.player=player;
+        this.command=command;
+    }
+    protected static void help() {
         StringBuilder helpString = new StringBuilder();
-        for (var localCommands : Commands.LocalCommands.values()) {
-            helpString.append(localCommands.keyword + ": " + localCommands.description);
+        for (var command : Commands.values()) {
+            helpString.append(command.getKeyword() + ": " + command.getDescription());
             helpString.append(System.getProperty("line.separator"));
         }
         System.out.println("The actions you can perform are:\n" + helpString);
     }
-    protected static void move(String noun){
+    protected void move(String noun, Player player){
+        int key=player.getLocation().getKey();
         switch(noun.toUpperCase()){
-            case "NORTH"-> System.out.println("Move North");
-            case "EAST"-> System.out.println("Move East");
-            case "SOUTH"-> System.out.println("Move South");
-            case "WEST"-> System.out.println("Move West");
+            case "NORTH"-> {
+                key++;
+                player.setLocation(Client.locationsMap.get(key));
+            }
+            case "SOUTH"-> {
+                key--;
+                player.setLocation(Client.locationsMap.get(key));
+            }
         }
+        System.out.println(player.getLocation());
     }
     protected static void look(){
         System.out.println("look");

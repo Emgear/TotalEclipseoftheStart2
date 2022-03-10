@@ -1,3 +1,5 @@
+package com.totaleclipse.player;
+
 import java.util.ArrayList;
 
 public class Journal {
@@ -12,7 +14,7 @@ public class Journal {
     String clue;
     //won't be main method
     public static void main(String[] args){
-        ArrayList<String> clues = new ArrayList<String>();
+        ArrayList<String> clues = new ArrayList<>();
         // instance variable string clue
         clues.add("go to the library!");
         clues.add("storm area 51!");
