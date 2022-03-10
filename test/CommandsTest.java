@@ -1,12 +1,12 @@
-import com.totaleclipse.commands.Commands;
-import org.junit.jupiter.api.Test;
+//import com.totaleclipse.clues.Clue;
+//import com.totaleclipse.commands.Commands;
+//
 //import org.junit.jupiter.api.Test;
-
+//
 //class CommandsTest {
 //    @Test
 //    public void helpTest(){
-//        Commands com=new Commands("go", "east");
-//        com.getSynomyn();
-//
+//        Clue clue=new Clue();
+//        clue.getClue();
 //    }
 //}

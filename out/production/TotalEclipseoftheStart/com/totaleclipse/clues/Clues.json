@@ -1,0 +1,38 @@
+[
+  {
+    "clue":"Go to the Crop Circle",
+    "item": "Key",
+    "npc": "",
+    "location": "Crop Circle"
+  },
+  {
+    "clue": "Go to the bunker.",
+    "item": "Map",
+    "npc": "man",
+    "location": "Bunker"
+  },
+  {
+    "clue": "Go to the library.",
+    "item": "Newspaper",
+    "npc": "Librarian",
+    "location": "Library"
+  },
+  {
+    "clue": "Go to the bar.",
+    "item": "Poster",
+    "npc": "bartender",
+    "location": "Bar"
+  },
+  {
+    "clue": "Go to the crash site.",
+    "item": "ID",
+    "npc": "pilot",
+    "location": "Crash site"
+  },
+  {
+    "clue":"Go south through the corn at the crop circle.",
+    "item": "Prison Cells",
+    "npc": "Soldier",
+    "location": "Area 51"
+  }
+]

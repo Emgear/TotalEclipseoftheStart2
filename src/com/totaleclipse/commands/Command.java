@@ -45,11 +45,11 @@ public class Command {
         if (commandVerb.equalsIgnoreCase(Commands.move.getKeyword())) {
             action.move(this.noun, this.player);
         } else if (commandVerb.equalsIgnoreCase(Commands.get.getKeyword())) {
-            Actions.get();
+            Actions.get(this.noun, this.player);
         } else if (commandVerb.equalsIgnoreCase(Commands.look.getKeyword())) {
-            Actions.look();
+            Actions.look(this.noun, this.player);
         } else if (this.verb.equalsIgnoreCase(Commands.talk.getKeyword())) {
-            Actions.talk();
+            Actions.talk(this.noun, this.player);
         }else if(this.verb.equalsIgnoreCase("help")){
             Actions.help();
         }else if(this.verb.equalsIgnoreCase(Commands.close.getKeyword())){
