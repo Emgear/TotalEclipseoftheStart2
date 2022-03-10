@@ -47,7 +47,7 @@ public class Command {
         } else if (commandVerb.equalsIgnoreCase(Commands.get.getKeyword())) {
             Actions.get();
         } else if (commandVerb.equalsIgnoreCase(Commands.look.getKeyword())) {
-            Actions.look();
+            Actions.look(this.noun, this.player);
         } else if (this.verb.equalsIgnoreCase(Commands.talk.getKeyword())) {
             Actions.talk();
         }else if(this.verb.equalsIgnoreCase("help")){
