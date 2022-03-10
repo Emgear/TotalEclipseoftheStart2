@@ -42,7 +42,7 @@ public class Commands {
         } else if (command.equalsIgnoreCase(LocalCommands.get.keyword)) {
             Actions.get();
         } else if (command.equalsIgnoreCase(LocalCommands.look.keyword)) {
-            Actions.look();
+            Actions.look(this.noun);
         } else if (this.verb.equalsIgnoreCase(LocalCommands.talk.keyword)) {
             Actions.talk();
         }else if(this.verb.equalsIgnoreCase("help")){
@@ -62,6 +62,7 @@ public class Commands {
         save("save", "Saves user data to disk"),
         talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "question", "interrogate"),
         close("close", "Closes Total Eclipse of the Start", "quit","exit");
+
         String keyword;
         String description;
         String[] synonyms;

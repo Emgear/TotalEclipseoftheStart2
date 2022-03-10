@@ -1,6 +1,8 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.totaleclipse.commands.Actions;
 import com.totaleclipse.commands.parseCommands;
 import com.totaleclipse.location.Location;
+import org.junit.Test;
 
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -28,5 +30,16 @@ public class testCommands {
         }
         String[] directions=locationsMap.get(1).getLook();
         System.out.println(directions[2]);
+    }
+
+    @Test
+    public void testLook(){
+        Actions.look("north");
+        Actions.look("SOUTH");
+        Actions.look("East");
+        Actions.look("WEst");
+        Actions.look("around");
+        Actions.look("object");
+        Actions.look("house");
     }
 }
