@@ -23,13 +23,14 @@ public class Actions {
             case "NORTH"-> {
                 key++;
                 player.setLocation(Client.locationsMap.get(key));
+                System.out.println(player.getLocation().getLook(0));
             }
             case "SOUTH"-> {
                 key--;
                 player.setLocation(Client.locationsMap.get(key));
+                System.out.println(player.getLocation().getLook(0));
             }
         }
-        System.out.println(player.getLocation());
     }
     protected static void look(){
         System.out.println("look");
