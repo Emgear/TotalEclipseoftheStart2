@@ -19,36 +19,42 @@ public class Actions {
     }
     protected void move(String noun, Player player){
         int key=player.getLocation().getKey();
-        switch(noun.toUpperCase()){
-            case "NORTH"-> {
-                key++;
-                player.setLocation(Client.locationsMap.get(key));
-                System.out.println(player.getLocation().getLook(0));
-            }
-            case "SOUTH"-> {
-                key--;
-                player.setLocation(Client.locationsMap.get(key));
-                System.out.println(player.getLocation().getLook(0));
-            }
+        if(noun.equalsIgnoreCase("north")){
+            key++;
+            player.setLocation(Client.locationsMap.get(key));
+            System.out.println(player.getLocation().getLook(0));
+        }else if(noun.equalsIgnoreCase("south")){
+            key--;
+            player.setLocation(Client.locationsMap.get(key));
+            System.out.println(player.getLocation().getLook(0));
         }
+
     }
 
     /**
      * look can be used to look in a direction, at an object, or to get general information about the area.
      * @param noun the direction or object to be looked at
      */
-    public static void look(String noun){
+    public static void look(String noun, Player player){
         //Generic hard-coded information for the first area for the first sprint
         //Will be updated to change based on items/directions from that location
         switch (noun.toLowerCase()){
-            case "around" -> System.out.println("You are currently in a cornfield. There is a path to the north, and an object on the ground next to you." +
-                        " You don't see anyone else around, and that floating cow you saw remains in your mind.");
-            case "north" -> System.out.println("In the midst of the corn, you see a path leading to what looks like a bunker.");
-            case "east" -> System.out.println("There seems to be some.");
-            case "south" -> System.out.println("You see some corn.");
-            case "west" -> System.out.println("Guess what. There's corn.");
-            case "object" -> System.out.println("The object seems to be a hastily scribbled note.");
-            default -> System.out.println("I don't see any " + noun.toLowerCase() + " around here.");
+            case "around" : {
+                System.out.println(player.getLocation().getLook(0));
+                break;
+            }//System.out.println("You are currently in a cornfield. There is a path to the north, and an object on the ground next to you." +
+                        //" You don't see anyone else around, and that floating cow you saw remains in your mind.");
+            case "north" : System.out.println("In the midst of the corn, you see a path leading to what looks like a bunker.");
+            break;
+            case "east" : System.out.println("There seems to be some.");
+            break;
+            case "south" : System.out.println("You see some corn.");
+            break;
+            case "west" : System.out.println("Guess what. There's corn.");
+            break;
+            case "object" : System.out.println("The object seems to be a hastily scribbled note.");
+            break;
+            default : System.out.println("I don't see any " + noun.toLowerCase() + " around here.");
         }
 
     }

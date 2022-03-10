@@ -1,11 +1,11 @@
 [
   {
-    "Clue": "Key",
+    "clue": "Key",
     "NPC": "",
     "Location": "Crop Circle"
   },
   {
-    "Clue": "Map",
+    "clue": "Map",
     "NPC": "Old Farmer Bob",
     "Location": "Bunker"
   },
