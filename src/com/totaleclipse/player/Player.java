@@ -8,6 +8,14 @@ public class Player {
     private Location location;
     private Clue clue;
     private int humanity=0;
+    public static Player player=null;
+
+    public static Player getInstance(String playerName, Location location, Clue clue){
+        if(player==null){
+            player=new Player(playerName, location, clue);
+        }
+        return player;
+    }
 
     public int getHumanity() {
         return humanity;
@@ -18,7 +26,7 @@ public class Player {
     }
 
     // constructor to take journal obj & player name string (we'll ask for input in initial driver)
-    public Player(String playerName, Location location, Clue clue) {
+    private Player(String playerName, Location location, Clue clue) {
         this.playerName = playerName;
         this.location = location;
         this.clue=clue;
