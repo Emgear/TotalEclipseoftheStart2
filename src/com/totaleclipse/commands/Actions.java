@@ -45,13 +45,16 @@ public class Actions {
                 System.out.println(player.getLocation().getLook(0));
                 break;
             case "north":
-                System.out.println(player.getLocation().getLook(1));
+                System.out.println(Locations.locationsMap.get(key + 1).getLook(1));
+               // System.out.println(player.getLocation().getLook(1));
                 break;
             case "east":
                 System.out.println("There seems to be some corn.");
                 break;
             case "south":
-                System.out.println(player.getLocation().getLook(2));
+                System.out.println(Locations.locationsMap.get(key - 1).getLook(1));
+
+               // System.out.println(player.getLocation().getLook(2));
                 break;
             case "west":
                 System.out.println("Guess what. There's corn.");
@@ -91,7 +94,7 @@ public class Actions {
     protected void move(String noun, Player player) {
         key = player.getLocation().getKey();
         if (noun.equalsIgnoreCase("north")) {
-            if(key<5) {
+            if(key<4) {
                 key++;
                 player.setLocation(Locations.locationsMap.get(key));
                 player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
