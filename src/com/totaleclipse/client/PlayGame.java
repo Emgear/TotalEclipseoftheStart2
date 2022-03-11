@@ -51,7 +51,7 @@ public class PlayGame {
         HashMap<String, Clue> cluesMap= Clues.generateClues();
 
         DisplayScreen.displayConsole("What is your name?");
-        Player player = new Player(parseName(), locationsMap.get(0), cluesMap.get("Crop Circle"));
+        Player player=Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("Crop Circle"));
         DisplayScreen.displayConsole(player.getLocation().getLook(0));
         while (playing) {
             parseCommands com = new parseCommands();
@@ -61,7 +61,7 @@ public class PlayGame {
             commandNoun = "";
             if (commandArray.size() > 1)
                 commandNoun = (String) commandArray.get(1);
-            new Command(commandVerb, commandNoun, player);
+            new Command(commandVerb, commandNoun);
             if(player.getLocation().getLocation().equalsIgnoreCase("area 51")){
                 if(player.getHumanity()>0){
                     DisplayScreen.displayConsole("You are a human and have discovered proof of alien life!!!");
