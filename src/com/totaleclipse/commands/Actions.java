@@ -22,7 +22,7 @@ public class Actions {
     protected static void help() {
         StringBuilder helpString = new StringBuilder();
         for (var command : Commands.values()) {
-            helpString.append(command.getKeyword() + ": " + command.getDescription());
+            helpString.append(command.getKeyword()).append(": ").append(command.getDescription());
             helpString.append(System.getProperty("line.separator"));
         }
         System.out.println("The actions you can perform are:\n" + helpString);
@@ -70,8 +70,9 @@ public class Actions {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         if (noun.equalsIgnoreCase(player.getClue().getItem())) {
             Clue clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
-            Journal.addClue(noun, clue);
-            System.out.println("The " + player.getClue().getItem() + " tells you to " + clue.getClue());
+            String clueString = clue.getClue();
+            Journal.addClue(noun, clueString);
+            System.out.println("The " + player.getClue().getItem() + " tells you to " + clueString);
         }else{
             System.out.println("That item is not in the area.");
         }
@@ -82,8 +83,9 @@ public class Actions {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         if (noun.equalsIgnoreCase(player.getClue().getNpc())) {
             Clue clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
-            Journal.addClue(noun,clue);
-            System.out.println("You speak to the " + player.getClue().getNpc() + " and they tell you to " + clue.getClue());
+            String clueString = clue.getClue();
+            Journal.addClue(noun,clueString);
+            System.out.println("You speak to the " + player.getClue().getNpc() + " and they tell you to " + clueString);
         }
         player.setHumanity(1);
     }

@@ -1,6 +1,5 @@
 package com.totaleclipse.player;
 
-import com.totaleclipse.clues.Clue;
 import java.util.*;
 
 /**
@@ -8,7 +7,7 @@ import java.util.*;
  */
 public class Journal {
 
-    private static Map<String, Clue> clues = new HashMap<>();
+    private static final Map<String, String> clues = new HashMap<>();
 
     /**
      * Private constructor to prevent instances being created. Everything in this class is static, no instances needed
@@ -20,7 +19,7 @@ public class Journal {
      * @param source the source of the clue, so we can display accurately how the player obtained it
      * @param clue The clue itself that is being added to the journal
      */
-    public static void addClue(String source, Clue clue) {
+    public static void addClue(String source, String clue) {
         if(!hasClue(clue)){
             clues.put(source, clue);
         }
@@ -31,7 +30,7 @@ public class Journal {
      * @param clue the clue to check for duplicates of
      * @return true if the clue already exists, false if the clue has not been seen yet.
      */
-    public static boolean hasClue(Clue clue){
+    public static boolean hasClue(String clue){
         return clues.containsValue(clue);
     }
 
@@ -44,7 +43,7 @@ public class Journal {
         StringBuilder cluesString = new StringBuilder();
 
         for(String source : clues.keySet()){
-            cluesString.insert(0,source + ": " + clues.get(source).getClue() + '\n');
+            cluesString.insert(0,source + ": " + clues.get(source) + '\n');
         }
 
         cluesString.insert(0,"Current clues: \n");
