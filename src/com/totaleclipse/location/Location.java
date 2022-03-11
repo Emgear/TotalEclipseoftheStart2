@@ -54,8 +54,6 @@ public class Location {
         this.item = item;
     }
 
-    public void removeItem(String item){ this.item = "";}
-
     public String getLook(int i) {
         return look[i];
     }
