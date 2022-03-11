@@ -1,36 +1,48 @@
 [
   {
-    "clue":"Go to the Crop Circle",
+    "clue1":"Go to the Crop Circle",
+    "clue2": "Maybe you missed something in the crop circle",
+    "clue3": "Good luck?",
     "item": "Key",
     "npc": "",
     "location": "Crop Circle"
   },
   {
-    "clue": "Go to the bunker.",
+    "clue1": "Go to the bunker.",
+    "clue2": "It's a creepy door.  What's the worst that could happen?",
+    "clue3": "Good luck?",
     "item": "Map",
     "npc": "man",
     "location": "Bunker"
   },
   {
-    "clue": "Go to the library.",
+    "clue1": "Go to the library.",
+    "clue2": "find smart people.",
+    "clue3": "Good luck?",
     "item": "Newspaper",
     "npc": "Librarian",
     "location": "Library"
   },
   {
-    "clue": "Go to the bar.",
+    "clue1": "Go to the bar.",
+    "clue2": "it's a lovely day for a Guinness.",
+    "clue3": "Good luck?",
     "item": "Poster",
     "npc": "bartender",
     "location": "Bar"
   },
   {
-    "clue": "Go to the crash site.",
+    "clue1": "Go to the crash site.",
+    "clue2": "is that a UFO crash?!",
+    "clue3": "Good luck?",
     "item": "ID",
     "npc": "pilot",
     "location": "Crash site"
   },
   {
-    "clue":"Go south through the corn at the crop circle.",
+    "clue1":"Go south through the corn at the crop circle.",
+    "clue2": "Corn.  Just corn.",
+    "clue3": "Good luck?",
     "item": "Prison Cells",
     "npc": "Soldier",
     "location": "Area 51"
