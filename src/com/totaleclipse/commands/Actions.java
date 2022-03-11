@@ -76,6 +76,7 @@ public class Actions {
             String clueString = clue.getClue();
             Journal.addClue(noun, clueString);
             System.out.println("The " + player.getClue().getItem() + " tells you to " + clueString);
+            player.getClue().removeItem();
         }else{
             System.out.println("That item is not in the area.");
         }

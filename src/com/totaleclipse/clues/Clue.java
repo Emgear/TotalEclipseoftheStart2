@@ -37,6 +37,8 @@ public class Clue {
         this.clue = clue;
     }
 
+    public void removeItem(){ this.item = "";}
+
     public String getNpc() {
         return npc;
     }
