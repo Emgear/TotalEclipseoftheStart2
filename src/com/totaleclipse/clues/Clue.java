@@ -5,6 +5,8 @@ package com.totaleclipse.clues;
 
 import com.totaleclipse.player.Player;
 
+import java.util.Random;
+
 public class Clue {
     //strings for each json clue
     String clue;
@@ -52,9 +54,10 @@ public class Clue {
 
 
 
+
     // get clue method
     public String getClue() {
-        return this.clue;
+        return this.clue[Dice.roll()];
 
     }
 
