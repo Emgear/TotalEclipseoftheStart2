@@ -1,48 +1,36 @@
 [
   {
-    "clue1":"Go to the Crop Circle",
-    "clue2": "Maybe you missed something in the crop circle",
-    "clue3": "Good luck?",
+    "clue": ["Go to the Crop Circle", "Maybe you missed something in the crop circle", "Good luck?"],
     "item": "Key",
     "npc": "",
     "location": "Crop Circle"
   },
   {
-    "clue1": "Go to the bunker.",
-    "clue2": "It's a creepy door.  What's the worst that could happen?",
-    "clue3": "Good luck?",
+    "clue": ["Go to the bunker.","It's a creepy door.  What's the worst that could happen?","Good luck?"],
     "item": "Map",
     "npc": "man",
     "location": "Bunker"
   },
   {
-    "clue1": "Go to the library.",
-    "clue2": "find smart people.",
-    "clue3": "Good luck?",
+    "clue1": ["Go to the library.", "find smart people.", "Good luck?"],
     "item": "Newspaper",
     "npc": "Librarian",
     "location": "Library"
   },
   {
-    "clue1": "Go to the bar.",
-    "clue2": "it's a lovely day for a Guinness.",
-    "clue3": "Good luck?",
+    "clue1": ["Go to the bar.", "it's a lovely day for a Guinness.", "Good luck?"],
     "item": "Poster",
     "npc": "bartender",
     "location": "Bar"
   },
   {
-    "clue1": "Go to the crash site.",
-    "clue2": "is that a UFO crash?!",
-    "clue3": "Good luck?",
+    "clue1": ["Go to the crash site.", "is that a UFO crash?!", "Good luck?"],
     "item": "ID",
     "npc": "pilot",
     "location": "Crash site"
   },
   {
-    "clue1":"Go south through the corn at the crop circle.",
-    "clue2": "Corn.  Just corn.",
-    "clue3": "Good luck?",
+    "clue1":["Go south through the corn at the crop circle.", "Corn.  Just corn.", "Good luck?"],
     "item": "Prison Cells",
     "npc": "Soldier",
     "location": "Area 51"
