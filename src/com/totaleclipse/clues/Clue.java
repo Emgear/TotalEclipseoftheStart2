@@ -57,7 +57,7 @@ public class Clue {
 
     // get clue method
     public String getClue() {
-        return this.clue;
+        return this.clue[Dice.roll()];
 
     }
 
