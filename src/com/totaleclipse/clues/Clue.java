@@ -58,6 +58,28 @@ public class Clue {
 
     }
 
+    /**equals method created using the clue string, which shouldn't be shared between clues (at least for now)
+     * @param clue The object test for equality with
+     * @return true if the object provided is a clue with matching clue string
+     */
+    @Override
+    public boolean equals(Object clue) {
+        if (this == clue) return true;
+
+        Clue clue1 = (Clue) clue;
+
+        return getClue().equalsIgnoreCase(clue1.getClue());
+    }
+
+    /**
+     * Generated hash code method to pair with equals
+     * @return the hash code representation of this Clue.
+     */
+    @Override
+    public int hashCode() {
+        return clue != null ? clue.hashCode() : 0;
+    }
+
     @Override
     public String toString() {
         return "Clue{" +
