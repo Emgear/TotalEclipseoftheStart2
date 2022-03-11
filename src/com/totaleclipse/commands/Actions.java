@@ -1,8 +1,10 @@
 package com.totaleclipse.commands;
 
+import com.totaleclipse.client.DisplayScreen;
 import com.totaleclipse.clues.Clue;
 import com.totaleclipse.clues.Clues;
 import com.totaleclipse.location.Locations;
+import com.totaleclipse.player.Journal;
 import com.totaleclipse.player.Player;
 
 import java.util.HashMap;
@@ -36,6 +38,9 @@ public class Actions {
         //Generic hard-coded information for the first area for the first sprint
         //Will be updated to change based on items/directions from that location
         switch (noun.toLowerCase()) {
+            case "inventory":
+                DisplayScreen.displayConsole(Journal.getClueString());
+                break;
             case "around":
                 System.out.println(player.getLocation().getLook(0));
                 break;
@@ -64,7 +69,9 @@ public class Actions {
     protected static void get(String noun, Player player) {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         if (noun.equalsIgnoreCase(player.getClue().getItem())) {
-            System.out.println("The " + player.getClue().getItem() + " tells you to " + cluesMap.get(Locations.locationsMap.get(key + 1).getLocation()).getClue());
+            Clue clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
+            Journal.addClue(noun, clue);
+            System.out.println("The " + player.getClue().getItem() + " tells you to " + clue.getClue());
         }else{
             System.out.println("That item is not in the area.");
         }
@@ -74,7 +81,9 @@ public class Actions {
     protected static void talk(String noun, Player player) {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         if (noun.equalsIgnoreCase(player.getClue().getNpc())) {
-            System.out.println("You speak to the " + player.getClue().getNpc() + " and they tell you to " + cluesMap.get(Locations.locationsMap.get(key + 1).getLocation()).getClue());
+            Clue clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
+            Journal.addClue(noun,clue);
+            System.out.println("You speak to the " + player.getClue().getNpc() + " and they tell you to " + clue.getClue());
         }
         player.setHumanity(1);
     }
