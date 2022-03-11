@@ -1,17 +1,14 @@
 package com.totaleclipse.commands;
 
 import com.totaleclipse.music.Music;
-import com.totaleclipse.player.Player;
 
 public class Command {
     private String noun;
     private String verb;
-    Player player;
     public Command(){}
-    public Command(String commandVerb, String commandNoun, Player player) {
+    public Command(String commandVerb, String commandNoun) {
         this.noun = commandNoun;
         this.verb = commandVerb;
-        this.player=player;
         this.verb = getSynonyms();
         getCommand(this.verb);
         getNoun();
@@ -42,15 +39,15 @@ public class Command {
      * @param commandVerb verb parsed from command input
      */
     private void getCommand(String commandVerb) {
-        Actions action=new Actions(player, this);
+        Actions action=new Actions(this);
         if (commandVerb.equalsIgnoreCase(Commands.move.getKeyword())) {
-            action.move(this.noun, this.player);
+            action.move(this.noun);
         } else if (commandVerb.equalsIgnoreCase(Commands.get.getKeyword())) {
-            Actions.get(this.noun, this.player);
+            Actions.get(this.noun);
         } else if (commandVerb.equalsIgnoreCase(Commands.look.getKeyword())) {
-            Actions.look(this.noun, this.player);
+            Actions.look(this.noun);
         } else if (this.verb.equalsIgnoreCase(Commands.talk.getKeyword())) {
-            Actions.talk(this.noun, this.player);
+            Actions.talk(this.noun);
         }else if(this.verb.equalsIgnoreCase("help")){
             Actions.help();
         }else if(this.verb.equalsIgnoreCase(Commands.close.getKeyword())){

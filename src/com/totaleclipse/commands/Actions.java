@@ -5,17 +5,16 @@ import com.totaleclipse.clues.Clue;
 import com.totaleclipse.clues.Clues;
 import com.totaleclipse.location.Locations;
 import com.totaleclipse.player.Journal;
-import com.totaleclipse.player.Player;
 
 import java.util.HashMap;
 
+import static com.totaleclipse.player.Player.player;
+
 public class Actions {
     static int key;
-    private Player player;
     private Command command;
 
-    public Actions(Player player, Command command) {
-        this.player = player;
+    public Actions(Command command) {
         this.command = command;
     }
 
@@ -33,7 +32,7 @@ public class Actions {
      *
      * @param noun the direction or object to be looked at
      */
-    public static void look(String noun, Player player) {
+    public static void look(String noun) {
 
         //Generic hard-coded information for the first area for the first sprint
         //Will be updated to change based on items/directions from that location
@@ -42,16 +41,19 @@ public class Actions {
                 DisplayScreen.displayConsole(Journal.getClueString());
                 break;
             case "around":
-                System.out.println(player.getLocation().getLook(0));
+                System.out.println(player.getLocation().getLook(0)+" To the north "+Locations.locationsMap.get(key + 1).getLook(1)+" To the south "+Locations.locationsMap.get(key - 1).getLook(1));
                 break;
             case "north":
-                System.out.println(player.getLocation().getLook(1));
+                System.out.println(Locations.locationsMap.get(key + 1).getLook(1));
+               // System.out.println(player.getLocation().getLook(1));
                 break;
             case "east":
                 System.out.println("There seems to be some corn.");
                 break;
             case "south":
-                System.out.println(player.getLocation().getLook(2));
+                System.out.println(Locations.locationsMap.get(key - 1).getLook(1));
+
+               // System.out.println(player.getLocation().getLook(2));
                 break;
             case "west":
                 System.out.println("Guess what. There's corn.");
@@ -66,7 +68,7 @@ public class Actions {
 
     }
 
-    protected static void get(String noun, Player player) {
+    protected static void get(String noun) {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         if (noun.equalsIgnoreCase(player.getClue().getItem())) {
             Clue clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
@@ -80,25 +82,25 @@ public class Actions {
         player.setHumanity(-1);
     }
 
-    protected static void talk(String noun, Player player) {
+    protected static void talk(String noun) {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         if (noun.equalsIgnoreCase(player.getClue().getNpc())) {
             Clue clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
             String clueString = clue.getClue();
-            Journal.addClue(noun,clueString);
+            Journal.addClue(noun, clueString);
             System.out.println("You speak to the " + player.getClue().getNpc() + " and they tell you to " + clueString);
         }
         player.setHumanity(1);
     }
 
-    protected void move(String noun, Player player) {
+    protected void move(String noun) {
         key = player.getLocation().getKey();
         if (noun.equalsIgnoreCase("north")) {
-            if(key<5) {
+            if(key<4) {
                 key++;
                 player.setLocation(Locations.locationsMap.get(key));
                 player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
-                System.out.println(player.getLocation().getLook(0));
+                System.out.println(player.getLocation().getLook(0)+" To the north "+Locations.locationsMap.get(key + 1).getLook(1)+" To the south "+Locations.locationsMap.get(key - 1).getLook(1));
             }else{
                 System.out.println("There is only corn ahead.");
             }
