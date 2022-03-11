@@ -7,13 +7,7 @@ public class parseCommands {
     public static String parseName(){
         return in.nextLine();
     }
-    public void parseCommand() {
-        String commandString = in.nextLine();
-        String[] commandArray = commandString.split(" ");
-        String commandVerb = commandArray[0];
-        String commandNoun = "";
-        if (commandArray.length > 1)
-            commandNoun = commandArray[1];
-        new Commands(commandVerb, commandNoun);
+    public String[] parseCommand() {
+        return in.nextLine().split(" ");
     }
 }

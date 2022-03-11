@@ -1,6 +1,10 @@
 package com.totaleclipse.client;
+import com.totaleclipse.location.Location;
+import java.util.HashMap;
+
 
 public class Client {
+
     public static void main(String[] args) {
         /* These outputs will likely be refactored into a separate class after their creation. */
 
@@ -14,14 +18,8 @@ public class Client {
         //player types start.
 
         //Explaining the start of the game
-        System.out.println("""
-                You wake up in a crop circle, surrounded by corn. Your leather jacket is dirty.
-                You can't seem to remember who you are or how you ended up in the midst of all this corn, and you want answers.
-                Over the corn in the distance, you can see a cow floating up into a disc-like shape in the sky, before it flies away.
-                
-                Type out the action you wish to perform, with a verb first an noun second.
-                \tFor example, you can look around by typing "look north" or "look west".
-                \t\tFor more commands, type "help".""");
-
+        System.out.println("You wake up in a crop circle, surrounded by corn. Your leather jacket is dirty.\nYou can't seem to remember who you are or how you ended up in the midst of all this corn, and you want answers.\nOver the corn in the distance, you can see a cow floating up into a disc-like shape in the sky, before it flies away.\nType out the action you wish to perform, with a verb first an noun second.\nFor example, you can look around by typing \"look north\" or \"look west\".\nFor more commands, type \"help\".");
+        PlayGame newGame=new PlayGame();
+        newGame.playGame();
     }
 }
