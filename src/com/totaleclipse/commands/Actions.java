@@ -100,7 +100,7 @@ public class Actions {
                 key++;
                 player.setLocation(Locations.locationsMap.get(key));
                 player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
-                System.out.println(player.getLocation().getLook(0));
+                System.out.println(player.getLocation().getLook(0)+" To the north "+Locations.locationsMap.get(key + 1).getLook(1)+" To the south "+Locations.locationsMap.get(key - 1).getLook(1));
             }else{
                 System.out.println("There is only corn ahead.");
             }
