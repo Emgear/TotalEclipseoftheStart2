@@ -1,5 +1,6 @@
 package com.totaleclipse.commands;
 
+import com.totaleclipse.music.Music;
 import com.totaleclipse.player.Player;
 
 public class Command {
@@ -54,6 +55,12 @@ public class Command {
             Actions.help();
         }else if(this.verb.equalsIgnoreCase(Commands.close.getKeyword())){
             System.exit(0);
+        }else if(this.verb.equalsIgnoreCase(Commands.music.getKeyword())){
+            if(Music.playing){
+                Music.stopMusic();
+            }else{
+                Music.playMusic();
+            }
         }
     }
 }
