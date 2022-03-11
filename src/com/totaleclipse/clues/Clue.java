@@ -3,18 +3,14 @@ package com.totaleclipse.clues;
 // make clue an abstract class, make item and npc extend it (then NPC and item will parse the clue from the JSON. put a to string method in this class
 
 
-import com.totaleclipse.player.Player;
-
-import java.util.Random;
-
 public class Clue {
     //strings for each json clue
-    String clue;
+    String[] clue;
     String npc;
     String location;
     String item;
 
-    public Clue(String clue, String NPC, String location, String item) {
+    public Clue(String[] clue, String NPC, String location, String item) {
         this.clue = clue;
         this.npc = NPC;
         this.location = location;

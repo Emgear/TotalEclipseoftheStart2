@@ -42,7 +42,7 @@ public class Actions {
                 DisplayScreen.displayConsole(Journal.getClueString());
                 break;
             case "around":
-                System.out.println(player.getLocation().getLook(0));
+                System.out.println(player.getLocation().getLook(0)+" To the north "+Locations.locationsMap.get(key + 1).getLook(1)+" To the south "+Locations.locationsMap.get(key - 1).getLook(1));
                 break;
             case "north":
                 System.out.println(Locations.locationsMap.get(key + 1).getLook(1));
