@@ -8,7 +8,8 @@ public enum Commands {
     look("look", "Looks around the current location, ie:'look around'", "search", "peek", "investigate"),
     save("save", "Saves user data to disk"),
     talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "question", "interrogate"),
-    close("close", "Closes Total Eclipse of the Start", "quit", "exit", "stop", "end");
+    close("close", "Closes Total Eclipse of the Start", "quit", "exit", "stop", "end"),
+    music("music", "Stops/starts the music","sound");
     private String keyword;
     private String description;
     private String[] synonyms;
