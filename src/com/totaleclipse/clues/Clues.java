@@ -29,4 +29,5 @@ public class Clues {
     public static HashMap<String, Clue> getClues(){
         return cluesMap;
     }
+    //maybe this is where randomization math comes in?
 }

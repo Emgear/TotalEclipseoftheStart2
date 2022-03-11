@@ -5,6 +5,8 @@ package com.totaleclipse.clues;
 
 import com.totaleclipse.player.Player;
 
+import java.util.Random;
+
 public class Clue {
     //strings for each json clue
     String clue;
@@ -49,6 +51,7 @@ public class Clue {
     public void setLocation(String location) {
         this.location = location;
     }
+
 
 
 

@@ -1,6 +1,6 @@
 [
   {
-    "clue":"Go to the Crop Circle",
+    "clue": ["Go to the Crop Circle",]
     "item": "Key",
     "npc": "",
     "location": "Crop Circle"
