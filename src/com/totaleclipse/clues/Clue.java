@@ -3,6 +3,11 @@ package com.totaleclipse.clues;
 // make clue an abstract class, make item and npc extend it (then NPC and item will parse the clue from the JSON. put a to string method in this class
 
 
+import com.totaleclipse.player.Player;
+
+import java.util.Arrays;
+import java.util.Random;
+
 public class Clue {
     //strings for each json clue
     String[] clue;
@@ -28,7 +33,7 @@ public class Clue {
         this.item = item;
     }
 
-    public void setClue(String clue) {
+    public void setClue(String[] clue) {
         this.clue = clue;
     }
 
@@ -57,7 +62,16 @@ public class Clue {
 
     }
 
-    /**equals method created using the clue string, which shouldn't be shared between clues (at least for now)
+    /**
+     * returns the array of clues, allowing for tests for equality and comparisons.
+     * @return The array of clues possible
+     */
+    public String[] getClues(){
+        return clue;
+    }
+
+    /**
+     * equals method created using the clue string, which shouldn't be shared between clues (at least for now)
      * @param clue The object test for equality with
      * @return true if the object provided is a clue with matching clue string
      */
@@ -67,22 +81,22 @@ public class Clue {
 
         Clue clue1 = (Clue) clue;
 
-        return getClue().equalsIgnoreCase(clue1.getClue());
+        return getClues()[0].equalsIgnoreCase(clue1.getClues()[0]);
     }
-
+    
     /**
      * Generated hash code method to pair with equals
      * @return the hash code representation of this Clue.
      */
     @Override
     public int hashCode() {
-        return clue != null ? clue.hashCode() : 0;
+        return clue != null ? Arrays.hashCode(clue) : 0;
     }
 
     @Override
     public String toString() {
         return "Clue{" +
-                "clue='" + clue + '\'' +
+                "clues='" + Arrays.toString(clue) + '\'' +
                 ", npc='" + npc + '\'' +
                 ", location='" + location + '\'' +
                 ", item='" + item + '\'' +

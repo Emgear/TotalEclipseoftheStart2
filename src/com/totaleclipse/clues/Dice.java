@@ -1,7 +1,7 @@
 package com.totaleclipse.clues;
 
 public class Dice {
-    int randomNum;
+    private static int randomNum;
 
     public static int roll(){
        randomNum = (int)(Math.random() * 3);
