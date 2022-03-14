@@ -8,7 +8,7 @@
     "item": "key",
     "npc": "",
     "location": "crop circle",
-    "story": true,
+    "story": false,
     "keywords": [
       ""
     ]
@@ -29,7 +29,7 @@
     "clue": [
       "Go to the library.",
       "You should ask some well-read people.",
-      "Good luck?"
+      "Some peace and quiet might help you think."
     ],
     "item": "newspaper",
     "npc": "librarian",
@@ -45,9 +45,9 @@
     "clue": [
       "The library might help.",
       "Books often contain knowledge.",
-      "Good luck?"
+      "Peace and quiet might help."
     ],
-    "item": "ufo book",
+    "item": "book",
     "npc": "employee",
     "location": "bookstore",
     "story": false,
@@ -60,10 +60,10 @@
     "clue": [
       "What you seek is at the library.",
       "You might find help in a book.",
-      "Good luck?"
+      "Peace and quiet is always nice."
     ],
     "item": "carving",
-    "npc": "dogwalker",
+    "npc": "woman",
     "location": "park",
     "story": false,
     "keywords": [
@@ -73,8 +73,8 @@
   {
     "clue": [
       "Go to the bar.",
-      "There is a lot of gossip where people are drinking.",
-      "Good luck?"
+      "People love to gossip over beer or coffee.",
+      "Liquid always seems to get people talking."
     ],
     "item": "poster",
     "npc": "bartender",
@@ -87,8 +87,8 @@
   {
     "clue": [
       "Find the bar.",
-      "People gossip where they drink.",
-      "Good luck?"
+      "People love to gossip over coffee or beer.",
+      "People seem to open up around liquids."
     ],
     "item": "flier",
     "npc": "barista",
@@ -102,8 +102,8 @@
   {
     "clue": [
       "Bartenders often know quite a bit.",
-      "There is a lot of gossip where people aren't drinking.",
-      "Good luck?"
+      "People love to gossip when they drink beer or coffee.",
+      "Liquid loosens the lips."
     ],
     "item": "paper",
     "npc": "tourist",
@@ -117,9 +117,9 @@
   },
   {
     "clue": [
-      "Go to the crash site.",
-      "There is something on the horizon a ways north of town.",
-      "Good luck?"
+      "Make your way to the crash site.",
+      "Adventurous people often know things.",
+      "There is something strange outside of town."
     ],
     "item": "petroglyphs",
     "npc": "climber",
@@ -133,9 +133,9 @@
   },
   {
     "clue": [
-      "Go to the crash site.",
-      "There is something on the horizon a ways north of town.",
-      "Good luck?"
+      "There's a crash site outside of town.",
+      "Adventures are often exciting and educational.",
+      "There is something on the outskirts of town."
     ],
     "item": "meteorite",
     "npc": "hiker",
@@ -148,8 +148,8 @@
   {
     "clue": [
       "Go to the crash site.",
-      "There is something on the horizon a ways north of town.",
-      "Good luck?"
+      "Adventures are educational.",
+      "There is something near the outskirts of town."
     ],
     "item": "ID",
     "npc": "pilot",
@@ -165,12 +165,12 @@
   {
     "clue": [
       "Go south through the corn at the crop circle.",
-      "Corn.  Just corn.",
-      "Good luck?"
+      "Go south through the corn at the crop circle.",
+      "Go south through the corn at the crop circle."
     ],
     "item": "Prison Cells",
     "npc": "Soldier",
-    "location": "Area 51",
+    "location": "area 51",
     "keywords": [
       ""
     ]
