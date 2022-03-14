@@ -1,7 +1,6 @@
 package com.totaleclipse.commands;
 
 import com.totaleclipse.music.Music;
-import com.totaleclipse.player.Player;
 
 public class Command {
     private String noun;
@@ -35,17 +34,6 @@ public class Command {
         return this.verb;
     }
 
-    protected String getNoun() {
-        if (Player.player.getClue().getKeywords() != null) {
-            for (var keys : Player.player.getClue().getKeywords()) {
-                if (keys.equalsIgnoreCase(this.noun)) {
-                    return Player.player.getClue().getItem();
-                }
-            }
-        }
-        return this.noun;
-
-    }
 
     /**
      * Checks to see which commandVerb keyword was entered.

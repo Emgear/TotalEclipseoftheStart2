@@ -1,86 +1,178 @@
 [
   {
-    "clue": ["Go to the Crop Circle", "Maybe you missed something in the crop circle", "Good luck?"],
+    "clue": [
+      "Go to the Crop Circle",
+      "Maybe you missed something in the crop circle",
+      "Good luck?"
+    ],
     "item": "key",
     "npc": "",
     "location": "crop circle",
-    "keywords": [""]
+    "story": true,
+    "keywords": [
+      ""
+    ]
   },
   {
-    "clue": ["Go to the bunker.","It's a creepy door.  What's the worst that could happen?","Good luck?"],
+    "clue": [
+      "Go to the bunker.",
+      "It's a creepy door.  What's the worst that could happen?",
+      "Good luck?"
+    ],
     "item": "map",
     "npc": "man",
     "location": "bunker",
+    "story": true,
     "keywords": []
   },
   {
-    "clue": ["Go to the library.", "You should ask some well-read people.", "Good luck?"],
+    "clue": [
+      "Go to the library.",
+      "You should ask some well-read people.",
+      "Good luck?"
+    ],
     "item": "newspaper",
     "npc": "librarian",
     "location": "library",
-    "keywords": ["paper", "news", "article"]
+    "story": true,
+    "keywords": [
+      "paper",
+      "news",
+      "article"
+    ]
   },
   {
-    "clue": ["Go to the library.", "You should ask some well-read people.", "Good luck?"],
+    "clue": [
+      "The library might help.",
+      "Books often contain knowledge.",
+      "Good luck?"
+    ],
     "item": "ufo book",
     "npc": "employee",
     "location": "bookstore",
-    "keywords": ["book", "ufo"]
+    "story": false,
+    "keywords": [
+      "book",
+      "ufo"
+    ]
   },
   {
-    "clue": ["Go to the library.", "You should ask some well-read people.", "Good luck?"],
+    "clue": [
+      "What you seek is at the library.",
+      "You might find help in a book.",
+      "Good luck?"
+    ],
     "item": "carving",
     "npc": "dogwalker",
     "location": "park",
-    "keywords": [""]
+    "story": false,
+    "keywords": [
+      ""
+    ]
   },
   {
-    "clue": ["Go to the bar.", "There is a lot of gossip where people aren't drinking.", "Good luck?"],
+    "clue": [
+      "Go to the bar.",
+      "There is a lot of gossip where people are drinking.",
+      "Good luck?"
+    ],
     "item": "poster",
     "npc": "bartender",
     "location": "bar",
-    "keywords": [""]
+    "story": true,
+    "keywords": [
+      ""
+    ]
   },
   {
-    "clue": ["Go to the bar.", "There is a lot of gossip where people aren't drinking.", "Good luck?"],
+    "clue": [
+      "Find the bar.",
+      "People gossip where they drink.",
+      "Good luck?"
+    ],
     "item": "flier",
     "npc": "barista",
     "location": "cafe",
-    "keywords": ["letter", "newsletter"]
+    "story": false,
+    "keywords": [
+      "letter",
+      "newsletter"
+    ]
   },
   {
-    "clue": ["Go to the bar.", "There is a lot of gossip where people aren't drinking.", "Good luck?"],
+    "clue": [
+      "Bartenders often know quite a bit.",
+      "There is a lot of gossip where people aren't drinking.",
+      "Good luck?"
+    ],
     "item": "paper",
     "npc": "tourist",
     "location": "well",
-    "keywords": ["crumpled", "crumpled paper", "note"]
+    "story": false,
+    "keywords": [
+      "crumpled",
+      "crumpled paper",
+      "note"
+    ]
   },
   {
-    "clue": ["Go to the crash site.", "There is something on the horizon a ways north of town.", "Good luck?"],
+    "clue": [
+      "Go to the crash site.",
+      "There is something on the horizon a ways north of town.",
+      "Good luck?"
+    ],
     "item": "petroglyphs",
     "npc": "climber",
     "location": "rock formation",
-    "keywords": ["rock", "formation", "outcropping"]
+    "story": false,
+    "keywords": [
+      "rock",
+      "formation",
+      "outcropping"
+    ]
   },
   {
-    "clue": ["Go to the crash site.", "There is something on the horizon a ways north of town.", "Good luck?"],
+    "clue": [
+      "Go to the crash site.",
+      "There is something on the horizon a ways north of town.",
+      "Good luck?"
+    ],
     "item": "meteorite",
     "npc": "hiker",
     "location": "oasis",
-    "keywords": [""]
+    "story": false,
+    "keywords": [
+      ""
+    ]
   },
   {
-    "clue": ["Go to the crash site.", "There is something on the horizon a ways north of town.", "Good luck?"],
+    "clue": [
+      "Go to the crash site.",
+      "There is something on the horizon a ways north of town.",
+      "Good luck?"
+    ],
     "item": "ID",
     "npc": "pilot",
     "location": "crash site",
-    "keywords":["badge", "id badge", "entry", "entry badge"]
+    "story": true,
+    "keywords": [
+      "badge",
+      "id badge",
+      "entry",
+      "entry badge"
+    ]
   },
   {
-    "clue":["Go south through the corn at the crop circle.", "Corn.  Just corn.", "Good luck?"],
+    "clue": [
+      "Go south through the corn at the crop circle.",
+      "Corn.  Just corn.",
+      "Good luck?"
+    ],
     "item": "Prison Cells",
     "npc": "Soldier",
     "location": "Area 51",
-    "keywords": [""]
+    "keywords": [
+      ""
+    ]
   }
 ]

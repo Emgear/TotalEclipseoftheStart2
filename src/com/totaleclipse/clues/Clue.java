@@ -11,6 +11,29 @@ public class Clue {
     private String npc;
     private String location;
     private String item;
+    private String[] keywords;
+    private boolean story;
+
+    public Clue(String[] clue, String NPC, String location, String item, String[] keywords, boolean story) {
+        this.clue = clue;
+        this.npc = NPC;
+        this.item = item;
+        this.location = location;
+        this.keywords = keywords;
+        this.story = story;
+    }
+
+    public Clue() {
+
+    }
+
+    public boolean isStory() {
+        return story;
+    }
+
+    public void setStory(boolean story) {
+        this.story = story;
+    }
 
     public String[] getKeywords() {
         return keywords;
@@ -18,19 +41,6 @@ public class Clue {
 
     public void setKeywords(String[] keywords) {
         this.keywords = keywords;
-    }
-
-    private String[] keywords;
-
-    public Clue(String[] clue, String NPC, String location, String item, String[] keywords) {
-        this.clue = clue;
-        this.npc = NPC;
-        this.location = location;
-        this.keywords=keywords;
-    }
-
-    public Clue() {
-
     }
 
     public String getItem() {
@@ -41,11 +51,9 @@ public class Clue {
         this.item = item;
     }
 
-    public void setClue(String[] clue) {
-        this.clue = clue;
+    public void removeItem() {
+        this.item = "";
     }
-
-    public void removeItem(){ this.item = "";}
 
     public String getNpc() {
         return npc;
@@ -63,25 +71,28 @@ public class Clue {
         this.location = location;
     }
 
-
-
-
     // get clue method
     public String getClue() {
         return this.clue[Dice.roll()];
 
     }
 
+    public void setClue(String[] clue) {
+        this.clue = clue;
+    }
+
     /**
      * returns the array of clues, allowing for tests for equality and comparisons.
+     *
      * @return The array of clues possible
      */
-    public String[] getClues(){
+    public String[] getClues() {
         return clue;
     }
 
     /**
      * equals method created using the clue string, which shouldn't be shared between clues (at least for now)
+     *
      * @param clue The object test for equality with
      * @return true if the object provided is a clue with matching clue string
      */
@@ -93,9 +104,10 @@ public class Clue {
 
         return getClues()[0].equalsIgnoreCase(clue1.getClues()[0]);
     }
-    
+
     /**
      * Generated hash code method to pair with equals
+     *
      * @return the hash code representation of this Clue.
      */
     @Override

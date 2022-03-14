@@ -86,6 +86,9 @@ public class Actions {
             case "object":
                 DisplayScreen.displayConsole("The object seems to be a hastily scribbled note.");
                 break;
+            case "map":
+                DisplayScreen.displayMap();
+                break;
             default:
                 DisplayScreen.displayConsole("I don't see any " + noun.toLowerCase() + " around here.");
         }
@@ -94,15 +97,23 @@ public class Actions {
 
     protected void get(String noun) {
         HashMap<String, Clue> cluesMap = Clues.getClues();
+        Clue clue;
         if (noun.equalsIgnoreCase(player.getClue().getItem())) {
-            Clue clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
+            if (player.getClue().isStory()) {
+                clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
+            } else {
+                clue = cluesMap.get(Locations.locationsMap.get(key).getLocation());
+
+            }
+
             String clueString = clue.getClue();
             Journal.addClue(noun, clueString);
             DisplayScreen.displayConsole("The " + player.getClue().getItem() + " tells you to " + clueString);
             player.getClue().removeItem();
         } else {
-
+            DisplayScreen.displayConsole("That item is not here.");
         }
+
         player.setHumanity(-1);
     }
 
@@ -112,12 +123,12 @@ public class Actions {
             Clue clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
 
             //if the player doesn't have the clue, the npc will give it to them. If they do have the clue, the npc spouts nonsense.
-            if(!Journal.hasClue(clue)){
+            if (!Journal.hasClue(clue)) {
                 String clueString = clue.getClue();
                 Journal.addClue(noun, clueString);
                 System.out.println("You speak to the " + player.getClue().getNpc() + " and they tell you to " + clueString);
                 player.setHumanity(1);
-            }else{
+            } else {
                 DisplayScreen.displayConsole(NPC.getRandomDialog());
             }
         }
@@ -198,12 +209,21 @@ public class Actions {
         } else if (key % 3 == 1) {
             if (key < 5) {
                 DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east is " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn");
+            } else if (key > 7) {
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north is corn" + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+
             } else {
                 DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn.");
             }
+        } else if (key == 0) {
+            DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south is simply corn" + "\nTo the east is " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn");
+
         } else {
             if (key < 5) {
                 DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+            } else if (key > 7) {
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north is corn" + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+
             } else {
                 DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
             }
