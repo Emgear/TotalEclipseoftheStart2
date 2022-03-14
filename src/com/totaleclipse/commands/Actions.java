@@ -19,13 +19,13 @@ public class Actions {
         this.command = command;
     }
 
-    protected static void help() {
+    protected void help() {
         StringBuilder helpString = new StringBuilder();
         for (var command : Commands.values()) {
             helpString.append(command.getKeyword()).append(": ").append(command.getDescription());
             helpString.append(System.getProperty("line.separator"));
         }
-        System.out.println("The actions you can perform are:\n" + helpString);
+        DisplayScreen.displayConsole("The actions you can perform are:\n" + helpString);
     }
 
     /**
@@ -33,7 +33,7 @@ public class Actions {
      *
      * @param noun the direction or object to be looked at
      */
-    public static void look(String noun) {
+    public void look(String noun) {
 
         //Generic hard-coded information for the first area for the first sprint
         //Will be updated to change based on items/directions from that location
@@ -42,59 +42,93 @@ public class Actions {
                 DisplayScreen.displayConsole(Journal.getClueString());
                 break;
             case "around":
-                System.out.println(player.getLocation().getLook(0)+" To the north "+Locations.locationsMap.get(key + 1).getLook(1)+" To the south "+Locations.locationsMap.get(key - 1).getLook(1));
+                if (key < 2) {
+                    DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 1).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the east there is corn\nTo the west... corn");
+
+                } else {
+                    printMap();
+                }
                 break;
             case "north":
-                System.out.println(Locations.locationsMap.get(key + 1).getLook(1));
-               // System.out.println(player.getLocation().getLook(1));
+                if (key < 2) {
+                    DisplayScreen.displayConsole(Locations.locationsMap.get(key + 1).getLook(1));
+
+                } else {
+                    DisplayScreen.displayConsole(Locations.locationsMap.get(key + 3).getLook(1));
+
+                }
+                // DisplayScreen.displayConsole(player.getLocation().getLook(1));
                 break;
             case "east":
-                System.out.println("There seems to be some corn.");
+                if (key > 1) {
+                    DisplayScreen.displayConsole(Locations.locationsMap.get(key - 1).getLook(1));
+                } else
+                    DisplayScreen.displayConsole("Corn, more corn.");
+
+
                 break;
             case "south":
-                System.out.println(Locations.locationsMap.get(key - 1).getLook(1));
+                if (key > 1) {
+                    DisplayScreen.displayConsole(Locations.locationsMap.get(key - 3).getLook(1));
 
-               // System.out.println(player.getLocation().getLook(2));
+                } else
+                    DisplayScreen.displayConsole(Locations.locationsMap.get(key - 1).getLook(1));
+
+                // DisplayScreen.displayConsole(player.getLocation().getLook(2));
                 break;
             case "west":
-                System.out.println("Guess what. There's corn.");
+                if (key > 1) {
+                    DisplayScreen.displayConsole(Locations.locationsMap.get(key + 1).getLook(1));
+                } else
+                    DisplayScreen.displayConsole("Guess what. There's corn.");
                 break;
 
             case "object":
-                System.out.println("The object seems to be a hastily scribbled note.");
+                DisplayScreen.displayConsole("The object seems to be a hastily scribbled note.");
+                break;
+            case "map":
+                DisplayScreen.displayMap();
                 break;
             default:
-                System.out.println("I don't see any " + noun.toLowerCase() + " around here.");
+                DisplayScreen.displayConsole("I don't see any " + noun.toLowerCase() + " around here.");
         }
 
     }
 
-    protected static void get(String noun) {
+    protected void get(String noun) {
         HashMap<String, Clue> cluesMap = Clues.getClues();
+        Clue clue;
         if (noun.equalsIgnoreCase(player.getClue().getItem())) {
-            Clue clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
+            if (player.getClue().isStory()) {
+                clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
+            } else {
+                clue = cluesMap.get(Locations.locationsMap.get(key).getLocation());
+
+            }
+
             String clueString = clue.getClue();
             Journal.addClue(noun, clueString);
-            System.out.println("The " + player.getClue().getItem() + " tells you to " + clueString);
+            DisplayScreen.displayConsole("The " + player.getClue().getItem() + " tells you to " + clueString);
             player.getClue().removeItem();
-        }else{
-            System.out.println("That item is not in the area.");
+        } else {
+            DisplayScreen.displayConsole("That item is not here.");
         }
+
         player.setHumanity(-1);
     }
 
-    protected static void talk(String noun) {
+    protected void talk(String noun) {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         if (noun.equalsIgnoreCase(player.getClue().getNpc())) {
             Clue clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
 
             //if the player doesn't have the clue, the npc will give it to them. If they do have the clue, the npc spouts nonsense.
-            if(!Journal.hasClue(clue)){
+            if (!Journal.hasClue(clue)) {
                 String clueString = clue.getClue();
                 Journal.addClue(noun, clueString);
                 System.out.println("You speak to the " + player.getClue().getNpc() + " and they tell you to " + clueString);
                 player.setHumanity(1);
-            }else{
+            } else {
                 DisplayScreen.displayConsole(NPC.getRandomDialog());
             }
         }
@@ -103,25 +137,96 @@ public class Actions {
     protected void move(String noun) {
         key = player.getLocation().getKey();
         if (noun.equalsIgnoreCase("north")) {
-            if(key<4) {
-                key++;
-                player.setLocation(Locations.locationsMap.get(key));
-                player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
-                System.out.println(player.getLocation().getLook(0)+" To the north "+Locations.locationsMap.get(key + 1).getLook(1)+" To the south "+Locations.locationsMap.get(key - 1).getLook(1));
-            }else{
-                System.out.println("There is only corn ahead.");
+            if (key < Locations.locationsMap.size()) {
+                if (key == 0) {
+                    key++;
+                    player.setLocation(Locations.locationsMap.get(key));
+                    player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                    DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 1).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the east is corn\n To the west is... corn");
+
+                } else if (key == 1) {
+                    key++;
+                    player.setLocation(Locations.locationsMap.get(key));
+                    player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                    printMap();
+                } else {
+                    key += 3;
+                    player.setLocation(Locations.locationsMap.get(key));
+                    player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                    printMap();
+                }
+            } else {
+                DisplayScreen.displayConsole("There is only corn ahead.");
             }
         } else if (noun.equalsIgnoreCase("south")) {
-            if(key==0){
-                player.setLocation(Locations.locationsMap.get(5));
-                System.out.println(player.getLocation().getLook(0));
-            }else {
+            if (key == 0) {
+                player.setLocation(Locations.locationsMap.get(11));
+                printMap();
+            } else if (key == 1) {
                 key--;
                 player.setLocation(Locations.locationsMap.get(key));
                 player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
-                System.out.println(player.getLocation().getLook(0));
+                printMap();
+            } else if (key < 5) {
+                key = 1;
+                player.setLocation(Locations.locationsMap.get(key));
+                player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                printMap();
+            } else {
+                key -= 3;
+                player.setLocation(Locations.locationsMap.get(key));
+                player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                printMap();
+            }
+        } else if (noun.equalsIgnoreCase("east")) {
+            if (key % 3 == 2) {
+                DisplayScreen.displayConsole("Ahead lies nothing but corn.");
+            } else {
+                key--;
+                player.setLocation(Locations.locationsMap.get(key));
+                player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                printMap();
+            }
+        } else if (noun.equalsIgnoreCase("west")) {
+            if (key % 3 == 1) {
+                DisplayScreen.displayConsole("There is nothing but corn ahead.");
+            } else {
+                key++;
+                player.setLocation(Locations.locationsMap.get(key));
+                player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                printMap();
             }
         }
     }
 
+    public void printMap() {
+        if (key % 3 == 2) {
+            if (key < 5) {
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east is corn\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+            } else {
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+            }
+        } else if (key % 3 == 1) {
+            if (key < 5) {
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east is " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn");
+            } else if (key > 7) {
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north is corn" + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+
+            } else {
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn.");
+            }
+        } else if (key == 0) {
+            DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south is simply corn" + "\nTo the east is " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn");
+
+        } else {
+            if (key < 5) {
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+            } else if (key > 7) {
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north is corn" + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+
+            } else {
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+            }
+        }
+    }
 }
