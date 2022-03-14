@@ -25,7 +25,7 @@ public class PlayGame {
         DisplayScreen.displayConsole("A text-based mystery game full of conspiracy! " +
                 "Are you human? Alien? Or something else entirely? " +
                 "Uncover your past and discover your true identity!");
-        DisplayScreen.displayConsole("Type \"start\" to start playing, or to exit the game, simply type \"quit\"\n\n");
+        DisplayScreen.displayConsole("To exit the game, simply type \"quit\"\n\n");
 
         //player types start.
 
