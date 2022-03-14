@@ -4,7 +4,7 @@ import com.totaleclipse.clues.Clue;
 import com.totaleclipse.location.Location;
 
 public class Player {
-    private String playerName;
+    private final String playerName;
     private Location location;
     private Clue clue;
     private int humanity=0;

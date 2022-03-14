@@ -44,7 +44,7 @@ public class Journal {
     public static boolean hasClue(Clue clue){
         boolean hasClue = false;
         for(String clues : clue.getClues()){
-            if (hasClue(clues)) {
+            if (hasClue(clues) && !clues.equalsIgnoreCase("Good luck?")) {
                 hasClue = true;
                 break;
             }
