@@ -4,6 +4,7 @@ import com.totaleclipse.client.DisplayScreen;
 import com.totaleclipse.clues.Clue;
 import com.totaleclipse.clues.Clues;
 import com.totaleclipse.location.Locations;
+import com.totaleclipse.npc.NPC;
 import com.totaleclipse.player.Journal;
 
 import java.util.HashMap;
@@ -109,11 +110,17 @@ public class Actions {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         if (noun.equalsIgnoreCase(player.getClue().getNpc())) {
             Clue clue = cluesMap.get(Locations.locationsMap.get(key + 1).getLocation());
-            String clueString = clue.getClue();
-            Journal.addClue(noun, clueString);
-            DisplayScreen.displayConsole("You speak to the " + player.getClue().getNpc() + " and they tell you to " + clueString);
+
+            //if the player doesn't have the clue, the npc will give it to them. If they do have the clue, the npc spouts nonsense.
+            if(!Journal.hasClue(clue)){
+                String clueString = clue.getClue();
+                Journal.addClue(noun, clueString);
+                System.out.println("You speak to the " + player.getClue().getNpc() + " and they tell you to " + clueString);
+                player.setHumanity(1);
+            }else{
+                DisplayScreen.displayConsole(NPC.getRandomDialog());
+            }
         }
-        player.setHumanity(1);
     }
 
     protected void move(String noun) {
