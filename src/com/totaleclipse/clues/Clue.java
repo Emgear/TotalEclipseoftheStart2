@@ -12,10 +12,21 @@ public class Clue {
     private String location;
     private String item;
 
-    public Clue(String[] clue, String NPC, String location, String item) {
+    public String[] getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String[] keywords) {
+        this.keywords = keywords;
+    }
+
+    private String[] keywords;
+
+    public Clue(String[] clue, String NPC, String location, String item, String[] keywords) {
         this.clue = clue;
         this.npc = NPC;
         this.location = location;
+        this.keywords=keywords;
     }
 
     public Clue() {

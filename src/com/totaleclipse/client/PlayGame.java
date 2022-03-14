@@ -35,7 +35,7 @@ public class PlayGame {
         HashMap<Integer, Location> locationsMap= Locations.generateLocations();
         ArrayList range=new ArrayList();
         for(int i=0; i<locationsMap.size()-3; i++){
-            range.add(500+i);
+            range.add(502+i);
         }
         Collections.shuffle(range);
         for(int i=0; i<range.size(); i++){

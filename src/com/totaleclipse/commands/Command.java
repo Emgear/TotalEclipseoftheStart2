@@ -1,26 +1,30 @@
 package com.totaleclipse.commands;
 
 import com.totaleclipse.music.Music;
+import com.totaleclipse.player.Player;
 
 public class Command {
     private String noun;
     private String verb;
-    public Command(){}
+
+    public Command() {
+    }
+
     public Command(String commandVerb, String commandNoun) {
         this.noun = commandNoun;
         this.verb = commandVerb;
         this.verb = getSynonyms();
         getCommand(this.verb);
-        getNoun();
     }
 
     /**
      * Checks commandVerb for synonyms
+     *
      * @return keyword of synonym
      */
     private String getSynonyms() {
         for (var localCommands : Commands.values()) {
-            if (localCommands.getSynonyms()!=null) {
+            if (localCommands.getSynonyms() != null) {
                 for (var syn : localCommands.getSynonyms()) {
                     if (syn.equalsIgnoreCase(this.verb)) {
                         return localCommands.getKeyword();
@@ -30,32 +34,42 @@ public class Command {
         }
         return this.verb;
     }
-    protected String getNoun(){
+
+    protected String getNoun() {
+        if (Player.player.getClue().getKeywords() != null) {
+            for (var keys : Player.player.getClue().getKeywords()) {
+                if (keys.equalsIgnoreCase(this.noun)) {
+                    return Player.player.getClue().getItem();
+                }
+            }
+        }
         return this.noun;
+
     }
 
     /**
      * Checks to see which commandVerb keyword was entered.
+     *
      * @param commandVerb verb parsed from command input
      */
     private void getCommand(String commandVerb) {
-        Actions action=new Actions(this);
+        Actions action = new Actions(this);
         if (commandVerb.equalsIgnoreCase(Commands.move.getKeyword())) {
             action.move(this.noun);
         } else if (commandVerb.equalsIgnoreCase(Commands.get.getKeyword())) {
-            Actions.get(this.noun);
+            action.get(this.noun);
         } else if (commandVerb.equalsIgnoreCase(Commands.look.getKeyword())) {
-            Actions.look(this.noun);
+            action.look(this.noun);
         } else if (this.verb.equalsIgnoreCase(Commands.talk.getKeyword())) {
-            Actions.talk(this.noun);
-        }else if(this.verb.equalsIgnoreCase("help")){
-            Actions.help();
-        }else if(this.verb.equalsIgnoreCase(Commands.close.getKeyword())){
+            action.talk(this.noun);
+        } else if (this.verb.equalsIgnoreCase("help")) {
+            action.help();
+        } else if (this.verb.equalsIgnoreCase(Commands.close.getKeyword())) {
             System.exit(0);
-        }else if(this.verb.equalsIgnoreCase(Commands.music.getKeyword())){
-            if(Music.playing){
+        } else if (this.verb.equalsIgnoreCase(Commands.music.getKeyword())) {
+            if (Music.playing) {
                 Music.stopMusic();
-            }else{
+            } else {
                 Music.playMusic();
             }
         }

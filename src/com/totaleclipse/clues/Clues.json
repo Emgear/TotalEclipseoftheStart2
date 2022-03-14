@@ -1,38 +1,86 @@
 [
   {
     "clue": ["Go to the Crop Circle", "Maybe you missed something in the crop circle", "Good luck?"],
-    "item": "Key",
+    "item": "key",
     "npc": "",
-    "location": "Crop Circle"
+    "location": "crop circle",
+    "keywords": [""]
   },
   {
     "clue": ["Go to the bunker.","It's a creepy door.  What's the worst that could happen?","Good luck?"],
-    "item": "Map",
+    "item": "map",
     "npc": "man",
-    "location": "Bunker"
+    "location": "bunker",
+    "keywords": []
   },
   {
-    "clue": ["Go to the library.", "find smart people.", "Good luck?"],
-    "item": "Newspaper",
-    "npc": "Librarian",
-    "location": "Library"
+    "clue": ["Go to the library.", "You should ask some well-read people.", "Good luck?"],
+    "item": "newspaper",
+    "npc": "librarian",
+    "location": "library",
+    "keywords": ["paper", "news", "article"]
   },
   {
-    "clue": ["Go to the bar.", "it's a lovely day for a Guinness.", "Good luck?"],
-    "item": "Poster",
+    "clue": ["Go to the library.", "You should ask some well-read people.", "Good luck?"],
+    "item": "ufo book",
+    "npc": "employee",
+    "location": "bookstore",
+    "keywords": ["book", "ufo"]
+  },
+  {
+    "clue": ["Go to the library.", "You should ask some well-read people.", "Good luck?"],
+    "item": "carving",
+    "npc": "dogwalker",
+    "location": "park",
+    "keywords": [""]
+  },
+  {
+    "clue": ["Go to the bar.", "There is a lot of gossip where people aren't drinking.", "Good luck?"],
+    "item": "poster",
     "npc": "bartender",
-    "location": "Bar"
+    "location": "bar",
+    "keywords": [""]
   },
   {
-    "clue": ["Go to the crash site.", "is that a UFO crash?!", "Good luck?"],
+    "clue": ["Go to the bar.", "There is a lot of gossip where people aren't drinking.", "Good luck?"],
+    "item": "flier",
+    "npc": "barista",
+    "location": "cafe",
+    "keywords": ["letter", "newsletter"]
+  },
+  {
+    "clue": ["Go to the bar.", "There is a lot of gossip where people aren't drinking.", "Good luck?"],
+    "item": "paper",
+    "npc": "tourist",
+    "location": "well",
+    "keywords": ["crumpled", "crumpled paper", "note"]
+  },
+  {
+    "clue": ["Go to the crash site.", "There is something on the horizon a ways north of town.", "Good luck?"],
+    "item": "petroglyphs",
+    "npc": "climber",
+    "location": "rock formation",
+    "keywords": ["rock", "formation", "outcropping"]
+  },
+  {
+    "clue": ["Go to the crash site.", "There is something on the horizon a ways north of town.", "Good luck?"],
+    "item": "meteorite",
+    "npc": "hiker",
+    "location": "oasis",
+    "keywords": [""]
+  },
+  {
+    "clue": ["Go to the crash site.", "There is something on the horizon a ways north of town.", "Good luck?"],
     "item": "ID",
     "npc": "pilot",
-    "location": "Crash Site"
+    "location": "crash site",
+    "keywords":["badge", "id badge", "entry", "entry badge"]
   },
   {
     "clue":["Go south through the corn at the crop circle.", "Corn.  Just corn.", "Good luck?"],
     "item": "Prison Cells",
     "npc": "Soldier",
-    "location": "Area 51"
+    "location": "Area 51",
+    "keywords": [""]
   }
 ]

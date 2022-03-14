@@ -10,16 +10,27 @@ public class Location {
     String item;
     String[] look;
 
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    String group;
+
     public Location() {
     }
 
-    public Location(String key, String location, String item, String npc, String[] look) {
+    public Location(String key, String location, String item, String npc, String[] look, String group) {
 
         setLocation(location);
         setKey(key);
         setItem(item);
         setNpc(npc);
         setLook(look);
+        setGroup(group);
     }
 
     public String getLocation() {
