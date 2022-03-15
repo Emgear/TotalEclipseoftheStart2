@@ -95,5 +95,6 @@ public class LocationMap {
 
         //bottom of map
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------\n");
+        System.out.println("You are currently at the " + player.getLocation().getLocation() + ".\n");
     }
 }
