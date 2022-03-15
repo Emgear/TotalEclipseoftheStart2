@@ -24,7 +24,7 @@ public class PlayGame {
     /**
      * Sets up the game by reading Locations.json and randomizing the order of the interior locations
      */
-    public void setUp(){
+    public void setUp() {
         /* These outputs will likely be refactored into a separate class after their creation. */
 
         //Intro card to the game
@@ -42,31 +42,32 @@ public class PlayGame {
                 "\tFor example, you can look around by typing \"look north\" or \"look west\", or look at your map by typing \"look map\".\n" +
                 "\t\tFor more commands, type \"help\".\n\n");
 
-        HashMap<Integer, Location> locationsMap= Locations.generateLocations();
-        ArrayList range=new ArrayList();
-        for(int i=0; i<locationsMap.size()-3; i++){
-            range.add(502+i);
+        HashMap<Integer, Location> locationsMap = Locations.generateLocations();
+        ArrayList range = new ArrayList();
+        for (int i = 0; i < locationsMap.size() - 3; i++) {
+            range.add(502 + i);
         }
         Collections.shuffle(range);
-        for(int i=0; i<range.size(); i++){
-            if(i!=range.size()){
-                locationsMap.get(range.get(i)).setKey(String.valueOf(i+2));
+        for (int i = 0; i < range.size(); i++) {
+            if (i != range.size()) {
+                locationsMap.get(range.get(i)).setKey(String.valueOf(i + 2));
             }
         }
-        HashMap<Integer, Location> finalLocations= Locations.newLocations(locationsMap);
+        HashMap<Integer, Location> finalLocations = Locations.newLocations(locationsMap);
         playGame(finalLocations);
     }
 
     /**
      * Main driver of the game. Calls parseCommand and checks end of game conditions.
+     *
      * @param locationsMap A HashMap of the locations in randomized order
      */
     public void playGame(HashMap<Integer, Location> locationsMap) {
         String commandNoun, commandVerb;
-        HashMap<String, Clue> cluesMap= Clues.generateClues();
+        HashMap<String, Clue> cluesMap = Clues.generateClues();
 
         DisplayScreen.displayConsole("What is your name?");
-        Player player=Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"));
+        Player player = Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"));
         DisplayScreen.displayConsole(player.getLocation().getLook(0));
         while (playing) {
             parseCommands com = new parseCommands();
@@ -77,15 +78,19 @@ public class PlayGame {
             if (commandArray.size() > 1)
                 commandNoun = (String) commandArray.get(1);
             new Command(commandVerb, commandNoun);
-            if(player.getLocation().getLocation().equalsIgnoreCase("area 51")){
-                if(player.getHumanity()>0){
-                    DisplayScreen.displayConsole("You are a human and have discovered proof of alien life!!!");
-                }else if(player.getHumanity()<0){
-                    DisplayScreen.displayConsole("You are an alien and you have sent a message that Earth is ripe for the taking!!!");
-                }else{
-                    DisplayScreen.displayConsole("You are a cow. MOOOOOOOOOOOO!");
+            try {
+                if (player.getLocation().getLocation().equalsIgnoreCase("area 51")) {
+                    DisplayScreen.displayConsole(player.getLocation().getLook(0));
+                    if (player.getHumanity() > 0) {
+                        DisplayScreen.displayConsole("You are a human and have discovered proof of alien life!!!");
+                    } else if (player.getHumanity() < 0) {
+                        DisplayScreen.displayConsole("You are an alien and you have sent a message that Earth is ripe for the taking!!!");
+                    } else {
+                        DisplayScreen.displayConsole("You are a cow. MOOOOOOOOOOOO!");
+                    }
+                    playing = false;
                 }
-                playing=false;
+            } catch (Exception e) {
             }
         }
     }
