@@ -11,6 +11,9 @@ import java.util.HashMap;
 
 import static com.totaleclipse.player.Player.player;
 
+/**
+ * Takes the parsed command and compares the noun based on the verb used.
+ */
 public class Actions {
     static int key;
     private Command command;
@@ -36,8 +39,6 @@ public class Actions {
      */
     public void look(String noun) {
 
-        //Generic hard-coded information for the first area for the first sprint
-        //Will be updated to change based on items/directions from that location
         switch (noun.toLowerCase()) {
             case "inventory":
                 DisplayScreen.displayConsole(Journal.getClueString());
@@ -96,6 +97,10 @@ public class Actions {
 
     }
 
+    /**
+     * Gets an item from the given location. Player receives a Clue when the item is taken.
+     * @param noun
+     */
     protected void get(String noun) {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         Clue clue;
@@ -133,6 +138,10 @@ public class Actions {
         player.setHumanity(-1);
     }
 
+    /**
+     * Player talks to the NPC at a given location. The first time the player speaks to them, the player receives a Clue. After
+     * @param noun
+     */
     protected void talk(String noun) {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         Clue clue;
@@ -240,9 +249,9 @@ public class Actions {
                 DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east is corn\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
             } else {
                 try {
-                    DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+                    DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east is corn as far as the eye can see" + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
                 } catch (Exception e) {
-                    DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north lies corn" + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+                    DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north lies corn" + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east is yet more corn"+ "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
 
                 }
             }
@@ -259,19 +268,19 @@ public class Actions {
             }
         } else if (key == 0) {
             try {
-                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south is simply corn" + "\nTo the east is " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn");
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south is simply corn" + "\nTo the east is " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn");
             }catch(Exception e){
-                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south is simply corn" + "\nTo the east is more corn" + "\nTo the west is corn");
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south is simply corn" + "\nTo the east is more corn" + "\nTo the west is corn");
 
             }
         } else {
             if (key < 5) {
-                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
             } else if (key > 7) {
-                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north is corn" + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north is corn" + "\nTo the south " + Locations.locationsMap.get(1).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
 
             } else {
-                DisplayScreen.displayConsole(player.getLocation().getLook(0) + " To the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
+                DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
             }
         }
     }
