@@ -1,38 +1,178 @@
 [
   {
-    "clue":"Go to the Crop Circle",
-    "item": "Key",
+    "clue": [
+      "Go to the Crop Circle",
+      "Maybe you missed something in the crop circle",
+      "Good luck?"
+    ],
+    "item": "key",
     "npc": "",
-    "location": "Crop Circle"
+    "location": "crop circle",
+    "story": false,
+    "keywords": [
+      ""
+    ]
   },
   {
-    "clue": "Go to the bunker.",
-    "item": "Map",
+    "clue": [
+      "Go to the bunker.",
+      "It's a creepy door.  What's the worst that could happen?",
+      "Good luck?"
+    ],
+    "item": "map",
     "npc": "man",
-    "location": "Bunker"
+    "location": "bunker",
+    "story": true,
+    "keywords": []
   },
   {
-    "clue": "Go to the library.",
-    "item": "Newspaper",
-    "npc": "Librarian",
-    "location": "Library"
+    "clue": [
+      "Go to the library.",
+      "You should ask some well-read people.",
+      "Some peace and quiet might help you think."
+    ],
+    "item": "newspaper",
+    "npc": "librarian",
+    "location": "library",
+    "story": true,
+    "keywords": [
+      "paper",
+      "news",
+      "article"
+    ]
   },
   {
-    "clue": "Go to the bar.",
-    "item": "Poster",
+    "clue": [
+      "The library might help.",
+      "Books often contain knowledge.",
+      "Peace and quiet might help."
+    ],
+    "item": "book",
+    "npc": "employee",
+    "location": "bookstore",
+    "story": false,
+    "keywords": [
+      "book",
+      "ufo"
+    ]
+  },
+  {
+    "clue": [
+      "What you seek is at the library.",
+      "You might find help in a book.",
+      "Peace and quiet is always nice."
+    ],
+    "item": "carving",
+    "npc": "woman",
+    "location": "park",
+    "story": false,
+    "keywords": [
+      ""
+    ]
+  },
+  {
+    "clue": [
+      "Go to the bar.",
+      "People love to gossip over beer or coffee.",
+      "Liquid always seems to get people talking."
+    ],
+    "item": "poster",
     "npc": "bartender",
-    "location": "Bar"
+    "location": "bar",
+    "story": true,
+    "keywords": [
+      ""
+    ]
   },
   {
-    "clue": "Go to the crash site.",
+    "clue": [
+      "Find the bar.",
+      "People love to gossip over coffee or beer.",
+      "People seem to open up around liquids."
+    ],
+    "item": "flier",
+    "npc": "barista",
+    "location": "cafe",
+    "story": false,
+    "keywords": [
+      "letter",
+      "newsletter"
+    ]
+  },
+  {
+    "clue": [
+      "Bartenders often know quite a bit.",
+      "People love to gossip when they drink beer or coffee.",
+      "Liquid loosens the lips."
+    ],
+    "item": "paper",
+    "npc": "tourist",
+    "location": "well",
+    "story": false,
+    "keywords": [
+      "crumpled",
+      "crumpled paper",
+      "note"
+    ]
+  },
+  {
+    "clue": [
+      "Make your way to the crash site.",
+      "Adventurous people often know things.",
+      "There is something strange outside of town."
+    ],
+    "item": "petroglyphs",
+    "npc": "climber",
+    "location": "rock formation",
+    "story": false,
+    "keywords": [
+      "rock",
+      "formation",
+      "outcropping"
+    ]
+  },
+  {
+    "clue": [
+      "There's a crash site outside of town.",
+      "Adventures are often exciting and educational.",
+      "There is something on the outskirts of town."
+    ],
+    "item": "meteorite",
+    "npc": "hiker",
+    "location": "oasis",
+    "story": false,
+    "keywords": [
+      ""
+    ]
+  },
+  {
+    "clue": [
+      "Go to the crash site.",
+      "Adventures are educational.",
+      "There is something near the outskirts of town."
+    ],
     "item": "ID",
     "npc": "pilot",
-    "location": "Crash site"
+    "location": "crash site",
+    "story": true,
+    "keywords": [
+      "badge",
+      "id badge",
+      "entry",
+      "entry badge"
+    ]
   },
   {
-    "clue":"Go south through the corn at the crop circle.",
+    "clue": [
+      "Go south through the corn at the crop circle.",
+      "Go south through the corn at the crop circle.",
+      "Go south through the corn at the crop circle."
+    ],
     "item": "Prison Cells",
     "npc": "Soldier",
-    "location": "Area 51"
+    "location": "area 51",
+    "keywords": [
+      ""
+    ]
   }
 ]

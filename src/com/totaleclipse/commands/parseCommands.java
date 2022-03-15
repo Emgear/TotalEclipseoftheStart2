@@ -1,5 +1,6 @@
 package com.totaleclipse.commands;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class parseCommands {
@@ -7,7 +8,16 @@ public class parseCommands {
     public static String parseName(){
         return in.nextLine();
     }
-    public String[] parseCommand() {
-        return in.nextLine().split(" ");
+    public ArrayList parseCommand() {
+        String[] commandArray=in.nextLine().split(" ");
+        ArrayList parsedCommand=new ArrayList();
+        for(var c:commandArray){
+            if(c.equalsIgnoreCase("to")||c.equalsIgnoreCase("the")||c.equalsIgnoreCase("of")||c.equalsIgnoreCase("a")||c.equalsIgnoreCase("and")){
+
+            }else{
+                parsedCommand.add(c);
+            }
+        }
+        return parsedCommand;
     }
 }
