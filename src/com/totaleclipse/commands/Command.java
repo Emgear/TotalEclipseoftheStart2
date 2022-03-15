@@ -1,6 +1,8 @@
 package com.totaleclipse.commands;
 
 import com.totaleclipse.music.Music;
+import com.totaleclipse.music.SoundFx;
+import com.totaleclipse.music.SoundFx.Volume;
 
 public class Command {
     private String noun;
@@ -55,10 +57,18 @@ public class Command {
         } else if (this.verb.equalsIgnoreCase(Commands.close.getKeyword())) {
             System.exit(0);
         } else if (this.verb.equalsIgnoreCase(Commands.music.getKeyword())) {
-            if (Music.playing) {
-                Music.stopMusic();
+            if (SoundFx.MUSIC.playing){
+                SoundFx.MUSIC.stop();
             } else {
-                Music.playMusic();
+                SoundFx.MUSIC.play();
+            }
+        }else if (this.verb.equalsIgnoreCase(Commands.sound.getKeyword())) {
+            if (SoundFx.WALK.sound) {
+                SoundFx.volume = Volume.MUTE;
+                SoundFx.WALK.sound=false;
+            } else {
+                SoundFx.volume = Volume.LOW;
+                SoundFx.WALK.sound=true;
             }
         }
     }
