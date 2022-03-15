@@ -3,6 +3,9 @@ package com.totaleclipse.location;
 
 import java.util.Arrays;
 
+/**
+ * Creates a Location object from parsed JSON
+ */
 public class Location {
     String location;
     int key;
