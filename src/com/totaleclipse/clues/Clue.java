@@ -5,6 +5,9 @@ package com.totaleclipse.clues;
 
 import java.util.Arrays;
 
+/**
+ * Converts parsed JSON to a Clue object
+ */
 public class Clue {
     //strings for each json clue
     private String[] clue;
@@ -14,6 +17,15 @@ public class Clue {
     private String[] keywords;
     private boolean story;
 
+    /**
+     * Clue constructor
+     * @param clue An array of Strings containing the clues to the next location
+     * @param NPC A string containing the NPC at a given location
+     * @param location A string with the specific location
+     * @param item A string containing the item at a given location
+     * @param keywords DEPRECATED--an array of potential synonyms
+     * @param story A boolean to check if the location is required to advance the story
+     */
     public Clue(String[] clue, String NPC, String location, String item, String[] keywords, boolean story) {
         this.clue = clue;
         this.npc = NPC;

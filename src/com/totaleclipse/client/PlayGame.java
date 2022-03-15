@@ -14,9 +14,16 @@ import java.util.HashMap;
 
 import static com.totaleclipse.commands.parseCommands.parseName;
 
+/**
+ * Sets up and plays the game
+ */
 public class PlayGame {
     public boolean playing = true;
     int rand;
+
+    /**
+     * Sets up the game by reading Locations.json and randomizing the order of the interior locations
+     */
     public void setUp(){
         /* These outputs will likely be refactored into a separate class after their creation. */
 
@@ -49,6 +56,11 @@ public class PlayGame {
         HashMap<Integer, Location> finalLocations= Locations.newLocations(locationsMap);
         playGame(finalLocations);
     }
+
+    /**
+     * Main driver of the game. Calls parseCommand and checks end of game conditions.
+     * @param locationsMap A HashMap of the locations in randomized order
+     */
     public void playGame(HashMap<Integer, Location> locationsMap) {
         String commandNoun, commandVerb;
         HashMap<String, Clue> cluesMap= Clues.generateClues();

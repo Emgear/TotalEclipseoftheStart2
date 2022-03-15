@@ -15,7 +15,7 @@ public class Locations {
     public static HashMap<Integer, Location> generateLocations(){
         try {
             ObjectMapper mapper = new ObjectMapper();
-            List<Location> locations = Arrays.asList(mapper.readValue(Paths.get("src/com/totaleclipse/location/LocationsTester.json").toFile(), Location[].class));
+            List<Location> locations = Arrays.asList(mapper.readValue(Paths.get("src/com/totaleclipse/location/Locations.json").toFile(), Location[].class));
             for (Location location : locations) {
                 startLocations.put(location.getKey(), location);
             }
