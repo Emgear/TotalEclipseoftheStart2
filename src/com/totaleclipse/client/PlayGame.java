@@ -35,7 +35,7 @@ public class PlayGame {
         HashMap<Integer, Location> locationsMap= Locations.generateLocations();
         ArrayList range=new ArrayList();
         for(int i=0; i<locationsMap.size()-3; i++){
-            range.add(500+i);
+            range.add(502+i);
         }
         Collections.shuffle(range);
         for(int i=0; i<range.size(); i++){
@@ -51,7 +51,7 @@ public class PlayGame {
         HashMap<String, Clue> cluesMap= Clues.generateClues();
 
         DisplayScreen.displayConsole("What is your name?");
-        Player player=Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("Crop Circle"));
+        Player player=Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"));
         DisplayScreen.displayConsole(player.getLocation().getLook(0));
         while (playing) {
             parseCommands com = new parseCommands();

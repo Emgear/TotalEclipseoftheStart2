@@ -1,5 +1,7 @@
 package com.totaleclipse.player;
 
+import com.totaleclipse.clues.Clue;
+
 import java.util.*;
 
 /**
@@ -32,6 +34,22 @@ public class Journal {
      */
     public static boolean hasClue(String clue){
         return clues.containsValue(clue);
+    }
+
+    /**
+     * Checks if the current journal already has a clue or not, to prevent duplicates from being created
+     * @param clue the clue object to check for duplicates of.
+     * @return true if the clue already exists, false if clue has not been seen yet.
+     */
+    public static boolean hasClue(Clue clue){
+        boolean hasClue = false;
+        for(String clues : clue.getClues()){
+            if (hasClue(clues) && !clues.equalsIgnoreCase("Good luck?")) {
+                hasClue = true;
+                break;
+            }
+        }
+        return hasClue;
     }
 
     /**
