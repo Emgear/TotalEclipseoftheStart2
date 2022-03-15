@@ -5,6 +5,7 @@ import com.totaleclipse.clues.Clue;
 import com.totaleclipse.clues.Clues;
 import com.totaleclipse.location.LocationMap;
 import com.totaleclipse.location.Locations;
+import com.totaleclipse.music.SoundFx;
 import com.totaleclipse.npc.NPC;
 import com.totaleclipse.player.Journal;
 
@@ -171,6 +172,10 @@ public class Actions {
 
     protected void move(String noun) {
         key = player.getLocation().getKey();
+
+        //call walking sound fx
+        SoundFx.WALK.play();
+
         if (noun.equalsIgnoreCase("north")) {
             if (key < Locations.locationsMap.size()) {
                 if (key == 0) {
@@ -231,6 +236,7 @@ public class Actions {
                 printMap();
             }
         }
+
     }
 
     public void printMap() {
