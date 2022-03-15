@@ -241,18 +241,27 @@ public class Actions {
                 DisplayScreen.displayConsole("Ahead lies nothing but corn.");
             } else {
                 key--;
-                player.setLocation(Locations.locationsMap.get(key));
-                player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
-                printMap();
+                try{
+                    player.setLocation(Locations.locationsMap.get(key));
+                    player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                    printMap();
+                }catch(Exception e){
+                    DisplayScreen.displayConsole("There's nothing but corn");
+                }
+
             }
         } else if (noun.equalsIgnoreCase("west")) {
             if (key % 3 == 1) {
                 DisplayScreen.displayConsole("There is nothing but corn ahead.");
             } else {
                 key++;
-                player.setLocation(Locations.locationsMap.get(key));
-                player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
-                printMap();
+                try{
+                    player.setLocation(Locations.locationsMap.get(key));
+                    player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                    printMap();
+                }catch (Exception e){
+                    DisplayScreen.displayConsole("There's nothing but corn");
+                }
             }
         }
 
