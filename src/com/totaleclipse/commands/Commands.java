@@ -6,7 +6,7 @@ public enum Commands {
     move("move", "Moves the player in the selected direction, ie: 'move east'", "go", "walk", "run"),
     get("get", "Pick up an item, ie: 'get key'", "grab", "pickup", "take"),
     look("look", "Looks around the current location, ie:'look around'", "search", "peek", "investigate", "view"),
-    save("save", "Saves user data to disk"),
+    //save("save", "Saves user data to disk"), //not currently in use. commenting out to avoid printing during help and causing confusion
     talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "question", "interrogate"),
     close("close", "Closes Total Eclipse of the Start", "quit", "exit", "stop", "end"),
     music("music", "Stops/starts the music","sound");

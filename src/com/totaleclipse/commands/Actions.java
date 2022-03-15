@@ -3,6 +3,7 @@ package com.totaleclipse.commands;
 import com.totaleclipse.client.DisplayScreen;
 import com.totaleclipse.clues.Clue;
 import com.totaleclipse.clues.Clues;
+import com.totaleclipse.location.LocationMap;
 import com.totaleclipse.location.Locations;
 import com.totaleclipse.npc.NPC;
 import com.totaleclipse.player.Journal;
@@ -14,6 +15,7 @@ import static com.totaleclipse.player.Player.player;
 public class Actions {
     static int key;
     private Command command;
+    private static final LocationMap map = LocationMap.getInstance();
     private int grouping = 0;
 
     public Actions(Command command) {
@@ -84,11 +86,8 @@ public class Actions {
                     DisplayScreen.displayConsole("Guess what. There's corn.");
                 break;
 
-            case "object":
-                DisplayScreen.displayConsole("The object seems to be a hastily scribbled note.");
-                break;
             case "map":
-                DisplayScreen.displayMap();
+                map.printMap(player);
                 break;
             default:
                 DisplayScreen.displayConsole("I don't see any " + noun.toLowerCase() + " around here.");
