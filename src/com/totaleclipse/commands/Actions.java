@@ -59,7 +59,11 @@ public class Actions {
                     DisplayScreen.displayConsole(Locations.locationsMap.get(key + 1).getLook(1));
 
                 } else {
-                    DisplayScreen.displayConsole(Locations.locationsMap.get(key + 3).getLook(1));
+                    try {
+                        DisplayScreen.displayConsole(Locations.locationsMap.get(key + 3).getLook(1));
+                    }catch(Exception e){
+                        DisplayScreen.displayConsole("There is only corn.");
+                    }
 
                 }
                 // DisplayScreen.displayConsole(player.getLocation().getLook(1));
@@ -82,10 +86,11 @@ public class Actions {
                 // DisplayScreen.displayConsole(player.getLocation().getLook(2));
                 break;
             case "west":
-                if (key > 1) {
+                try {
                     DisplayScreen.displayConsole(Locations.locationsMap.get(key + 1).getLook(1));
-                } else
+                } catch(Exception e) {
                     DisplayScreen.displayConsole("Guess what. There's corn.");
+                }
                 break;
 
             case "map":
@@ -186,7 +191,7 @@ public class Actions {
         SoundFx.WALK.play();
 
         if (noun.equalsIgnoreCase("north")) {
-            if (key < Locations.locationsMap.size()) {
+            if (key < Locations.locationsMap.size()-2) {
                 if (key == 0) {
                     key++;
                     player.setLocation(Locations.locationsMap.get(key));
@@ -200,9 +205,14 @@ public class Actions {
                     printMap();
                 } else {
                     key += 3;
-                    player.setLocation(Locations.locationsMap.get(key));
-                    player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
-                    printMap();
+                    try {
+                        player.setLocation(Locations.locationsMap.get(key));
+                        player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                        printMap();
+                    }catch(Exception e){
+                        DisplayScreen.displayConsole("There is only corn ahead.");
+                        player.setLocation(Locations.locationsMap.get(key-3));
+                    }
                 }
             } else {
                 DisplayScreen.displayConsole("There is only corn ahead.");
