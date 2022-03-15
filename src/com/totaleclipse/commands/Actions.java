@@ -87,7 +87,7 @@ public class Actions {
                 break;
 
             case "map":
-                map.printMap();
+                map.printMap(player);
                 break;
             default:
                 DisplayScreen.displayConsole("I don't see any " + noun.toLowerCase() + " around here.");
