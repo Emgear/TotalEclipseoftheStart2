@@ -78,6 +78,7 @@ public class PlayGame {
                 commandNoun = (String) commandArray.get(1);
             new Command(commandVerb, commandNoun);
             if(player.getLocation().getLocation().equalsIgnoreCase("area 51")){
+                DisplayScreen.displayConsole(player.getLocation().getLook(0));
                 if(player.getHumanity()>0){
                     DisplayScreen.displayConsole("You are a human and have discovered proof of alien life!!!");
                 }else if(player.getHumanity()<0){
