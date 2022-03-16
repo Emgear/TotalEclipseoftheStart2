@@ -6,6 +6,7 @@ import com.totaleclipse.commands.Command;
 import com.totaleclipse.commands.parseCommands;
 import com.totaleclipse.location.Location;
 import com.totaleclipse.location.Locations;
+import com.totaleclipse.music.SoundFx;
 import com.totaleclipse.player.Player;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class PlayGame {
      */
     public void setUp() {
         /* These outputs will likely be refactored into a separate class after their creation. */
-
+        SoundFx.TOTALECLIPSE.play();
         //Intro card to the game
         DisplayScreen.displayConsole("Total Eclipse of the .start()");
         DisplayScreen.displayConsole("A text-based mystery game full of conspiracy! " +
