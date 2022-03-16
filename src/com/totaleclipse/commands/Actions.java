@@ -87,7 +87,10 @@ public class Actions {
                 break;
             case "west":
                 try {
-                    DisplayScreen.displayConsole(Locations.locationsMap.get(key + 1).getLook(1));
+                    if (player.getLocation().getLocation() == Locations.locationsMap.get(0).getLocation()){
+                        DisplayScreen.displayConsole("Guess what. There's corn.");
+                    } else {
+                    DisplayScreen.displayConsole(Locations.locationsMap.get(key + 1).getLook(1)); }
                 } catch(Exception e) {
                     DisplayScreen.displayConsole("Guess what. There's corn.");
                 }
