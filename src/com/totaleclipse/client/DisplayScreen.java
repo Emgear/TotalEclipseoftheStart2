@@ -10,4 +10,9 @@ public class DisplayScreen {
         System.out.println(string);
         return string;
     }
+
+    public static int displayConsole(String string, Integer integer){
+        System.out.println(string + integer);
+        return integer;
+    }
 }

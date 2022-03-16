@@ -116,7 +116,7 @@ public class PlayGame {
         HashMap<String, Clue> cluesMap = Clues.generateClues();
 
         DisplayScreen.displayConsole("What is your name?");
-        Player player = Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"));
+        Player player = Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"), 100);
         DisplayScreen.displayConsole(player.getLocation().getLook(0));
         while (playing) {
             parseCommands com = new parseCommands();
