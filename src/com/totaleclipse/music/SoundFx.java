@@ -15,8 +15,8 @@ import javax.sound.sampled.*;
  */
 public enum SoundFx {
     WALK("src/com/totaleclipse/music/walk.wav"),   // walk
-    MUSIC("src/com/totaleclipse/music/from-the-dust-cosmos.wav");
-
+    MUSIC("src/com/totaleclipse/music/from-the-dust-cosmos.wav"),
+    TOTALECLIPSE("src/com/totaleclipse/music/totaleclipse.wav");
     // Nested class for specifying volume
     public static enum Volume {
         MUTE, LOW, MEDIUM, HIGH

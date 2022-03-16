@@ -62,6 +62,12 @@ public class Command {
             } else {
                 SoundFx.MUSIC.play();
             }
+        } else if (this.verb.equalsIgnoreCase(Commands.totaleclipse.getKeyword())) {
+            if (SoundFx.TOTALECLIPSE.playing){
+                SoundFx.TOTALECLIPSE.stop();
+            } else {
+                SoundFx.TOTALECLIPSE.play();
+            }
         }else if (this.verb.equalsIgnoreCase(Commands.sound.getKeyword())) {
             if (SoundFx.WALK.sound) {
                 SoundFx.volume = Volume.MUTE;
