@@ -8,11 +8,12 @@ public class Player {
     private Location location;
     private Clue clue;
     private int humanity=0;
+    private int playerHp;
     public static Player player=null;
 
-    public static Player getInstance(String playerName, Location location, Clue clue){
+    public static Player getInstance(String playerName, Location location, Clue clue, int playerHp){
         if(player==null){
-            player=new Player(playerName, location, clue);
+            player=new Player(playerName, location, clue, playerHp);
         }
         return player;
     }
@@ -26,10 +27,11 @@ public class Player {
     }
 
     // constructor to take journal obj & player name string (we'll ask for input in initial driver)
-    private Player(String playerName, Location location, Clue clue) {
+    private Player(String playerName, Location location, Clue clue, int playerHp) {
         this.playerName = playerName;
         this.location = location;
         this.clue=clue;
+        this.playerHp = playerHp;
     }
     public Clue getClue() {
 
@@ -51,5 +53,13 @@ public class Player {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public int getPlayerHp() {
+        return playerHp;
+    }
+
+    public void setPlayerHp(int playerHp) {
+        this.playerHp = playerHp;
     }
 }

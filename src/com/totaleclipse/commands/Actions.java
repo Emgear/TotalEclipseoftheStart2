@@ -107,6 +107,9 @@ public class Actions {
             case "map":
                 map.printMap(player);
                 break;
+            case "hp":
+                DisplayScreen.displayConsole("Current player health points: " + player.getPlayerHp());
+                break;
             default:
                 DisplayScreen.displayConsole("I don't see any " + noun.toLowerCase() + " around here.");
         }
