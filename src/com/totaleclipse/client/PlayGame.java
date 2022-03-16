@@ -6,7 +6,6 @@ import com.totaleclipse.commands.Command;
 import com.totaleclipse.commands.parseCommands;
 import com.totaleclipse.location.Location;
 import com.totaleclipse.location.Locations;
-import com.totaleclipse.music.SoundFx;
 import com.totaleclipse.player.Player;
 
 import java.util.ArrayList;
@@ -117,8 +116,7 @@ public class PlayGame {
         HashMap<String, Clue> cluesMap = Clues.generateClues();
 
         DisplayScreen.displayConsole("What is your name?");
-        Player player = Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"));
-        SoundFx.TOTALECLIPSE.play();
+        Player player = Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"), 100);
         DisplayScreen.displayConsole(player.getLocation().getLook(0));
         while (playing) {
             parseCommands com = new parseCommands();
