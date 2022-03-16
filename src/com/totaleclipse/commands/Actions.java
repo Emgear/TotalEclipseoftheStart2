@@ -95,7 +95,7 @@ public class Actions {
                 break;
             case "west":
                 try {
-                    if (player.getLocation().getLocation() == Locations.locationsMap.get(0).getLocation()){
+                    if (player.getLocation().getLocation() == Locations.locationsMap.get(0).getLocation() || player.getLocation().getLocation() == Locations.locationsMap.get(1).getLocation()){
                         DisplayScreen.displayConsole("Guess what. There's corn.");
                     } else {
                     DisplayScreen.displayConsole(Locations.locationsMap.get(key + 1).getLook(1)); }
@@ -251,13 +251,18 @@ public class Actions {
             if (key % 3 == 2) {
                 DisplayScreen.displayConsole("Ahead lies nothing but corn.");
             } else {
-                key--;
-                try{
-                    player.setLocation(Locations.locationsMap.get(key));
-                    player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
-                    printMap();
-                }catch(Exception e){
-                    DisplayScreen.displayConsole("There's nothing but corn");
+                if (key == 0 || key == 1){
+                    DisplayScreen.displayConsole("There is nothing but corn");
+                }
+                else {
+                    key--;
+                    try {
+                        player.setLocation(Locations.locationsMap.get(key));
+                        player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                        printMap();
+                    } catch (Exception e) {
+                        DisplayScreen.displayConsole("There's nothing but corn");
+                    }
                 }
 
             }
@@ -265,13 +270,18 @@ public class Actions {
             if (key % 3 == 1) {
                 DisplayScreen.displayConsole("There is nothing but corn ahead.");
             } else {
-                key++;
-                try{
-                    player.setLocation(Locations.locationsMap.get(key));
-                    player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
-                    printMap();
-                }catch (Exception e){
-                    DisplayScreen.displayConsole("There's nothing but corn");
+                if (key == 0 || key == 1){
+                    DisplayScreen.displayConsole("There is nothing but corn");
+                }
+                else {
+                    key++;
+                    try {
+                        player.setLocation(Locations.locationsMap.get(key));
+                        player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
+                        printMap();
+                    } catch (Exception e) {
+                        DisplayScreen.displayConsole("There's nothing but corn");
+                    }
                 }
             }
         }
