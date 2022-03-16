@@ -4,7 +4,7 @@ import com.totaleclipse.music.SoundFx;
 
 public class Client {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
        PlayGame newGame=new PlayGame();
        newGame.setUp();
     }
