@@ -47,6 +47,10 @@ public class Actions {
                 DisplayScreen.displayConsole(Journal.getClueString());
                 break;
             case "around":
+                if (player.getLocation().getLocation() == Locations.locationsMap.get(0).getLocation()){
+                    DisplayScreen.displayConsole("Guess what. There's corn.");
+                    break;
+                }
                 if (key < 2) {
                     DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 1).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the east there is corn\nTo the west... corn");
 
