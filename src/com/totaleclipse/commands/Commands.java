@@ -10,6 +10,7 @@ public enum Commands {
     talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "question", "interrogate"),
     close("close", "Closes Total Eclipse of the Start", "quit", "exit", "stop", "end"),
     music("music", "Stops/starts the music","off"),
+    totaleclipse("eclipse", "Plays total Eclipse of the Heart", ""),
     sound("sound", "Turns sound effects on/off", "mute");
 
     private String keyword;
