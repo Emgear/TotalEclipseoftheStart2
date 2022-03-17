@@ -6,7 +6,7 @@
     "item": "key",
     "npc": "None",
     "look": [
-      "You are currently in a cornfield. There is a path to the north, and a key on the ground next to you. You don't see anyone else around, and that floating cow you saw remains in your mind.",
+      "You are currently in a cornfield. There is a path to the north, and a key on the ground next to you. You don\u0027t see anyone else around, and that floating cow you saw remains in your mind.",
       "You see a path that leads back to the crop circle"
     ]
   },
@@ -51,7 +51,7 @@
     "npc": "woman",
     "look": [
       "You walk along an overgrown path into a beautiful park. You see a woman walking her dog and a mysterious carving in a tree.",
-      "There is an overgrown path leading to a clearing in the town's park."
+      "There is an overgrown path leading to a clearing in the town\u0027s park."
     ]
   },
   {
