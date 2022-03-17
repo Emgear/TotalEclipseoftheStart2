@@ -21,7 +21,8 @@ import static com.totaleclipse.commands.parseCommands.parseName;
 public class PlayGame {
     public boolean playing = true;
     int rand;
-
+    public static final String GREEN_BRIGHT = "\033[0;92m";  // GREEN
+    public static final String ANSI_RESET = "\u001B[0m";
     /**
      * Sets up the game by reading Locations.json and randomizing the order of the interior locations
      */
@@ -29,7 +30,7 @@ public class PlayGame {
         /* These outputs will likely be refactored into a separate class after their creation. */
         SoundFx.TOTALECLIPSE.play();
         //Explaining the start of the game
-        String cow = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%. .. .  /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+        String cow = GREEN_BRIGHT+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%. .. .  /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(. ...... . ....... .*&@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@# .... ..... ............. ,@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@% ........................ ... *@@@@@@@@@@@@@@@@@@@@@@@@\n" +
@@ -78,7 +79,7 @@ public class PlayGame {
                 "@@@@%,@@@@@@@@@@@@@@@@@#((@@@@@@@@@@@@@@@@@@((@@@@@**@@@@@@@@@@@@@@@@@@@@@#(@@@@\n" +
                 "@@@&,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/(@@@\n" +
                 "@@@,&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/%@@\n" +
-                "@@.%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,@@ \n" + "\nYou wake up in a crop circle, surrounded by corn. Your leather jacket is dirty.\n" +
+                "@@.%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,@@ \n"+ ANSI_RESET + "\nYou wake up in a crop circle, surrounded by corn. Your leather jacket is dirty.\n" +
                 "You can't seem to remember who you are or how you ended up in the midst of all this corn, and you want answers.\n" +
                 "Over the corn in the distance, you can see a cow floating up into a disc-like shape in the sky, before it flies away.\n" +
                 "\t- Type out the action you wish to perform, with a verb first an noun second.\n" +
@@ -132,7 +133,7 @@ public class PlayGame {
         SoundFx.MUSIC.play();
         while (playing) {
             parseCommands com = new parseCommands();
-            DisplayScreen.displayConsole("Enter your command");
+            DisplayScreen.displayConsole("Enter your command:");
             ArrayList commandArray = com.parseCommand();
             commandVerb = (String) commandArray.get(0);
             commandNoun = "";
