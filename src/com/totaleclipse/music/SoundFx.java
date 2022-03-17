@@ -24,6 +24,7 @@ public enum SoundFx {
 
     public static Volume volume = Volume.LOW;
 
+
     // Each sound effect has its own clip, loaded with its own sound file.
     private Clip clip;
     public static boolean playing;
@@ -39,6 +40,7 @@ public enum SoundFx {
             clip = AudioSystem.getClip();
             // Open audio clip and load samples from the audio input stream.
             clip.open(audioInputStream);
+
         } catch (UnsupportedAudioFileException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -55,9 +57,17 @@ public enum SoundFx {
                 clip.stop();   // Stop the player if it is still running
             clip.setFramePosition(0); // rewind to the beginning
             clip.start();     // Start playing
-        }
-        if (this==MUSIC){
-            playing = true;
+            FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            if (volume == Volume.LOW) {
+                gainControl.setValue(-30.0f);
+            } else if (volume == Volume.MEDIUM) {
+                gainControl.setValue(-20.0f);
+            } else if (volume == Volume.HIGH) {
+                gainControl.setValue(-10.0f);
+            }
+            if (this == MUSIC) {
+                playing = true;
+            }
         }
     }
     public void stop(){

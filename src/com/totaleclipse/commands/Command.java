@@ -57,25 +57,22 @@ public class Command {
         } else if (this.verb.equalsIgnoreCase(Commands.close.getKeyword())) {
             System.exit(0);
         } else if (this.verb.equalsIgnoreCase(Commands.music.getKeyword())) {
-            if (SoundFx.MUSIC.playing){
-                SoundFx.MUSIC.stop();
-            } else {
-                SoundFx.MUSIC.play();
-            }
+            action.sound(this.noun);
+//            if (SoundFx.MUSIC.playing){
+//                SoundFx.MUSIC.stop();
+//            } else {
+//                SoundFx.MUSIC.play();
         } else if (this.verb.equalsIgnoreCase(Commands.totaleclipse.getKeyword())) {
-            if (SoundFx.TOTALECLIPSE.playing){
-                SoundFx.TOTALECLIPSE.stop();
-            } else {
-                SoundFx.TOTALECLIPSE.play();
-            }
+            action.sound(this.noun);
+//            if (SoundFx.TOTALECLIPSE.playing){
+//                SoundFx.TOTALECLIPSE.stop();
+//            } else {
+//                SoundFx.TOTALECLIPSE.play();
         }else if (this.verb.equalsIgnoreCase(Commands.sound.getKeyword())) {
-            if (SoundFx.WALK.sound) {
-                SoundFx.volume = Volume.MUTE;
-                SoundFx.WALK.sound=false;
-            } else {
-                SoundFx.volume = Volume.LOW;
+            action.sound(this.noun);
+//                SoundFx.volume = Volume.LOW;
                 SoundFx.WALK.sound=true;
             }
         }
     }
-}
+

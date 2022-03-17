@@ -25,18 +25,11 @@ public class PlayGame {
     /**
      * Sets up the game by reading Locations.json and randomizing the order of the interior locations
      */
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         /* These outputs will likely be refactored into a separate class after their creation. */
         SoundFx.TOTALECLIPSE.play();
-        //Intro card to the game
-        DisplayScreen.displayConsole("Total Eclipse of the .start()");
-        DisplayScreen.displayConsole("A text-based mystery game full of conspiracy! " +
-                "Are you human? Alien? Or something else entirely? " +
-                "Uncover your past and discover your true identity!");
-        DisplayScreen.displayConsole("\tTo exit the game, simply type \"quit\"\n\n");
-
         //Explaining the start of the game
-        DisplayScreen.displayConsole("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%. .. .  /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+        String cow = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%. .. .  /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(. ...... . ....... .*&@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@# .... ..... ............. ,@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@% ........................ ... *@@@@@@@@@@@@@@@@@@@@@@@@\n" +
@@ -85,12 +78,28 @@ public class PlayGame {
                 "@@@@%,@@@@@@@@@@@@@@@@@#((@@@@@@@@@@@@@@@@@@((@@@@@**@@@@@@@@@@@@@@@@@@@@@#(@@@@\n" +
                 "@@@&,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/(@@@\n" +
                 "@@@,&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/%@@\n" +
-                "@@.%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,@@ \n" + "\n You wake up in a crop circle, surrounded by corn. Your leather jacket is dirty.\n" +
+                "@@.%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,@@ \n" + "\nYou wake up in a crop circle, surrounded by corn. Your leather jacket is dirty.\n" +
                 "You can't seem to remember who you are or how you ended up in the midst of all this corn, and you want answers.\n" +
                 "Over the corn in the distance, you can see a cow floating up into a disc-like shape in the sky, before it flies away.\n" +
-                "\tType out the action you wish to perform, with a verb first an noun second.\n" +
-                "\tFor example, you can look around by typing \"look north\" or \"look west\", or look at your map by typing \"look map\".\n" +
-                "\t\tFor more commands, type \"help\".\n\n");
+                "\t- Type out the action you wish to perform, with a verb first an noun second.\n" +
+                "\t- For example, you can look around by typing \"look north\" or \"look west\", or look at your map by typing \"look map\".\n" +
+                "\t\t- For more commands, type \"help\".\n\n";
+        char[] cows = cow.toCharArray();
+
+
+        // Print a char from the array, then sleep for 1/10 second
+
+        for (int i = 0; i < cows.length; i++) {
+            System.out.print(cows[i]);
+            Thread.sleep(5);
+        }
+
+        //Intro card to the game
+        DisplayScreen.displayConsole("Welcome to Total Eclipse of the .start()");
+        DisplayScreen.displayConsole("A text-based mystery game full of conspiracy! " +
+                "Are you human? Alien? Or something else entirely? " +
+                "Uncover your past and discover your true identity!");
+        DisplayScreen.displayConsole("\t- To exit the game, simply type \"quit\"\n\n");
 
         HashMap<Integer, Location> locationsMap = Locations.generateLocations();
         ArrayList range = new ArrayList();
@@ -119,6 +128,8 @@ public class PlayGame {
         DisplayScreen.displayConsole("What is your name?");
         Player player = Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"), 100);
         DisplayScreen.displayConsole(player.getLocation().getLook(0));
+        SoundFx.TOTALECLIPSE.stop();
+        SoundFx.MUSIC.play();
         while (playing) {
             parseCommands com = new parseCommands();
             DisplayScreen.displayConsole("Enter your command");

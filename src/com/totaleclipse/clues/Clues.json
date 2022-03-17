@@ -1,9 +1,9 @@
 [
   {
     "clue": [
-      "Go to the Crop Circle",
-      "Maybe you missed something in the crop circle",
-      "Good luck?"
+      "go to the Crop Circle",
+      "maybe you missed something in the crop circle",
+      "good luck?"
     ],
     "item": "key",
     "npc": "",
@@ -15,9 +15,9 @@
   },
   {
     "clue": [
-      "Go to the bunker.",
-      "It's a creepy door.  What's the worst that could happen?",
-      "Good luck?"
+      "go to the bunker.",
+      "it's a creepy door.  What's the worst that could happen?",
+      "good luck?"
     ],
     "item": "map",
     "npc": "man",
@@ -27,9 +27,9 @@
   },
   {
     "clue": [
-      "Go to the library.",
-      "You should ask some well-read people.",
-      "Some peace and quiet might help you think."
+      "go to the library.",
+      "you should ask some well-read people.",
+      "some peace and quiet might help you think."
     ],
     "item": "newspaper",
     "npc": "librarian",
@@ -43,9 +43,9 @@
   },
   {
     "clue": [
-      "The library might help.",
-      "Books often contain knowledge.",
-      "Peace and quiet might help."
+      "the library might help.",
+      "books often contain knowledge.",
+      "peace and quiet might help."
     ],
     "item": "book",
     "npc": "employee",
@@ -58,9 +58,9 @@
   },
   {
     "clue": [
-      "What you seek is at the library.",
-      "You might find help in a book.",
-      "Peace and quiet is always nice."
+      "what you seek is at the library.",
+      "you might find help in a book.",
+      "peace and quiet is always nice."
     ],
     "item": "carving",
     "npc": "woman",
@@ -72,9 +72,9 @@
   },
   {
     "clue": [
-      "Go to the bar.",
-      "People love to gossip over beer or coffee.",
-      "Liquid always seems to get people talking."
+      "go to the bar.",
+      "people love to gossip over beer or coffee.",
+      "liquid always seems to get people talking."
     ],
     "item": "poster",
     "npc": "bartender",
@@ -86,9 +86,9 @@
   },
   {
     "clue": [
-      "Find the bar.",
-      "People love to gossip over coffee or beer.",
-      "People seem to open up around liquids."
+      "find the bar.",
+      "people love to gossip over coffee or beer.",
+      "people seem to open up around liquids."
     ],
     "item": "flier",
     "npc": "barista",
@@ -101,9 +101,9 @@
   },
   {
     "clue": [
-      "Bartenders often know quite a bit.",
-      "People love to gossip when they drink beer or coffee.",
-      "Liquid loosens the lips."
+      "bartenders often know quite a bit.",
+      "people love to gossip when they drink beer or coffee.",
+      "liquid loosens the lips."
     ],
     "item": "paper",
     "npc": "tourist",
@@ -117,9 +117,9 @@
   },
   {
     "clue": [
-      "Make your way to the crash site.",
-      "Adventurous people often know things.",
-      "There is something strange outside of town."
+      "make your way to the crash site.",
+      "adventurous people often know things.",
+      "there is something strange outside of town."
     ],
     "item": "petroglyphs",
     "npc": "climber",
@@ -133,9 +133,9 @@
   },
   {
     "clue": [
-      "There's a crash site outside of town.",
-      "Adventures are often exciting and educational.",
-      "There is something on the outskirts of town."
+      "there's a crash site outside of town.",
+      "adventures are often exciting and educational.",
+      "there is something on the outskirts of town."
     ],
     "item": "meteorite",
     "npc": "hiker",
@@ -147,9 +147,9 @@
   },
   {
     "clue": [
-      "Go to the crash site.",
-      "Adventures are educational.",
-      "There is something near the outskirts of town."
+      "go to the crash site.",
+      "adventures are educational.",
+      "there is something near the outskirts of town."
     ],
     "item": "ID",
     "npc": "pilot",
@@ -164,9 +164,9 @@
   },
   {
     "clue": [
-      "Go south through the corn at the crop circle.",
-      "Go south through the corn at the crop circle.",
-      "Go south through the corn at the crop circle."
+      "go south through the corn at the crop circle.",
+      "go south through the corn at the crop circle.",
+      "go south through the corn at the crop circle."
     ],
     "item": "Prison Cells",
     "npc": "Soldier",
