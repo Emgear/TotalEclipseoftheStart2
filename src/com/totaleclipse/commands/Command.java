@@ -69,7 +69,7 @@ public class Command {
             } else {
                 SoundFx.TOTALECLIPSE.play();
             }
-        }else if (this.verb.equalsIgnoreCase(Commands.sound.getKeyword())) {
+        } else if (this.verb.equalsIgnoreCase(Commands.sound.getKeyword())) {
             if (SoundFx.WALK.sound) {
                 SoundFx.volume = Volume.MUTE;
                 SoundFx.WALK.sound=false;
@@ -77,6 +77,8 @@ public class Command {
                 SoundFx.volume = Volume.LOW;
                 SoundFx.WALK.sound=true;
             }
+        } else if(this.verb.equalsIgnoreCase(Commands.attack.getKeyword())){
+            action.attack(this.noun);
         } else{
             DisplayScreen.displayConsole("This action cannot be executed. Please choose a different command or type \"help\" command for additional info.");
         }

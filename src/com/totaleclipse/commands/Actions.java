@@ -332,4 +332,16 @@ public class Actions {
             }
         }
     }
+    /**
+     * Player attacks an enemy/monster/zombie at a given location
+     * @param noun
+     */
+    protected void attack(String noun){
+        if (noun.equalsIgnoreCase(player.getLocation().getNpc())){
+            DisplayScreen.displayConsole("Probably note a wise move to attack the " + noun);
+            return;
+        }
+        DisplayScreen.displayConsole("Attacking the " + noun);
+
+    }
 }
