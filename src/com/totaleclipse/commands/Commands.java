@@ -13,6 +13,9 @@ public enum Commands {
     totaleclipse("eclipse", "Plays total Eclipse of the Heart", ""),
     sound("sound", "Turns sound effects on/off", "mute"),
     attack("attack","attacks an enemy/monster","hit");
+//    music("music", "Stops/starts the music","off"),
+//    totaleclipse("title", "Plays total Eclipse of the Heart", ""),
+    sound("sound", "Adjusts volume", "music", "volume","audio");
 
     private String keyword;
     private String description;
