@@ -1,9 +1,9 @@
 [
   {
     "clue": [
-      "go to the Crop Circle",
-      "maybe you missed something in the crop circle",
-      "good luck?"
+      "\"go to the Crop Circle\"",
+      "\"maybe you missed something in the crop circle\"",
+      "\"good luck?\""
     ],
     "item": "key",
     "npc": "",
@@ -15,9 +15,9 @@
   },
   {
     "clue": [
-      "go to the bunker.",
-      "it's a creepy door.  What's the worst that could happen?",
-      "good luck?"
+      "\"go to the bunker.\"",
+      "\"it's a creepy door.  What's the worst that could happen?\"",
+      "\"good luck\"?"
     ],
     "item": "map",
     "npc": "man",
@@ -27,9 +27,9 @@
   },
   {
     "clue": [
-      "go to the library.",
-      "you should ask some well-read people.",
-      "some peace and quiet might help you think."
+      "\"go to the library.\"",
+      "\"you should ask some well-read people.\"",
+      "\"some peace and quiet might help you think.\""
     ],
     "item": "newspaper",
     "npc": "librarian",
@@ -43,9 +43,9 @@
   },
   {
     "clue": [
-      "the library might help.",
-      "books often contain knowledge.",
-      "peace and quiet might help."
+      "\"the library might help.\"",
+      "\"books often contain knowledge.\"",
+      "\"peace and quiet might help.\""
     ],
     "item": "book",
     "npc": "employee",
@@ -58,9 +58,9 @@
   },
   {
     "clue": [
-      "what you seek is at the library.",
-      "you might find help in a book.",
-      "peace and quiet is always nice."
+      "\"what you seek is at the library.\"",
+      "\"you might find help in a book.\"",
+      "\"peace and quiet is always nice.\""
     ],
     "item": "carving",
     "npc": "woman",
@@ -72,9 +72,9 @@
   },
   {
     "clue": [
-      "go to the bar.",
-      "people love to gossip over beer or coffee.",
-      "liquid always seems to get people talking."
+      "\"go to the bar.\"",
+      "\"people love to gossip over beer or coffee.\"",
+      "\"liquid always seems to get people talking.\""
     ],
     "item": "poster",
     "npc": "bartender",
@@ -86,9 +86,9 @@
   },
   {
     "clue": [
-      "find the bar.",
-      "people love to gossip over coffee or beer.",
-      "people seem to open up around liquids."
+      "\"find the bar.\"",
+      "\"people love to gossip over coffee or beer.\"",
+      "\"people seem to open up around liquids.\""
     ],
     "item": "flier",
     "npc": "barista",
@@ -101,9 +101,9 @@
   },
   {
     "clue": [
-      "bartenders often know quite a bit.",
-      "people love to gossip when they drink beer or coffee.",
-      "liquid loosens the lips."
+      "\"bartenders often know quite a bit.\"",
+      "\"people love to gossip when they drink beer or coffee.\"",
+      "\"liquid loosens the lips.\""
     ],
     "item": "paper",
     "npc": "tourist",
@@ -147,9 +147,9 @@
   },
   {
     "clue": [
-      "go to the crash site.",
-      "adventures are educational.",
-      "there is something near the outskirts of town."
+      "\"go to the crash site.\"",
+      "\"adventures are educational.\"",
+      "\"there is something near the outskirts of town.\""
     ],
     "item": "ID",
     "npc": "pilot",
@@ -164,9 +164,9 @@
   },
   {
     "clue": [
-      "go south through the corn at the crop circle.",
-      "go south through the corn at the crop circle.",
-      "go south through the corn at the crop circle."
+      "\"go south through the corn at the crop circle.\"",
+      "\"go south through the corn at the crop circle.\"",
+      "\"go south through the corn at the crop circle.\""
     ],
     "item": "Prison Cells",
     "npc": "Soldier",
