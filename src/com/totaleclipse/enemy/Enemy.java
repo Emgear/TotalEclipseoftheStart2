@@ -15,7 +15,7 @@ import java.util.logging.Handler;
 
 public class Enemy {
     private String name;
-    private int enemyHealth;
+    private int enemyHealth = 100;
     private int attackPower;
 
     public Enemy(){}

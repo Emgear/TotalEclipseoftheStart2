@@ -9,7 +9,7 @@ public class Player {
     private Location location;
     private Clue clue;
     private int humanity=0;
-    private int playerHp;
+    private static int playerHp;
     private Enemy enemy;
     public static Player player=null;
 
@@ -58,7 +58,7 @@ public class Player {
         this.location = location;
     }
 
-    public int getPlayerHp() {
+    public static int getPlayerHp() {
         return playerHp;
     }
 
