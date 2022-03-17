@@ -45,6 +45,9 @@ public class Command {
      */
     private void getCommand(String commandVerb) {
         Actions action = new Actions(this);
+        if (commandVerb.equalsIgnoreCase(Commands.hunt.getKeyword())){
+            action.hunt(this.noun);
+        }
         if (commandVerb.equalsIgnoreCase(Commands.move.getKeyword())) {
             action.move(this.noun);
         } else if (commandVerb.equalsIgnoreCase(Commands.get.getKeyword())) {
