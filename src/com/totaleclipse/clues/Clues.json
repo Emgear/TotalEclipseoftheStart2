@@ -117,9 +117,9 @@
   },
   {
     "clue": [
-      "make your way to the crash site.",
-      "adventurous people often know things.",
-      "there is something strange outside of town."
+      "\"make your way to the crash site.\"",
+      "\"adventurous people often know things.\"",
+      "\"there is something strange outside of town.\""
     ],
     "item": "petroglyphs",
     "npc": "climber",
@@ -133,9 +133,9 @@
   },
   {
     "clue": [
-      "there's a crash site outside of town.",
-      "adventures are often exciting and educational.",
-      "there is something on the outskirts of town."
+      "\"there's a crash site outside of town.\"",
+      "\"adventures are often exciting and educational.\"",
+      "\"there is something on the outskirts of town.\""
     ],
     "item": "meteorite",
     "npc": "hiker",
