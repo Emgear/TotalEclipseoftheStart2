@@ -133,7 +133,7 @@ public class PlayGame {
         SoundFx.MUSIC.play();
         while (playing) {
             parseCommands com = new parseCommands();
-            DisplayScreen.displayConsole("Enter your command");
+            DisplayScreen.displayConsole("Enter your command:");
             ArrayList commandArray = com.parseCommand();
             commandVerb = (String) commandArray.get(0);
             commandNoun = "";

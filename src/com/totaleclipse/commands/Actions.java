@@ -210,7 +210,7 @@ public class Actions {
                     key++;
                     player.setLocation(Locations.locationsMap.get(key));
                     player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
-                    DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 1).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the east is corn\n To the west is... corn");
+                    DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 1).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the east is corn\nTo the west is... corn");
 
                 } else if (key == 1) {
                     key++;
@@ -338,7 +338,7 @@ public class Actions {
      */
     protected void attack(String noun){
         if (noun.equalsIgnoreCase(player.getLocation().getNpc())){
-            DisplayScreen.displayConsole("Probably note a wise move to attack the " + noun);
+            DisplayScreen.displayConsole("Probably not a wise move to attack the " + noun);
             return;
         }
         DisplayScreen.displayConsole("Attacking the " + noun);
@@ -365,8 +365,8 @@ public class Actions {
                 SoundFx.WALK.sound=false;
                 break;
             case "on":
-                SoundFx.MUSIC.play();
                 SoundFx.volume = SoundFx.Volume.MEDIUM;
+                SoundFx.MUSIC.play();
                 SoundFx.WALK.sound=true;
                 break;
         }
