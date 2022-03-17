@@ -9,6 +9,7 @@ public enum Commands {
     //save("save", "Saves user data to disk"),
     talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "question", "interrogate"),
     close("close", "Closes Total Eclipse of the Start", "quit", "exit", "stop", "end"),
+    attack("attack","attacks an enemy/monster","hit"),
 //    music("music", "Stops/starts the music","off"),
 //    totaleclipse("title", "Plays total Eclipse of the Heart", ""),
     sound("sound", "Adjusts volume", "music", "volume","audio");

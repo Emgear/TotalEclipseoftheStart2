@@ -1,5 +1,6 @@
 package com.totaleclipse.commands;
 
+import com.totaleclipse.client.DisplayScreen;
 import com.totaleclipse.music.Music;
 import com.totaleclipse.music.SoundFx;
 import com.totaleclipse.music.SoundFx.Volume;
@@ -60,7 +61,11 @@ public class Command {
             action.sound(this.noun);
 //                SoundFx.volume = Volume.LOW;
                 SoundFx.WALK.sound=true;
-            }
+        } else if(this.verb.equalsIgnoreCase(Commands.attack.getKeyword())){
+            action.attack(this.noun);
+        } else{
+            DisplayScreen.displayConsole("This action cannot be executed. Please choose a different command or type \"help\" command for additional info.");
         }
     }
+}
 
