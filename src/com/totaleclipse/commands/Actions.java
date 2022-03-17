@@ -332,4 +332,33 @@ public class Actions {
             }
         }
     }
+
+    public void sound(String noun) {
+        switch (noun.toLowerCase()) {
+            case "low":
+                SoundFx.volume = SoundFx.Volume.LOW;
+                SoundFx.MUSIC.play();
+                break;
+            case "medium":
+                SoundFx.volume = SoundFx.Volume.MEDIUM;
+                SoundFx.MUSIC.play();
+                break;
+            case "high":
+                SoundFx.volume = SoundFx.Volume.HIGH;
+                SoundFx.MUSIC.play();
+                break;
+            case "off":
+                SoundFx.volume = SoundFx.Volume.MUTE;
+                SoundFx.MUSIC.stop();
+                SoundFx.WALK.sound=false;
+                break;
+            case "on":
+                SoundFx.MUSIC.play();
+                SoundFx.volume = SoundFx.Volume.MEDIUM;
+                SoundFx.WALK.sound=true;
+                break;
+        }
+
+    }
+
 }

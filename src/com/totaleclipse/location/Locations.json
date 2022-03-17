@@ -7,7 +7,7 @@
     "npc": "None",
     "look": [
       "You are currently in a cornfield. There is a path to the north, and a key on the ground next to you. You don't see anyone else around, and that floating cow you saw remains in your mind.",
-      "You see a path that leads back to the crop circle"
+      "you see a path that leads back to the crop circle"
     ]
   },
   {
@@ -18,7 +18,7 @@
     "npc": "man",
     "look": [
       "You have entered what appears to be a prepper bunker. You see a crazed old man in the corner and a large map plastered on the wall.",
-      "In the midst of the corn, you see a path leading to what looks like a bunker."
+      "in the midst of the corn, you see a path leading to what looks like a bunker."
     ]
   },
   {
@@ -29,7 +29,7 @@
     "npc": "Librarian",
     "look": [
       "You throw open the doors to the local library. There is a librarian behind the counter and a newspaper on a table in the middle of the room.",
-      "You see a road leading to the library in town."
+      "you see a road leading to the library in town."
     ]
   },
   {
@@ -40,7 +40,7 @@
     "npc": "Employee",
     "look": [
       "You enter a small used bookstore--you see an employee at the register and a prominantly displayed book on local UFO sightings.",
-      "Down the street is a small bookstore."
+      "down the street is a small bookstore."
     ]
   },
   {
@@ -51,7 +51,7 @@
     "npc": "woman",
     "look": [
       "You walk along an overgrown path into a beautiful park. You see a woman walking her dog and a mysterious carving in a tree.",
-      "There is an overgrown path leading to a clearing in the town's park."
+      "there is an overgrown path leading to a clearing in the town's park."
     ]
   },
   {
@@ -62,7 +62,7 @@
     "npc": "Bartender",
     "look": [
       "You step into a dirty, dingy bar smelling of stale beer and cigarettes. The bartender is mixing an Old Fashioned behind the bar and you notice a strange poster on the wall.",
-      "You see a small dive bar across the street."
+      "you see a small dive bar across the street."
     ]
   },
   {
@@ -73,7 +73,7 @@
     "npc": "barista",
     "look": [
       "You walk into a coffee shop, the smell of roasted coffee wafts through the air. There is a barista behind the espresso machine and you notice a flier with a UFO on it.",
-      "You smell roasting coffee coming from the cafe down the road."
+      "you smell roasting coffee coming from the cafe down the road."
     ]
   },
   {
@@ -84,7 +84,7 @@
     "npc": "tourist",
     "look": [
       "You approach a historical well, there is a tourist looking deep inside and a crumpled piece of paper lying on the ground.",
-      "A well known historical site containing a well lies ahead."
+      "a well known historical site containing a well lies ahead."
     ]
   },
   {
@@ -95,7 +95,7 @@
     "npc": "climber",
     "look": [
       "Out in the desert there is a popular rock climbing site. You see a solitary rock climber and a series of petroglyphs depicting what looks like a UFO.",
-      "There is a giant rock formation up ahead."
+      "there is a giant rock formation up ahead."
     ]
   },
   {
@@ -106,7 +106,7 @@
     "npc": "hiker",
     "look": [
       "At the end of the well-worn path you enter into a beautiful oasis. You see a meteorite on the ground and a single hiker passing through.",
-      "There is a dusty path leading to an oasis."
+      "there is a dusty path leading to an oasis."
     ]
   },
   {
@@ -117,7 +117,7 @@
     "npc": "Pilot",
     "look": [
       "You have stumbled across an advanced aircraft crash site. The pilot is lying wounded near the aircraft. There is an ID on the ground under your feet.",
-      "You see a road leading some sort of crashed aircraft"
+      "you see a road leading some sort of crashed aircraft"
     ]
   },
   {
