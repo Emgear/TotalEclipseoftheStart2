@@ -3,6 +3,8 @@ package com.totaleclipse.commands;
 import com.totaleclipse.client.DisplayScreen;
 import com.totaleclipse.clues.Clue;
 import com.totaleclipse.clues.Clues;
+import com.totaleclipse.enemy.Enemies;
+import com.totaleclipse.enemy.Enemy;
 import com.totaleclipse.location.LocationMap;
 import com.totaleclipse.location.Locations;
 import com.totaleclipse.music.SoundFx;
@@ -41,8 +43,16 @@ public class Actions {
      * @param noun the direction or object to be looked at
      */
     public void look(String noun) {
+        HashMap<String, Enemy> enemyMap = Enemies.makeEnemy();
+        Enemy enemy;
+
 
         switch (noun.toLowerCase()) {
+            case "zombie":
+                enemy = enemyMap.get("MONSTER");
+                DisplayScreen.displayConsole(enemy.getName());
+                break;
+
             case "inventory":
                 DisplayScreen.displayConsole(Journal.getClueString());
                 break;
@@ -114,6 +124,41 @@ public class Actions {
                 DisplayScreen.displayConsole("I don't see any " + noun.toLowerCase() + " around here.");
         }
 
+    }
+
+    protected void hunt(String noun){
+        HashMap<String, Enemy> enemyMap = Enemies.makeEnemy();
+        Enemy enemy;
+
+      if (noun.equalsIgnoreCase("monster")){
+          switch (player.getLocation().getLocation()){
+              case "bar":
+                  enemy = enemyMap.get("ZOMBIE ZACH");
+                  DisplayScreen.displayConsole(enemy);
+                  break;
+              case "library":
+                  enemy = enemyMap.get("ZOMBIE BRIT");
+                  DisplayScreen.displayConsole(enemy);
+                  break;
+              case "bookstore":
+                  enemy = enemyMap.get("ZOMBIE AMY");
+                  DisplayScreen.displayConsole(enemy);
+                  break;
+              case "cafe":
+                  enemy = enemyMap.get("ZOMBIE JULIAN");
+                  DisplayScreen.displayConsole(enemy);
+                  break;
+              case "crash site":
+                  enemy = enemyMap.get("ZOMBIE BOSS");
+                  DisplayScreen.displayConsole(enemy);
+                  break;
+              default:
+                  DisplayScreen.displayConsole("THE COAST IS CLEAR");
+
+
+
+          }
+      }
     }
 
     /**
