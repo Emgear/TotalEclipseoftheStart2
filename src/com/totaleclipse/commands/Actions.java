@@ -137,22 +137,27 @@ public class Actions {
           switch (player.getLocation().getLocation()){
               case "bar":
                   enemy = enemyMap.get("ZOMBIE ZACH");
+                  enemy.setEnemyHealth(100);
                   DisplayScreen.displayConsole(enemy);
                   break;
               case "library":
                   enemy = enemyMap.get("ZOMBIE BRIT");
+                  enemy.setEnemyHealth(100);
                   DisplayScreen.displayConsole(enemy);
                   break;
               case "bookstore":
                   enemy = enemyMap.get("ZOMBIE AMY");
+                  enemy.setEnemyHealth(100);
                   DisplayScreen.displayConsole(enemy);
                   break;
               case "cafe":
                   enemy = enemyMap.get("ZOMBIE JULIAN");
+                  enemy.setEnemyHealth(100);
                   DisplayScreen.displayConsole(enemy);
                   break;
               case "crash site":
                   enemy = enemyMap.get("ZOMBIE BOSS");
+                  enemy.setEnemyHealth(100000000);
                   DisplayScreen.displayConsole(enemy);
                   break;
               default:
@@ -390,8 +395,7 @@ public class Actions {
             return;
         }
         DisplayScreen.displayConsole("Attacking the " + noun);
-//        AttackEngine.run(player);
-
+        AttackEngine.run(player, player.getEnemy());
     }
 
     public void sound(String noun) {
