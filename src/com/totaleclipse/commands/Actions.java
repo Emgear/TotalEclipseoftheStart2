@@ -23,6 +23,9 @@ public class Actions {
     private Command command;
     private static final LocationMap map = LocationMap.getInstance();
     private int grouping = 0;
+    public static final String BLUE = "\033[0;34m";
+    public static final String ANSI_RESET = "\u001B[0m";
+
 
     public Actions(Command command) {
         this.command = command;
@@ -235,7 +238,7 @@ public class Actions {
             if (!Journal.hasClue(clue)) {
                 String clueString = clue.getClue();
                 Journal.addClue(noun, clueString);
-                System.out.println("You speak to the " + player.getClue().getNpc() + " and they tell you  " + clueString);
+                System.out.println("You speak to the " + player.getClue().getNpc() + " and they tell you " + BLUE + clueString + ANSI_RESET);
                 player.setHumanity(1);
             } else {
                 DisplayScreen.displayConsole(NPC.getRandomDialog());

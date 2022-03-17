@@ -7,7 +7,7 @@
     "npc": "None",
     "look": [
       "You are currently in a cornfield. There is a path to the north, and a key on the ground next to you. You don't see anyone else around, and that floating cow you saw remains in your mind.",
-      "you see a path that leads back to the crop circle"
+      "you see a path that leads back to the crop circle."
     ]
   },
   {
@@ -117,7 +117,7 @@
     "npc": "Pilot",
     "look": [
       "You have stumbled across an advanced aircraft crash site. The pilot is lying wounded near the aircraft. There is an ID on the ground under your feet.",
-      "you see a road leading some sort of crashed aircraft"
+      "you see a road leading some sort of crashed aircraft."
     ]
   },
   {
