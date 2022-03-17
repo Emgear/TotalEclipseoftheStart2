@@ -12,7 +12,8 @@ public enum Commands {
     attack("attack","attacks an enemy/monster","hit"),
 //    music("music", "Stops/starts the music","off"),
 //    totaleclipse("title", "Plays total Eclipse of the Heart", ""),
-    sound("sound", "Adjusts volume", "music", "volume", "audio");
+    sound("sound", "Adjusts volume", "music", "volume", "audio"),
+    hunt("hunt", "shows enemies in location", "scout", "probe");
 
     private String keyword;
     private String description;

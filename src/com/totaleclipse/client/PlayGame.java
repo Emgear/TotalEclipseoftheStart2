@@ -4,6 +4,8 @@ import com.totaleclipse.clues.Clue;
 import com.totaleclipse.clues.Clues;
 import com.totaleclipse.commands.Command;
 import com.totaleclipse.commands.parseCommands;
+import com.totaleclipse.enemy.Enemies;
+import com.totaleclipse.enemy.Enemy;
 import com.totaleclipse.location.Location;
 import com.totaleclipse.location.Locations;
 import com.totaleclipse.music.SoundFx;
@@ -125,9 +127,10 @@ public class PlayGame {
     public void playGame(HashMap<Integer, Location> locationsMap) {
         String commandNoun, commandVerb;
         HashMap<String, Clue> cluesMap = Clues.generateClues();
+        HashMap<String, Enemy> enemyHashMap = Enemies.createEnemies();
 
         DisplayScreen.displayConsole("What is your name?");
-        Player player = Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"), 100);
+        Player player = Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"), 100,enemyHashMap.get("MONSTER"));
         DisplayScreen.displayConsole(player.getLocation().getLook(0));
         SoundFx.TOTALECLIPSE.stop();
         SoundFx.MUSIC.play();
