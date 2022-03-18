@@ -21,4 +21,9 @@ public class DisplayScreen {
         System.out.println(enemy);
         return enemy;
     }
+
+    public static int displayConsole(Integer integer){
+        System.out.println(integer);
+        return integer;
+    }
 }

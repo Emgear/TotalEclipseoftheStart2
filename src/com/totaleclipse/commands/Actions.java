@@ -137,28 +137,28 @@ public class Actions {
           switch (player.getLocation().getLocation()){
               case "bar":
                   enemy = enemyMap.get("ZOMBIE ZACH");
-                  enemy.setEnemyHealth(100);
                   DisplayScreen.displayConsole(enemy);
+                  AttackEngine.run(player, enemy);
                   break;
               case "library":
                   enemy = enemyMap.get("ZOMBIE BRIT");
-                  enemy.setEnemyHealth(100);
                   DisplayScreen.displayConsole(enemy);
+                  AttackEngine.run(player, enemy);
                   break;
               case "bookstore":
                   enemy = enemyMap.get("ZOMBIE AMY");
-                  enemy.setEnemyHealth(100);
                   DisplayScreen.displayConsole(enemy);
+                  AttackEngine.run(player, enemy);
                   break;
               case "cafe":
                   enemy = enemyMap.get("ZOMBIE JULIAN");
-                  enemy.setEnemyHealth(100);
                   DisplayScreen.displayConsole(enemy);
+                  AttackEngine.run(player, enemy);
                   break;
               case "crash site":
                   enemy = enemyMap.get("ZOMBIE BOSS");
-                  enemy.setEnemyHealth(100000000);
                   DisplayScreen.displayConsole(enemy);
+                  AttackEngine.run(player, enemy);
                   break;
               default:
                   DisplayScreen.displayConsole("THE COAST IS CLEAR");
@@ -389,14 +389,14 @@ public class Actions {
      * Player attacks an enemy/monster/zombie at a given location
      * @param noun
      */
-    protected void attack(String noun){
-        if (noun.equalsIgnoreCase(player.getLocation().getNpc())){
-            DisplayScreen.displayConsole("Probably not a wise move to attack the " + noun);
-            return;
-        }
-        DisplayScreen.displayConsole("Attacking the " + noun);
-        AttackEngine.run(player, player.getEnemy());
-    }
+//    protected void attack(String noun){
+//        if (noun.equalsIgnoreCase(player.getLocation().getNpc())){
+//            DisplayScreen.displayConsole("Probably not a wise move to attack the " + noun);
+//            return;
+//        }
+//        DisplayScreen.displayConsole("Attacking the " + noun);
+//       AttackEngine.run(player, player.getEnemy());
+//    }
 
     public void sound(String noun) {
         switch (noun.toLowerCase()) {
