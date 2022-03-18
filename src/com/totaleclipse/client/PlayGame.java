@@ -131,6 +131,7 @@ public class PlayGame {
 
         DisplayScreen.displayConsole("What is your name?");
         Player player = Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"), 100,enemyHashMap.get("MONSTER"));
+        Enemy enemy = Enemy.getInstance(enemyHashMap.get(), Enemy.enemy.getEnemyHealth(), 100 , 100);
         DisplayScreen.displayConsole(player.getLocation().getLook(0));
         SoundFx.TOTALECLIPSE.stop();
         SoundFx.MUSIC.play();

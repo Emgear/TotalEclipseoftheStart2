@@ -5,6 +5,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.totaleclipse.client.DisplayScreen;
+import com.totaleclipse.clues.Clue;
+import com.totaleclipse.location.Location;
+import com.totaleclipse.player.Player;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -17,10 +20,16 @@ public class Enemy {
     private String name;
     private int enemyHealth = 100;
     private int attackPower;
+    public static Enemy enemy=null;
 
     public Enemy(){}
-
-    public void Enemy(String name, int enemyHealth, int attackPower){
+    public static Enemy getInstance(String name, int monster, int enemyHealth, int attackPower){
+        if(enemy==null){
+            enemy=new Enemy(name, enemyHealth, attackPower);
+        }
+        return enemy;
+    }
+    private Enemy(String name, int enemyHealth, int attackPower){
         setName(name);
         setEnemyHealth(enemyHealth);
         setAttackPower(attackPower);
