@@ -10,9 +10,12 @@ import com.totaleclipse.location.Locations;
 import com.totaleclipse.music.SoundFx;
 import com.totaleclipse.npc.NPC;
 import com.totaleclipse.player.Journal;
+import com.totaleclipse.player.Player;
 
 import java.util.HashMap;
+import java.util.Objects;
 
+import static com.totaleclipse.player.Player.getPlayerHp;
 import static com.totaleclipse.player.Player.player;
 
 /**
@@ -176,6 +179,18 @@ public class Actions {
     protected void get(String noun) {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         Clue clue;
+        if (noun.equalsIgnoreCase("whisky")) {
+            DisplayScreen.displayConsole("You chug the whisky down in a matter of seconds. So delicious! And you feel great!");
+            player.setPlayerHp(getPlayerHp() + 10);
+            System.out.println("Your health: " + Player.getPlayerHp());
+            return;
+        }
+        if (noun.equalsIgnoreCase("coffee")) {
+            DisplayScreen.displayConsole("You ask the barista for a coffee and they hand you a fresh cup. How refreshing!");
+            player.setPlayerHp(getPlayerHp() + 10);
+            System.out.println("Your health: " + Player.getPlayerHp());
+            return;
+        }
         if (noun.equalsIgnoreCase(player.getClue().getItem())) {
             if (player.getClue().isStory()) {
                 switch (player.getLocation().getLocation()) {
@@ -217,6 +232,7 @@ public class Actions {
     protected void talk(String noun) {
         HashMap<String, Clue> cluesMap = Clues.getClues();
         Clue clue;
+
         if (noun.equalsIgnoreCase(player.getClue().getNpc())) {
             if (player.getClue().isStory()) {
                 switch (player.getLocation().getLocation()) {
@@ -248,7 +264,11 @@ public class Actions {
             } else {
                 DisplayScreen.displayConsole(NPC.getRandomDialog());
             }
-        } else {
+        } else if (Objects.equals(player.getLocation().getLocation(), "park")){
+            if (noun.equalsIgnoreCase("dog")) {
+                System.out.println("The " + noun + " says woof.");
+            }
+        }else {
             System.out.println("You say hello to the " + noun + " but it does not respond back to you. Not sure what you were expecting?");
         }
     }
@@ -393,6 +413,12 @@ public class Actions {
         }
         if (noun.equalsIgnoreCase("")) {
             DisplayScreen.displayConsole("You must select something to attack.");
+            return;
+        }
+        if (noun.equalsIgnoreCase("dog")) {
+            DisplayScreen.displayConsole("Really? You would attack a harmless dog? The dog bites your leg and you cry like a baby.");
+            player.setPlayerHp(getPlayerHp() - 10);
+            System.out.println("Your health: " + Player.getPlayerHp());
             return;
         }
         DisplayScreen.displayConsole("Attacking the " + noun);
