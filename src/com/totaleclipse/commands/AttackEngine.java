@@ -1,6 +1,7 @@
 package com.totaleclipse.commands;
 
 import com.totaleclipse.client.DisplayScreen;
+import com.totaleclipse.enemy.Enemies;
 import com.totaleclipse.enemy.Enemy;
 import com.totaleclipse.player.Player;
 
@@ -13,20 +14,52 @@ public class AttackEngine {
     private static Player player;
     private static Enemy enemy;
 
-     static void run(Player player, Enemy enemy) {
+
+
+    static void run(Player player, Enemy enemy) {
+        boolean halfHealthQuestion = true;
+        boolean almostDeadQuestion = true;
         AttackEngine.player = player;
         AttackEngine.startingHp = player.getPlayerHp();
         AttackEngine.enemy = enemy;
+        parseCommands runOrNO = new parseCommands();
 
         while (player.getPlayerHp() > 0 || enemy.getEnemyHealth() > 0) {
             fight();
+            if (Player.getPlayerHp() <= 0){
+                return;
+            }
+            if (enemy.getEnemyHealth() <= 0){
+                System.out.println("Enemy has died");
+                Enemies.enemyMap.remove(enemy.getName());
+                return;
+            }
+            // if players health is less than half
             if (player.getPlayerHp() < (startingHp / 2)) {
-                parseCommands runOrNO = new parseCommands();
-                DisplayScreen.displayConsole("You are almost dead. Do you want to run away? (yes or no)");
-                ArrayList commandArray = runOrNO.parseCommand();
-                String runOrNoString = (String) commandArray.get(0);
-                if (runOrNoString == "yes" || runOrNoString == "y") {
-                    break;
+                while (halfHealthQuestion) {
+                    DisplayScreen.displayConsole("You have lost over half you health. Do you want to run away? (yes or no)");
+                    ArrayList commandArray = runOrNO.parseCommand();
+                    String runOrNoString = (String) commandArray.get(0);
+                    if (runOrNoString == "yes" || runOrNoString == "y") {
+                        return;
+                    } else {
+                        halfHealthQuestion = false;
+                    }
+
+                }
+            }
+            // if players health is less than 20;
+            if (player.getPlayerHp() < (startingHp / 2)) {
+                while (almostDeadQuestion) {
+                    DisplayScreen.displayConsole("You are almost dead. Do you want to run away? (yes or no)");
+                    ArrayList commandArray = runOrNO.parseCommand();
+                    String runOrNoString = (String) commandArray.get(0);
+                    if (runOrNoString == "yes" || runOrNoString == "y") {
+                        return;
+                    }
+                    else {
+                        almostDeadQuestion = false;
+                    }
                 }
             }
         }
