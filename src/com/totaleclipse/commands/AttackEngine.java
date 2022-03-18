@@ -14,6 +14,9 @@ public class AttackEngine {
     private static int startingHp;
     private static Player player;
     private static Enemy enemy;
+    public static final String RED_BOLD = "\033[1;31m";    // RED
+    public static final String RESET = "\033[0m";  // Text Reset
+    public static final String GREEN_BOLD = "\033[1;32m";  // GREEN
 
 
 
@@ -71,36 +74,27 @@ public class AttackEngine {
     static void fight() {
         int randomNum = (int) (Math.random() * 4); // 0 to 10
         if (randomNum == 0) {
-            DisplayScreen.displayConsole("you've hit the zombie with a corn stick");
-            DisplayScreen.displayConsole(enemy.getEnemyHealth());
+            DisplayScreen.displayConsole(GREEN_BOLD + "You hit " + enemy.getName() + " with a corn stalk" + RESET);
+            enemy.setEnemyHealth(enemy.getEnemyHealth() - 20);
+            DisplayScreen.displayConsole(enemy.getName() + " health is now: " + enemy.getEnemyHealth());
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
-            DisplayScreen.displayConsole("Zombie health: " + enemy.getEnemyHealth());
-            enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
-            DisplayScreen.displayConsole("Enemy health is now :" + enemy.getEnemyHealth());
 
         } else if (randomNum == 1) {
-            DisplayScreen.displayConsole("You got hit by the zombie");
-            player.setPlayerHp(Player.getPlayerHp() - 10);
+            DisplayScreen.displayConsole(enemy.getName() + " stumbled towards you but fell over...");
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
-            DisplayScreen.displayConsole("Zombie health: " + enemy.getEnemyHealth());
-            enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
-            DisplayScreen.displayConsole("Enemy health is now :" + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole(enemy.getName() + " health: " + enemy.getEnemyHealth());
 
         } else if (randomNum == 2) {
-            DisplayScreen.displayConsole("You got hit by the zombie");
+            DisplayScreen.displayConsole(RED_BOLD + enemy.getName() + " attacked you!" + RESET);
             player.setPlayerHp(Player.getPlayerHp() - 10);
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
-            DisplayScreen.displayConsole("Zombie health: " + enemy.getEnemyHealth());
-            enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
-            DisplayScreen.displayConsole("Enemy health is now :" + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole(enemy.getName() + " health: " + enemy.getEnemyHealth());
 
         } else {
-            DisplayScreen.displayConsole("You got bit by the zombie");
+            DisplayScreen.displayConsole(RED_BOLD + enemy.getName() + " used a special attack!" + RESET);
             player.setPlayerHp(Player.getPlayerHp() - enemy.getAttackPower());
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
-            DisplayScreen.displayConsole("Zombie health: " + enemy.getEnemyHealth());
-            enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
-            DisplayScreen.displayConsole("Enemy health is now :" + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole(enemy.getName() + " health: "+ enemy.getEnemyHealth());
 
         }
 
