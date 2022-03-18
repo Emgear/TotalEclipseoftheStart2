@@ -28,6 +28,7 @@ public class Actions {
     private int grouping = 0;
     public static final String BLUE = "\033[0;34m";
     public static final String ANSI_RESET = "\u001B[0m";
+    public static final String RED = "\033[0;31m";     // RED
 
 
     public Actions(Command command) {
@@ -217,6 +218,10 @@ public class Actions {
             System.out.println("Your health: " + Player.getPlayerHp());
             return;
         }
+        if (noun.equalsIgnoreCase("dog")) {
+            DisplayScreen.displayConsole("The dog rolls over and absorbs your affection. How cute!");
+            return;
+        }
         if (noun.equalsIgnoreCase(player.getClue().getItem())) {
             if (player.getClue().isStory()) {
                 switch (player.getLocation().getLocation()) {
@@ -292,7 +297,7 @@ public class Actions {
             }
         } else if (Objects.equals(player.getLocation().getLocation(), "park")){
             if (noun.equalsIgnoreCase("dog")) {
-                System.out.println("The " + noun + " says woof.");
+                DisplayScreen.displayConsole("The " + noun + " says woof.");
             }
         }else {
             System.out.println("You say hello to the " + noun + " but it does not respond back to you. Not sure what you were expecting?");
@@ -305,7 +310,7 @@ public class Actions {
         //call walking sound fx
         SoundFx.WALK.play();
 
-        if (noun.equalsIgnoreCase("north")) {
+        if (noun.equalsIgnoreCase("north") || noun.equalsIgnoreCase("up")) {
             if (key < Locations.locationsMap.size() - 2) {
                 if (key == 0) {
                     key++;
@@ -332,9 +337,13 @@ public class Actions {
             } else {
                 DisplayScreen.displayConsole("There is only corn ahead.");
             }
-        } else if (noun.equalsIgnoreCase("south")) {
+        } else if (noun.equalsIgnoreCase("south") || noun.equalsIgnoreCase("down")) {
             if (key == 0) {
-                player.setLocation(Locations.locationsMap.get(999));
+                DisplayScreen.displayConsole("You see more corn. Maybe go a different direction?");
+//                FIGURE OUT A WAY TO PUT HERE IF YOU HAVE THE FINAL CLUE AND CAN WIN THE GAME
+//                        if (player.hasClue()) {
+//                            player.setLocation(Locations.locationsMap.get(999)); //area 51 location, ends game
+//                        }
             } else if (key == 1) {
                 key--;
                 player.setLocation(Locations.locationsMap.get(key));
@@ -351,7 +360,7 @@ public class Actions {
                 player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
                 printMap();
             }
-        } else if (noun.equalsIgnoreCase("east")) {
+        } else if (noun.equalsIgnoreCase("east") || noun.equalsIgnoreCase("right")) {
             if (key % 3 == 2) {
                 DisplayScreen.displayConsole("Ahead lies nothing but corn.");
             } else {
@@ -369,7 +378,7 @@ public class Actions {
                 }
 
             }
-        } else if (noun.equalsIgnoreCase("west")) {
+        } else if (noun.equalsIgnoreCase("west") || noun.equalsIgnoreCase("left")) {
             if (key % 3 == 1) {
                 DisplayScreen.displayConsole("There is nothing but corn ahead.");
             } else {
@@ -438,7 +447,9 @@ public class Actions {
      */
     protected void attack(String noun) {
         if (noun.equalsIgnoreCase(player.getLocation().getNpc())) {
-            DisplayScreen.displayConsole("Probably not a wise move to attack the " + noun);
+            DisplayScreen.displayConsole("The " + noun + " says " + RED + "\"Get away from me!\"" + ANSI_RESET + " and pushes you away.");
+            player.setPlayerHp(getPlayerHp() - 10);
+            System.out.println("Your health: " + Player.getPlayerHp());
             return;
         }
         if (noun.equalsIgnoreCase("")) {
@@ -446,13 +457,14 @@ public class Actions {
             return;
         }
         if (noun.equalsIgnoreCase("dog")) {
-            DisplayScreen.displayConsole("Really? You would attack a harmless dog? The dog bites your leg and you cry like a baby.");
+            DisplayScreen.displayConsole(RED + "Really? You would attack a harmless dog? The dog bites your leg and you cry like a baby." + ANSI_RESET);
             player.setPlayerHp(getPlayerHp() - 10);
             System.out.println("Your health: " + Player.getPlayerHp());
             return;
         }
-        DisplayScreen.displayConsole("Attacking the " + noun);
-        AttackEngine.run(player, player.getEnemy());
+        DisplayScreen.displayConsole("You smashed the " + noun);
+        return;
+//        AttackEngine.run(player, player.getEnemy());
     }
 
     public void sound(String noun) {
