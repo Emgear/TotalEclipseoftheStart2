@@ -3,14 +3,17 @@ package com.totaleclipse.commands;
 import java.util.Arrays;
 
 public enum Commands {
-    move("move", "Moves the player in the selected direction, ie: 'move east'", "go", "walk", "run"),
-    get("get", "Pick up an item, ie: 'get key'", "grab", "pickup", "take"),
-    look("look", "Looks around the current location, ie:'look around'--'look map' will allow you to see a map of the locations", "search", "peek", "investigate", "view"),
+    move("move", "Moves the player in the selected direction, ie: 'move east'", "go", "walk", "run", "skip", "proceed", "advance", "climb", "jump"),
+    get("get", "Pick up an item, ie: 'get key'", "grab", "pickup", "take", "acquire", "obtain", "gain"),
+    look("look", "Looks around the current location, ie:'look around'--'look map' will allow you to see a map of the locations", "search", "peek", "investigate", "view", "show", "check", "scan"),
     //save("save", "Saves user data to disk"),
     talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "question", "interrogate"),
     close("close", "Closes Total Eclipse of the Start", "quit", "exit", "stop", "end"),
-    music("music", "Stops/starts the music","off"),
-    sound("sound", "Turns sound effects on/off", "mute");
+    attack("attack","attacks an enemy/monster","hit"),
+//    music("music", "Stops/starts the music","off"),
+//    totaleclipse("title", "Plays total Eclipse of the Heart", ""),
+    sound("sound", "Adjusts volume", "music", "volume", "audio"),
+    hunt("hunt", "shows enemies in location", "scout", "probe");
 
     private String keyword;
     private String description;

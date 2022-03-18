@@ -1,5 +1,6 @@
 package com.totaleclipse.commands;
 
+import com.totaleclipse.client.DisplayScreen;
 import com.totaleclipse.music.Music;
 import com.totaleclipse.music.SoundFx;
 import com.totaleclipse.music.SoundFx.Volume;
@@ -36,7 +37,6 @@ public class Command {
         return this.verb;
     }
 
-
     /**
      * Checks to see which commandVerb keyword was entered.
      *
@@ -46,6 +46,8 @@ public class Command {
         Actions action = new Actions(this);
         if (commandVerb.equalsIgnoreCase(Commands.move.getKeyword())) {
             action.move(this.noun);
+        } else if (commandVerb.equalsIgnoreCase(Commands.hunt.getKeyword())){
+                action.hunt(this.noun);
         } else if (commandVerb.equalsIgnoreCase(Commands.get.getKeyword())) {
             action.get(this.noun);
         } else if (commandVerb.equalsIgnoreCase(Commands.look.getKeyword())) {
@@ -56,20 +58,15 @@ public class Command {
             action.help();
         } else if (this.verb.equalsIgnoreCase(Commands.close.getKeyword())) {
             System.exit(0);
-        } else if (this.verb.equalsIgnoreCase(Commands.music.getKeyword())) {
-            if (SoundFx.MUSIC.playing){
-                SoundFx.MUSIC.stop();
-            } else {
-                SoundFx.MUSIC.play();
-            }
         }else if (this.verb.equalsIgnoreCase(Commands.sound.getKeyword())) {
-            if (SoundFx.WALK.sound) {
-                SoundFx.volume = Volume.MUTE;
-                SoundFx.WALK.sound=false;
-            } else {
-                SoundFx.volume = Volume.LOW;
+            action.sound(this.noun);
+//                SoundFx.volume = Volume.LOW;
                 SoundFx.WALK.sound=true;
-            }
+        } else if(this.verb.equalsIgnoreCase(Commands.attack.getKeyword())){
+            action.attack(this.noun);
+        } else{
+            DisplayScreen.displayConsole("This action cannot be executed. Please choose a different command or type \"help\" command for additional info.");
         }
     }
 }
+

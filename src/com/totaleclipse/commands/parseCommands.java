@@ -12,7 +12,7 @@ public class parseCommands {
         String[] commandArray=in.nextLine().split(" ");
         ArrayList parsedCommand=new ArrayList();
         for(var c:commandArray){
-            if(c.equalsIgnoreCase("to")||c.equalsIgnoreCase("the")||c.equalsIgnoreCase("of")||c.equalsIgnoreCase("a")||c.equalsIgnoreCase("and")){
+            if(c.equalsIgnoreCase("to")||c.equalsIgnoreCase("the")||c.equalsIgnoreCase("of")||c.equalsIgnoreCase("a")||c.equalsIgnoreCase("and")||c.equalsIgnoreCase("for")){
 
             }else{
                 parsedCommand.add(c);
