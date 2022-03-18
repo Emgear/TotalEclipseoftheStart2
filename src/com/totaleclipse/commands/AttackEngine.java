@@ -39,21 +39,33 @@ public class AttackEngine {
             System.out.println(enemy.getEnemyHealth());
             System.out.println("Your health: " + Player.getPlayerHp());
             System.out.println("Zombie health: " + enemy.getEnemyHealth());
+            enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
+            System.out.println("Enemy health is now :" + enemy.getEnemyHealth());
+
         } else if (randomNum == 1) {
             System.out.println("You got hit by the zombie");
             player.setPlayerHp(Player.getPlayerHp() - 10);
             System.out.println("Your health: " + Player.getPlayerHp());
             System.out.println("Zombie health: " + enemy.getEnemyHealth());
+            enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
+            System.out.println("Enemy health is now :" + enemy.getEnemyHealth());
+
         } else if (randomNum == 2) {
             System.out.println("You got hit by the zombie");
             player.setPlayerHp(Player.getPlayerHp() - 10);
             System.out.println("Your health: " + Player.getPlayerHp());
             System.out.println("Zombie health: " + enemy.getEnemyHealth());
+            enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
+            System.out.println("Enemy health is now :" + enemy.getEnemyHealth());
+
         } else {
             System.out.println("You got hit by the zombie");
             player.setPlayerHp(Player.getPlayerHp() - 10);
             System.out.println("Your health: " + Player.getPlayerHp());
             System.out.println("Zombie health: " + enemy.getEnemyHealth());
+            enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
+            System.out.println("Enemy health is now :" + enemy.getEnemyHealth());
+
         }
 
     }
