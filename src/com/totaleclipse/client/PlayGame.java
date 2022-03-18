@@ -137,6 +137,11 @@ public class PlayGame {
         SoundFx.TOTALECLIPSE.stop();
         SoundFx.MUSIC.play();
         while (playing) {
+            if (Player.getPlayerHp() <= 0){
+                System.out.println("You have died.");
+                playing = false;
+                break;
+            }
             parseCommands com = new parseCommands();
             DisplayScreen.displayConsole("Enter your command:");
             ArrayList commandArray = com.parseCommand();
