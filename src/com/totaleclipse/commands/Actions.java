@@ -137,26 +137,46 @@ public class Actions {
           switch (player.getLocation().getLocation()){
               case "bar":
                   enemy = enemyMap.get("ZOMBIE ZACH");
+                  if(enemy == null) {
+                      System.out.println("The enemy is dead");
+                      break;
+                  }
                   DisplayScreen.displayConsole(enemy);
                   AttackEngine.run(player, enemy);
                   break;
               case "library":
                   enemy = enemyMap.get("ZOMBIE BRIT");
+                  if(enemy == null) {
+                      System.out.println("The enemy is dead");
+                      break;
+                  }
                   DisplayScreen.displayConsole(enemy);
                   AttackEngine.run(player, enemy);
                   break;
               case "bookstore":
                   enemy = enemyMap.get("ZOMBIE AMY");
+                  if(enemy == null) {
+                      System.out.println("The enemy is dead");
+                      break;
+                  }
                   DisplayScreen.displayConsole(enemy);
                   AttackEngine.run(player, enemy);
                   break;
               case "cafe":
                   enemy = enemyMap.get("ZOMBIE JULIAN");
+                  if(enemy == null) {
+                      System.out.println("The enemy is dead");
+                      break;
+                  }
                   DisplayScreen.displayConsole(enemy);
                   AttackEngine.run(player, enemy);
                   break;
               case "crash site":
                   enemy = enemyMap.get("ZOMBIE BOSS");
+                  if(enemy == null) {
+                      System.out.println("The enemy is dead");
+                      break;
+                  }
                   DisplayScreen.displayConsole(enemy);
                   AttackEngine.run(player, enemy);
                   break;
@@ -389,14 +409,14 @@ public class Actions {
      * Player attacks an enemy/monster/zombie at a given location
      * @param noun
      */
-//    protected void attack(String noun){
-//        if (noun.equalsIgnoreCase(player.getLocation().getNpc())){
-//            DisplayScreen.displayConsole("Probably not a wise move to attack the " + noun);
-//            return;
-//        }
-//        DisplayScreen.displayConsole("Attacking the " + noun);
-//       AttackEngine.run(player, player.getEnemy());
-//    }
+    protected void attack(String noun){
+        if (noun.equalsIgnoreCase(player.getLocation().getNpc())){
+            DisplayScreen.displayConsole("Probably not a wise move to attack the " + noun);
+            return;
+        }
+        DisplayScreen.displayConsole("Attacking the " + noun);
+       AttackEngine.run(player, player.getEnemy());
+    }
 
     public void sound(String noun) {
         switch (noun.toLowerCase()) {

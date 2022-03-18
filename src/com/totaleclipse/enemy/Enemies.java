@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Enemies {
-    private static HashMap<String, Enemy> enemyMap = new HashMap<>();
+    public static HashMap<String, Enemy> enemyMap = new HashMap<>();
 
     public Enemies(){};
 
