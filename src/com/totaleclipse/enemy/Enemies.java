@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.totaleclipse.player.Player;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -26,6 +27,7 @@ public class Enemies {
             for (var enemy: enemies){
                 enemyMap.put(enemy.getName(), enemy);
 //                System.out.println(enemyMap);
+                enemy.setEnemyHealth(100);
             }
         } catch (JsonMappingException e) {
             e.printStackTrace();

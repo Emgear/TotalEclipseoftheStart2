@@ -18,7 +18,7 @@ import java.util.logging.Handler;
 
 public class Enemy {
     private String name;
-    private int enemyHealth = 100;
+    private int enemyHealth;
     private int attackPower;
     public static Enemy enemy=null;
 
