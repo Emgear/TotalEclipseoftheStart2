@@ -49,18 +49,17 @@ public class Actions {
         HashMap<String, Enemy> enemyMap = Enemies.makeEnemy();
         Enemy enemy;
 
-
         switch (noun.toLowerCase()) {
             case "zombie":
                 enemy = enemyMap.get("MONSTER");
                 DisplayScreen.displayConsole(enemy.getName());
                 break;
-
             case "inventory":
+            case "items":
                 DisplayScreen.displayConsole(Journal.getClueString());
                 break;
             case "around":
-                if (player.getLocation().getLocation() == Locations.locationsMap.get(0).getLocation()){
+                if (player.getLocation().getLocation() == Locations.locationsMap.get(0).getLocation()) {
                     DisplayScreen.displayConsole("Guess what. There's corn.");
                     break;
                 }
@@ -72,13 +71,14 @@ public class Actions {
                 }
                 break;
             case "north":
+            case "up":
+            case "nort":
                 if (key < 2) {
                     DisplayScreen.displayConsole(Locations.locationsMap.get(key + 1).getLook(1));
-
                 } else {
                     try {
                         DisplayScreen.displayConsole(Locations.locationsMap.get(key + 3).getLook(1));
-                    }catch(Exception e){
+                    } catch (Exception e) {
                         DisplayScreen.displayConsole("There is only corn.");
                     }
 
@@ -86,91 +86,91 @@ public class Actions {
                 // DisplayScreen.displayConsole(player.getLocation().getLook(1));
                 break;
             case "east":
+            case "right":
                 if (key > 1) {
                     DisplayScreen.displayConsole(Locations.locationsMap.get(key - 1).getLook(1));
                 } else
                     DisplayScreen.displayConsole("Corn, more corn.");
-
-
                 break;
             case "south":
-                if (player.getLocation().getLocation() == Locations.locationsMap.get(0).getLocation()){
+            case "down":
+                if (player.getLocation().getLocation() == Locations.locationsMap.get(0).getLocation()) {
                     DisplayScreen.displayConsole("Guess what. There's corn.");
                     break;
                 }
                 if (key > 1) {
                     DisplayScreen.displayConsole(Locations.locationsMap.get(key - 3).getLook(1));
-
                 } else
                     DisplayScreen.displayConsole(Locations.locationsMap.get(key - 1).getLook(1));
-
                 // DisplayScreen.displayConsole(player.getLocation().getLook(2));
                 break;
             case "west":
+            case "left":
                 try {
-                    if (player.getLocation().getLocation() == Locations.locationsMap.get(0).getLocation() || player.getLocation().getLocation() == Locations.locationsMap.get(1).getLocation()){
+                    if (player.getLocation().getLocation() == Locations.locationsMap.get(0).getLocation() || player.getLocation().getLocation() == Locations.locationsMap.get(1).getLocation()) {
                         DisplayScreen.displayConsole("Guess what. There's corn.");
                     } else {
-                    DisplayScreen.displayConsole(Locations.locationsMap.get(key + 1).getLook(1)); }
-                } catch(Exception e) {
+                        DisplayScreen.displayConsole(Locations.locationsMap.get(key + 1).getLook(1));
+                    }
+                } catch (Exception e) {
                     DisplayScreen.displayConsole("Guess what. There's corn.");
                 }
                 break;
-
             case "map":
                 map.printMap(player);
                 break;
             case "hp":
+            case "health":
+            case "life":
                 DisplayScreen.displayConsole("Current player health points: " + player.getPlayerHp());
                 break;
             default:
                 DisplayScreen.displayConsole("I don't see any " + noun.toLowerCase() + " around here.");
         }
-
     }
 
-    protected void hunt(String noun){
+    protected void hunt(String noun) {
         HashMap<String, Enemy> enemyMap = Enemies.makeEnemy();
         Enemy enemy;
 
-      if (noun.equalsIgnoreCase("monster")){
-          switch (player.getLocation().getLocation()){
-              case "bar":
-                  enemy = enemyMap.get("ZOMBIE ZACH");
-                  DisplayScreen.displayConsole(enemy);
-                  AttackEngine.run(player, enemy);
-                  break;
-              case "library":
-                  enemy = enemyMap.get("ZOMBIE BRIT");
-                  DisplayScreen.displayConsole(enemy);
-                  AttackEngine.run(player, enemy);
-                  break;
-              case "bookstore":
-                  enemy = enemyMap.get("ZOMBIE AMY");
-                  DisplayScreen.displayConsole(enemy);
-                  AttackEngine.run(player, enemy);
-                  break;
-              case "cafe":
-                  enemy = enemyMap.get("ZOMBIE JULIAN");
-                  DisplayScreen.displayConsole(enemy);
-                  AttackEngine.run(player, enemy);
-                  break;
-              case "crash site":
-                  enemy = enemyMap.get("ZOMBIE BOSS");
-                  DisplayScreen.displayConsole(enemy);
-                  AttackEngine.run(player, enemy);
-                  break;
-              default:
-                  DisplayScreen.displayConsole("THE COAST IS CLEAR");
+        if (noun.equalsIgnoreCase("monster")) {
+            switch (player.getLocation().getLocation()) {
+                case "bar":
+                    enemy = enemyMap.get("ZOMBIE ZACH");
+                    DisplayScreen.displayConsole(enemy);
+                    AttackEngine.run(player, enemy);
+                    break;
+                case "library":
+                    enemy = enemyMap.get("ZOMBIE BRIT");
+                    DisplayScreen.displayConsole(enemy);
+                    AttackEngine.run(player, enemy);
+                    break;
+                case "bookstore":
+                    enemy = enemyMap.get("ZOMBIE AMY");
+                    DisplayScreen.displayConsole(enemy);
+                    AttackEngine.run(player, enemy);
+                    break;
+                case "cafe":
+                    enemy = enemyMap.get("ZOMBIE JULIAN");
+                    DisplayScreen.displayConsole(enemy);
+                    AttackEngine.run(player, enemy);
+                    break;
+                case "crash site":
+                    enemy = enemyMap.get("ZOMBIE BOSS");
+                    DisplayScreen.displayConsole(enemy);
+                    AttackEngine.run(player, enemy);
+                    break;
+                default:
+                    DisplayScreen.displayConsole("THE COAST IS CLEAR");
 
 
-
-          }
-      }
+            }
+        }
     }
 
     /**
      * Gets an item from the given location. Player receives a Clue when the item is taken.
+     *
      * @param noun
      */
     protected void get(String noun) {
@@ -196,7 +196,6 @@ public class Actions {
                 }
             } else {
                 clue = cluesMap.get(Locations.locationsMap.get(key).getLocation());
-
             }
 
             String clueString = clue.getClue();
@@ -212,6 +211,7 @@ public class Actions {
 
     /**
      * Player talks to the NPC at a given location. The first time the player speaks to them, the player receives a Clue. After
+     *
      * @param noun
      */
     protected void talk(String noun) {
@@ -248,6 +248,8 @@ public class Actions {
             } else {
                 DisplayScreen.displayConsole(NPC.getRandomDialog());
             }
+        } else {
+            System.out.println("You say hello to the " + noun + " but it does not respond back to you. Not sure what you were expecting?");
         }
     }
 
@@ -258,7 +260,7 @@ public class Actions {
         SoundFx.WALK.play();
 
         if (noun.equalsIgnoreCase("north")) {
-            if (key < Locations.locationsMap.size()-2) {
+            if (key < Locations.locationsMap.size() - 2) {
                 if (key == 0) {
                     key++;
                     player.setLocation(Locations.locationsMap.get(key));
@@ -276,9 +278,9 @@ public class Actions {
                         player.setLocation(Locations.locationsMap.get(key));
                         player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
                         printMap();
-                    }catch(Exception e){
+                    } catch (Exception e) {
                         DisplayScreen.displayConsole("There is only corn ahead.");
-                        player.setLocation(Locations.locationsMap.get(key-3));
+                        player.setLocation(Locations.locationsMap.get(key - 3));
                     }
                 }
             } else {
@@ -307,10 +309,9 @@ public class Actions {
             if (key % 3 == 2) {
                 DisplayScreen.displayConsole("Ahead lies nothing but corn.");
             } else {
-                if (key == 0 || key == 1){
+                if (key == 0 || key == 1) {
                     DisplayScreen.displayConsole("There is nothing but corn");
-                }
-                else {
+                } else {
                     key--;
                     try {
                         player.setLocation(Locations.locationsMap.get(key));
@@ -320,16 +321,14 @@ public class Actions {
                         DisplayScreen.displayConsole("There's nothing but corn");
                     }
                 }
-
             }
         } else if (noun.equalsIgnoreCase("west")) {
             if (key % 3 == 1) {
                 DisplayScreen.displayConsole("There is nothing but corn ahead.");
             } else {
-                if (key == 0 || key == 1){
+                if (key == 0 || key == 1) {
                     DisplayScreen.displayConsole("There is nothing but corn");
-                }
-                else {
+                } else {
                     key++;
                     try {
                         player.setLocation(Locations.locationsMap.get(key));
@@ -341,7 +340,6 @@ public class Actions {
                 }
             }
         }
-
     }
 
     public void printMap() {
@@ -352,8 +350,7 @@ public class Actions {
                 try {
                     DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east is corn as far as the eye can see" + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
                 } catch (Exception e) {
-                    DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north lies corn" + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east is yet more corn"+ "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
-
+                    DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north lies corn" + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east is yet more corn" + "\nTo the west " + Locations.locationsMap.get(key + 1).getLook(1));
                 }
             }
         } else if (key % 3 == 1) {
@@ -364,15 +361,13 @@ public class Actions {
                     DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn.");
                 } catch (Exception e) {
                     DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north lies corn\nTo the south " + Locations.locationsMap.get(key - 3).getLook(1) + "\nTo the east " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn.");
-
                 }
             }
         } else if (key == 0) {
             try {
                 DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south is simply corn" + "\nTo the east is " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn");
-            }catch(Exception e){
+            } catch (Exception e) {
                 DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south is simply corn" + "\nTo the east is more corn" + "\nTo the west is corn");
-
             }
         } else {
             if (key < 5) {
@@ -385,22 +380,30 @@ public class Actions {
             }
         }
     }
+
     /**
      * Player attacks an enemy/monster/zombie at a given location
+     *
      * @param noun
      */
-//    protected void attack(String noun){
-//        if (noun.equalsIgnoreCase(player.getLocation().getNpc())){
-//            DisplayScreen.displayConsole("Probably not a wise move to attack the " + noun);
-//            return;
-//        }
-//        DisplayScreen.displayConsole("Attacking the " + noun);
-//       AttackEngine.run(player, player.getEnemy());
-//    }
+    protected void attack(String noun) {
+        if (noun.equalsIgnoreCase(player.getLocation().getNpc())) {
+            DisplayScreen.displayConsole("Probably not a wise move to attack the " + noun);
+            return;
+        }
+        if (noun.equalsIgnoreCase("")) {
+            DisplayScreen.displayConsole("You must select something to attack.");
+            return;
+        }
+        DisplayScreen.displayConsole("Attacking the " + noun);
+        AttackEngine.run(player, player.getEnemy());
+    }
 
     public void sound(String noun) {
         switch (noun.toLowerCase()) {
             case "low":
+            case "down":
+            case "min":
                 SoundFx.volume = SoundFx.Volume.LOW;
                 SoundFx.MUSIC.play();
                 break;
@@ -409,21 +412,24 @@ public class Actions {
                 SoundFx.MUSIC.play();
                 break;
             case "high":
+            case "up":
+            case "loud":
+            case "max":
                 SoundFx.volume = SoundFx.Volume.HIGH;
                 SoundFx.MUSIC.play();
                 break;
             case "off":
+            case "mute":
+            case "silence":
                 SoundFx.volume = SoundFx.Volume.MUTE;
                 SoundFx.MUSIC.stop();
-                SoundFx.WALK.sound=false;
+                SoundFx.WALK.sound = false;
                 break;
             case "on":
                 SoundFx.volume = SoundFx.Volume.MEDIUM;
                 SoundFx.MUSIC.play();
-                SoundFx.WALK.sound=true;
+                SoundFx.WALK.sound = true;
                 break;
         }
-
     }
-
 }
