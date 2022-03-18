@@ -37,7 +37,6 @@ public class Command {
         return this.verb;
     }
 
-
     /**
      * Checks to see which commandVerb keyword was entered.
      *

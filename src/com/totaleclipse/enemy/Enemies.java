@@ -16,7 +16,6 @@ public class Enemies {
 
     public Enemies(){};
 
-
     public static HashMap<String, Enemy> createEnemies(){
         try {
             ObjectMapper mapper = new ObjectMapper();

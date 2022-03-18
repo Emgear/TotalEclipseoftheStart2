@@ -35,8 +35,6 @@ public class Enemy {
         setAttackPower(attackPower);
     }
 
-
-
     public String getName() {
         return name;
     }
