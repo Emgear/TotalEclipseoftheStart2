@@ -6,6 +6,7 @@ import com.totaleclipse.enemy.Enemy;
 import com.totaleclipse.player.Player;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class AttackEngine {
@@ -40,22 +41,24 @@ public class AttackEngine {
                     DisplayScreen.displayConsole("You have lost over half you health. Do you want to run away? (yes or no)");
                     ArrayList commandArray = runOrNO.parseCommand();
                     String runOrNoString = (String) commandArray.get(0);
-                    if (runOrNoString == "yes" || runOrNoString == "y") {
-                        return;
+                    if (Objects.equals(runOrNoString, "yes") || Objects.equals(runOrNoString, "y")) {
+                        DisplayScreen.displayConsole(player.getPlayerName() + " got away!");
+                        break;
                     } else {
                         halfHealthQuestion = false;
                     }
-
                 }
+                break;
             }
             // if players health is less than 20;
-            if (player.getPlayerHp() < (startingHp / 2)) {
+            if (player.getPlayerHp() <= 20) {
                 while (almostDeadQuestion) {
                     DisplayScreen.displayConsole("You are almost dead. Do you want to run away? (yes or no)");
                     ArrayList commandArray = runOrNO.parseCommand();
                     String runOrNoString = (String) commandArray.get(0);
-                    if (runOrNoString == "yes" || runOrNoString == "y") {
-                        return;
+                    if (Objects.equals(runOrNoString, "yes") || Objects.equals(runOrNoString, "y")) {
+                        DisplayScreen.displayConsole(player.getPlayerName() + " got away!");
+                        break;
                     }
                     else {
                         almostDeadQuestion = false;
@@ -68,36 +71,36 @@ public class AttackEngine {
     static void fight() {
         int randomNum = (int) (Math.random() * 4); // 0 to 10
         if (randomNum == 0) {
-            System.out.println("you've hit the zombie with a corn stick");
-            System.out.println(enemy.getEnemyHealth());
-            System.out.println("Your health: " + Player.getPlayerHp());
-            System.out.println("Zombie health: " + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole("you've hit the zombie with a corn stick");
+            DisplayScreen.displayConsole(enemy.getEnemyHealth());
+            DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
+            DisplayScreen.displayConsole("Zombie health: " + enemy.getEnemyHealth());
             enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
-            System.out.println("Enemy health is now :" + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole("Enemy health is now :" + enemy.getEnemyHealth());
 
         } else if (randomNum == 1) {
-            System.out.println("You got hit by the zombie");
+            DisplayScreen.displayConsole("You got hit by the zombie");
             player.setPlayerHp(Player.getPlayerHp() - 10);
-            System.out.println("Your health: " + Player.getPlayerHp());
-            System.out.println("Zombie health: " + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
+            DisplayScreen.displayConsole("Zombie health: " + enemy.getEnemyHealth());
             enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
-            System.out.println("Enemy health is now :" + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole("Enemy health is now :" + enemy.getEnemyHealth());
 
         } else if (randomNum == 2) {
-            System.out.println("You got hit by the zombie");
+            DisplayScreen.displayConsole("You got hit by the zombie");
             player.setPlayerHp(Player.getPlayerHp() - 10);
-            System.out.println("Your health: " + Player.getPlayerHp());
-            System.out.println("Zombie health: " + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
+            DisplayScreen.displayConsole("Zombie health: " + enemy.getEnemyHealth());
             enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
-            System.out.println("Enemy health is now :" + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole("Enemy health is now :" + enemy.getEnemyHealth());
 
         } else {
-            System.out.println("You got hit by the zombie");
-            player.setPlayerHp(Player.getPlayerHp() - 10);
-            System.out.println("Your health: " + Player.getPlayerHp());
-            System.out.println("Zombie health: " + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole("You got bit by the zombie");
+            player.setPlayerHp(Player.getPlayerHp() - enemy.getAttackPower());
+            DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
+            DisplayScreen.displayConsole("Zombie health: " + enemy.getEnemyHealth());
             enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
-            System.out.println("Enemy health is now :" + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole("Enemy health is now :" + enemy.getEnemyHealth());
 
         }
 
