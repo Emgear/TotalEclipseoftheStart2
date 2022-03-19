@@ -56,6 +56,10 @@ public enum SoundFx {
             if (clip.isRunning())
                 clip.stop();   // Stop the player if it is still running
             clip.setFramePosition(0); // rewind to the beginning
+            if (clip.toString().equalsIgnoreCase("com.sun.media.sound.DirectAudioDevice$DirectClip@6cc4c815")){
+                clip.setFramePosition(10465000);
+
+            }
             clip.start();     // Start playing
             FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
             if (volume == Volume.LOW) {
