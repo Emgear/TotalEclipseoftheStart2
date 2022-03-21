@@ -28,7 +28,8 @@ public class Actions {
     private int grouping = 0;
     public static final String BLUE = "\033[0;34m";
     public static final String ANSI_RESET = "\u001B[0m";
-    public static final String RED = "\033[0;31m";     // RED
+    public static final String RED = "\033[0;31m";
+    public static boolean finalClue = false;
 
 
     public Actions(Command command) {
@@ -249,7 +250,7 @@ public class Actions {
             DisplayScreen.displayConsole("The " + player.getClue().getItem() + " tells you " + clueString);
             player.getClue().removeItem();
         } else {
-            DisplayScreen.displayConsole("That item is not here.");
+            DisplayScreen.displayConsole("You cannot grab this item.");
         }
 
         player.setHumanity(-1);
@@ -278,6 +279,8 @@ public class Actions {
                         break;
                     case "crash site":
                         clue = cluesMap.get("area 51");
+                        finalClue = true;
+                        //trying this for final clue
                         break;
                     default:
                         clue = cluesMap.get("crop circle");
@@ -290,7 +293,7 @@ public class Actions {
             if (!Journal.hasClue(clue)) {
                 String clueString = clue.getClue();
                 Journal.addClue(noun, clueString);
-                System.out.println("You speak to the " + player.getClue().getNpc() + " and they tell you " + BLUE + clueString + ANSI_RESET);
+                System.out.println("You speak to the " + player.getClue().getNpc() + " who tells you " + BLUE + clueString + ANSI_RESET);
                 player.setHumanity(1);
             } else {
                 DisplayScreen.displayConsole(NPC.getRandomDialog());
@@ -339,11 +342,12 @@ public class Actions {
             }
         } else if (noun.equalsIgnoreCase("south") || noun.equalsIgnoreCase("down")) {
             if (key == 0) {
-                DisplayScreen.displayConsole("You see more corn. Maybe go a different direction?");
-//                FIGURE OUT A WAY TO PUT HERE IF YOU HAVE THE FINAL CLUE AND CAN WIN THE GAME
-//                        if (player.hasClue()) {
-//                            player.setLocation(Locations.locationsMap.get(999)); //area 51 location, ends game
-//                        }
+//                IF YOU HAVE THE FINAL CLUE AND CAN WIN THE GAME AREA 51 REVEALS ITSELF
+                        if (finalClue) {
+                            player.setLocation(Locations.locationsMap.get(999)); //area 51 location, ends game
+                        } else {
+                            DisplayScreen.displayConsole("You see more corn. Maybe go a different direction?");
+                        }
             } else if (key == 1) {
                 key--;
                 player.setLocation(Locations.locationsMap.get(key));

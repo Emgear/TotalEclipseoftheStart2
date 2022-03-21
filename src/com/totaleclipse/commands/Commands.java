@@ -7,7 +7,7 @@ public enum Commands {
     get("get", "Pick up an item, ie: 'get key'", "grab", "pickup", "take", "acquire", "obtain", "gain", "drink", "eat", "pet"),
     look("look", "Looks around the current location, ie:'look around'--'look map' will allow you to see a map of the locations", "search", "peek", "investigate", "view", "show", "check", "scan"),
     //save("save", "Saves user data to disk"),
-    talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "question", "interrogate"),
+    talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "tlak", "question", "interrogate"),
     close("close", "Closes Total Eclipse of the Start", "quit", "exit"),
     attack("attack","attacks an enemy/monster","hit"),
 //    music("music", "Stops/starts the music","off"),

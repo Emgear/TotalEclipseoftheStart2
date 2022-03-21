@@ -58,9 +58,9 @@
   },
   {
     "clue": [
-      "\"what you seek is at the library.\"",
-      "\"you might find help in a book.\"",
-      "\"peace and quiet is always nice.\""
+      "\"Hm...maybe check out the library.\"",
+      "\"A book from the library might give you more information on what you seek.\"",
+      "\"A space with some peace and quiet might help you think.\""
     ],
     "item": "carving",
     "npc": "woman",
