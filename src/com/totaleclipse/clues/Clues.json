@@ -15,7 +15,7 @@
   },
   {
     "clue": [
-      "\"There be monsters afoot in these here cornfields...\"",
+      "\"There be monsters afoot in these here cornfields...I tried to 'hunt' them by myself but wasn't able to make much progress without having to run away.\"",
       "\"People say I'm a crazed old man, but I'm just misunderstood.\"",
       "\"I've heard people call me 'crazed' before. Why do they think that? Is my hair too wild-looking? Well, I can't do too much about that. There's no salon in this town.\"?"
     ],
@@ -44,7 +44,7 @@
   {
     "clue": [
       "\"That book about Mt. Everest had quite the cliff-hanger.\"",
-      "\"I started reading a book about mazes—I got lost in it.\"",
+      "\"I started reading a book about corn mazes—I got lost in it.\"",
       "\"What is a car’s favorite genre? Auto-biography.\""
     ],
     "item": "book",
@@ -58,7 +58,7 @@
   },
   {
     "clue": [
-      "\"We have a bookstore and a library in this town but no hair salon. We need to hire a new town designer.\"",
+      "\"Some of the townsfolk have tried to 'hunt' monsters that have been showing up around town.\"",
       "\"I saw a crazed man by the old bunker. His hair looked completely wild!\"",
       "\"Would you like to pet my dog?\""
     ],
@@ -87,7 +87,7 @@
   {
     "clue": [
       "\"I was just over at the bar last night and the bartender was talking about something they saw on their way to work.\"",
-      "\"People just love to gossip over coffee or beer. Something about opening up around liquids I suppose.\"",
+      "\"There's something sketchy about that tourist who came to visit the town. Who visits a town with four buildings that's surrounded by corn?\"",
       "\"Sometimes I see a woman walking her dog at the park. It's so cute! I always want to just go over and pet it when I see it.\""
     ],
     "item": "flier",
@@ -117,9 +117,9 @@
   },
   {
     "clue": [
-      "\"I saw something moving in the corn...too fast to be a cow.\"",
-      "\"There's something sketchy about that tourist who came to visit the town. Who visits a town with four buildings that's surrounded by corn?\"",
-      "\"You want to know the answer to all this? 42 my friend. \""
+      "\"Whenever I try to move further outside of the corn to find a new climbing location, a huge creature gets in my way- bigger than all the others! Something has to be done about it before anyone can get out of this town.\"",
+      "\"Whenever I try to move further outside of the corn to find a new climbing location, a huge creature gets in my way- bigger than all the others! Something has to be done about it before anyone can get out of this town.\"",
+      "\"Whenever I try to move further outside of the corn to find a new climbing location, a huge creature gets in my way- bigger than all the others! Something has to be done about it before anyone can get out of this town.\""
     ],
     "item": "petroglyphs",
     "npc": "climber",

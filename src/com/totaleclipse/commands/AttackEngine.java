@@ -17,6 +17,8 @@ public class AttackEngine {
     private static int startingHp;
     private static Player player;
     private static Enemy enemy;
+    public static int zombiesKilled;
+    public static boolean bossKilled = false;
     public static final String RED_BOLD = "\033[1;31m";    // RED
     public static final String RESET = "\033[0m";  // Text Reset
     public static final String GREEN_BOLD = "\033[1;32m";  // GREEN
@@ -40,15 +42,19 @@ public class AttackEngine {
 
             if ((Objects.equals(chooseActingString, "fight")) || (Objects.equals(chooseActingString, "hit")) || (Objects.equals(chooseActingString, "attack"))){
                 fight();
-                System.out.println(choiceArray);
+//                System.out.println(choiceArray);
             } else {
-                DisplayScreen.displayConsole("hmm maybe i should try to (fight, hit, attack)");
+                DisplayScreen.displayConsole("Hmm... maybe I should try to (fight, hit, attack)");
             }
             if (Player.getPlayerHp() <= 0){
                 return;
             }
             if (enemy.getEnemyHealth() <= 0){
-                System.out.println("Enemy has died");
+                if (enemy.getName() == "ZOMBIE BOSS") {
+                    bossKilled = true;
+                }
+                System.out.println(enemy.getName() + " has been defeated.");
+                zombiesKilled++;
                 Enemies.enemyMap.remove(enemy.getName());
                 return;
             }
@@ -95,7 +101,8 @@ public class AttackEngine {
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
 
         } else if (randomNum == 1) {
-            DisplayScreen.displayConsole(enemy.getName() + " stumbled towards you but fell over...");
+            DisplayScreen.displayConsole(GREEN_BOLD + enemy.getName() + " stumbled towards you but fell over so you kick them in the head" + RESET);
+            enemy.setEnemyHealth(enemy.getEnemyHealth() - 20);
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             DisplayScreen.displayConsole(enemy.getName() + " health: " + enemy.getEnemyHealth());
 
@@ -106,13 +113,13 @@ public class AttackEngine {
             DisplayScreen.displayConsole(enemy.getName() + " health: " + enemy.getEnemyHealth());
 
         } else if (randomNum == 3) {
-            DisplayScreen.displayConsole(GREEN_BOLD + "You kicked dirt in " + enemy.getName() + " eyes" + RESET);
+            DisplayScreen.displayConsole(GREEN_BOLD + "You kicked dirt in " + enemy.getName() + "'s eyes" + RESET);
             enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
             DisplayScreen.displayConsole(enemy.getName() + " health is now: " + enemy.getEnemyHealth());
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
 
         } else if (randomNum == 4) {
-            DisplayScreen.displayConsole(GREEN_BOLD + "You put " + enemy.getName() + " in a full nelson! He is grasping for air " + RESET);
+            DisplayScreen.displayConsole(GREEN_BOLD + "You put " + enemy.getName() + " in a full nelson! They are grasping for air " + RESET);
             enemy.setEnemyHealth(enemy.getEnemyHealth() - 25);
             DisplayScreen.displayConsole(enemy.getName() + " health is now: " + enemy.getEnemyHealth());
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
