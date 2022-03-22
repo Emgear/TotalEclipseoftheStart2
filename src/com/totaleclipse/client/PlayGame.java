@@ -104,7 +104,7 @@ public class PlayGame {
         DisplayScreen.displayConsole("Welcome to Total Eclipse of the .start()");
         DisplayScreen.displayConsole("A text-based mystery game full of conspiracy! " +
                 "Are you human? Alien? Or something else entirely? " +
-                "Uncover your past and discover your true identity!");
+                "Uncover your past and discover your true identity!" + " Your goal is to find a way out of the corn and bring back your memory. Your actions throughout the game will impact your game result so act wisely!");
         DisplayScreen.displayConsole("\t- To exit the game, simply type \"quit\"\n\n");
 
         HashMap<Integer, Location> locationsMap = Locations.generateLocations();
@@ -139,7 +139,7 @@ public class PlayGame {
         SoundFx.MUSIC.play();
         while (playing) {
             if (Player.getPlayerHp() <= 0){
-                System.out.println("You have died.");
+                DisplayScreen.displayConsole("You have died. GAME OVER");
                 playing = false;
                 break;
             }
