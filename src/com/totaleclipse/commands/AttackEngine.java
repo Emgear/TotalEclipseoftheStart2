@@ -43,6 +43,8 @@ public class AttackEngine {
             if ((Objects.equals(chooseActingString, "fight")) || (Objects.equals(chooseActingString, "hit")) || (Objects.equals(chooseActingString, "attack"))){
                 fight();
 //                System.out.println(choiceArray);
+            } else if ((Objects.equals(chooseActingString, "run")) || (Objects.equals(chooseActingString, "escape"))){
+                DisplayScreen.displayConsole("You cannot escape!");
             } else {
                 DisplayScreen.displayConsole("Hmm... maybe I should try to (fight, hit, attack)");
             }
@@ -93,7 +95,7 @@ public class AttackEngine {
     }
 
     static void fight() {
-        int randomNum = (int) (Math.random() * (10-0)) + 0; // 0 to 10
+        int randomNum = (int) (Math.random() * (6-0)) + 0; // 0 to 6
         if (randomNum == 0) {
             DisplayScreen.displayConsole(GREEN_BOLD + "You hit " + enemy.getName() + " with a corn stalk" + RESET);
             enemy.setEnemyHealth(enemy.getEnemyHealth() - 20);

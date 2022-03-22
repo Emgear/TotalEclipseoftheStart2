@@ -6,7 +6,7 @@
     "item": "key",
     "npc": "None",
     "look": [
-      "You are currently in a cornfield. There is a path to the north, and a key on the ground next to you. You don't see anyone else around, and that floating cow you saw remains in your mind.",
+      "You are currently in a cornfield. There is a path to the north. You don't see anyone else around, and that floating cow you saw remains in your mind.",
       "you see a path that leads back to the crop circle."
     ]
   },
@@ -17,7 +17,7 @@
     "item": "map",
     "npc": "man",
     "look": [
-      "You have entered what appears to be a prepper bunker. You see a crazed old man in the corner and a large map plastered on the wall.",
+      "You have entered what appears to be a prepper bunker. You see a crazed old man in the corner.",
       "in the midst of the corn, you see a path leading to what looks like a bunker."
     ]
   },
@@ -28,7 +28,7 @@
     "item": "newspaper",
     "npc": "Librarian",
     "look": [
-      "You throw open the doors to the local library. There is a librarian behind the counter and a newspaper on a table in the middle of the room.",
+      "You throw open the doors to the local library. There is a librarian behind the counter..",
       "you see a road leading to the library in town."
     ]
   },
@@ -39,7 +39,7 @@
     "item": "book",
     "npc": "Employee",
     "look": [
-      "You enter a small used bookstore--you see an employee at the register and a prominantly displayed book on local UFO sightings.",
+      "You enter a small used bookstore--you see an employee at the register.",
       "down the street is a small bookstore."
     ]
   },
@@ -50,7 +50,7 @@
     "item": "carving",
     "npc": "woman",
     "look": [
-      "You walk along an overgrown path into a beautiful park. You see a woman walking her dog and a mysterious carving in a tree.",
+      "You walk along an overgrown path into a beautiful park. You see a woman walking her dog.",
       "there is an overgrown path leading to a clearing in the town's park."
     ]
   },
@@ -61,7 +61,7 @@
     "item": "Poster",
     "npc": "Bartender",
     "look": [
-      "You step into a dirty, dingy bar smelling of stale beer and cigarettes. The bartender winks and pours you a whisky. You notice a strange poster on the wall.",
+      "You step into a dirty, dingy bar smelling of stale beer and cigarettes. The bartender winks and pours you a whisky.",
       "you see a small dive bar across the street."
     ]
   },
@@ -72,7 +72,7 @@
     "item": "newsletter",
     "npc": "barista",
     "look": [
-      "You walk into a coffee shop, the smell of roasted coffee wafts through the air. There is a barista behind the espresso machine and you notice a flier with a UFO on it.",
+      "You walk into a coffee shop, the smell of roasted coffee wafts through the air. There is a barista behind the espresso machine.",
       "you smell roasting coffee coming from the cafe down the road."
     ]
   },
@@ -83,7 +83,7 @@
     "item": "paper",
     "npc": "tourist",
     "look": [
-      "You approach a historical well, there is a tourist looking deep inside and a crumpled piece of paper lying on the ground.",
+      "You approach a historical well, there is a tourist looking deep inside it.",
       "a well known historical site containing a well lies ahead."
     ]
   },
@@ -94,7 +94,7 @@
     "item": "petroglyphs",
     "npc": "climber",
     "look": [
-      "Out in the desert there is a popular rock climbing site. You see a solitary rock climber and a series of petroglyphs depicting what looks like a UFO.",
+      "Out in the desert there is a popular rock climbing site. You see a solitary rock climber.",
       "there is a giant rock formation up ahead."
     ]
   },
@@ -105,7 +105,7 @@
     "item": "meteorite",
     "npc": "hiker",
     "look": [
-      "At the end of the well-worn path you enter into a beautiful oasis. You see a meteorite on the ground and a single hiker passing through.",
+      "At the end of the well-worn path you enter into a beautiful oasis. You see a single hiker passing through.",
       "there is a dusty path leading to an oasis."
     ]
   },
@@ -116,7 +116,7 @@
     "item": "Entry Badge",
     "npc": "Pilot",
     "look": [
-      "You have stumbled across an advanced aircraft crash site. The pilot is lying wounded near the aircraft. There is an ID on the ground under your feet.",
+      "You have stumbled across an advanced aircraft crash site. The pilot is lying wounded near the aircraft.",
       "you see a road leading some sort of crashed aircraft."
     ]
   },
