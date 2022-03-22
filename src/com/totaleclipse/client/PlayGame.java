@@ -1,5 +1,6 @@
 package com.totaleclipse.client;
 
+import com.totaleclipse.GameScreen.Game;
 import com.totaleclipse.clues.Clue;
 import com.totaleclipse.clues.Clues;
 import com.totaleclipse.commands.Command;
@@ -30,6 +31,7 @@ public class PlayGame {
      * Sets up the game by reading Locations.json and randomizing the order of the interior locations
      */
     public void setUp() throws InterruptedException {
+        new Game();
         /* These outputs will likely be refactored into a separate class after their creation. */
         SoundFx.TOTALECLIPSE.play();
         //Explaining the start of the game

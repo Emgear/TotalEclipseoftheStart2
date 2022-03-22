@@ -1,5 +1,7 @@
 package com.totaleclipse.GameScreen;
 
+import com.totaleclipse.enemy.Enemy;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,8 +22,11 @@ public class Game {
 
     // properties for the gamePlayScreen
     JPanel gameTextPanel, directionsPanel, userInputPanel;
-    JTextArea gameTextArea, userInputArea; // where the story/main content of our game will be held
+    static JTextArea gameTextArea; // has to be static in order to be used by DisplayScreen
+    JTextArea userInputArea; // where the story/main content of our game will be held
     JButton eastButton, westButton, northButton, southButton;
+    JTextField userInputText;
+    JButton inputSubmitButton;
 
     // action handler for the game (Clicks)
 //    GameActionHandler gameActionHandler1 = new GameActionHandler(); // doesn't work, issues with separating it as external file
@@ -115,7 +120,7 @@ public class Game {
         gameTextPanel.setBackground(Color.LIGHT_GRAY);
 
         gameTextArea = new JTextArea("Total Eclipse game play. I like to move it, move it. You like to move it, move it!! I like to move it, move it. You like to move it, move it!!");
-        gameTextArea.setBounds(10, 10, 600, 500);
+        gameTextArea.setBounds(12, 12, 550, 500);
         gameTextArea.setBackground(Color.black);
         gameTextArea.setForeground(Color.white);
         gameTextArea.setFont(gameFont);
@@ -128,7 +133,7 @@ public class Game {
         // panel for directions buttons in the game
         directionsPanel = new JPanel();
         directionsPanel.setBounds(630, 10, 300, 200);
-        directionsPanel.setBackground(Color.GREEN);
+        directionsPanel.setBackground(Color.ORANGE);
 
         // buttons for directions in the game
             // north
@@ -160,21 +165,42 @@ public class Game {
 
         // panel for user input/ game controls in the game
         userInputPanel = new JPanel();
-        userInputPanel.setBounds(630, 300, 300, 200);
+        userInputPanel.setBounds(630, 420, 300, 100);
         userInputPanel.setBackground(Color.orange);
+            // user input text field
+        userInputText = new JTextField(20); // accepts upto 10 characters
+//        userInputText.setFont(gameFont);
+        userInputText.setBounds(632, 420, 290, 200);
+            // user input sumbit button
+        inputSubmitButton = new JButton("Run Command!");
+        userInputPanel.add(userInputText);
+        userInputPanel.add(inputSubmitButton);
 
-        // text Area For userInputs
-        userInputArea = new JTextArea("Take Input SomeHow SomeWay You can do it!");
-        userInputArea.setBounds(630, 300, 300, 200);
-        userInputArea.setBackground(Color.black);
-        userInputArea.setForeground(Color.white);
-        userInputArea.setFont(gameFont);
-        userInputArea.setLineWrap(true);
-
-        userInputPanel.add(userInputArea);
+//        // text Area For userInputs
+//        userInputArea = new JTextArea("Take Input SomeHow SomeWay You can do it!");
+//        userInputArea.setBounds(630, 300, 300, 200);
+//        userInputArea.setBackground(Color.black);
+//        userInputArea.setForeground(Color.white);
+//        userInputArea.setFont(gameFont);
+//        userInputArea.setLineWrap(true);
+//
+//        userInputPanel.add(userInputArea);
         container.add(userInputPanel);
     }
 
+    // overload game text display
+    public static void setGameText(String text){
+        Game.gameTextArea.setText(text);
+    }
+    public static void setGameText(Enemy enemy){
+        Game.gameTextArea.setText(String.valueOf(enemy));
+    }
+    public static void setGameText(String string, Integer integer){
+        Game.gameTextArea.setText(string + integer);
+    }
+    public static void setGameText(Integer integer){
+        Game.gameTextArea.setText(String.valueOf(integer));
+    }
     // EventListeners
     // doesn't work as an external file, keep getting stackoverflow error?
     public class GameActionHandler2 implements ActionListener {

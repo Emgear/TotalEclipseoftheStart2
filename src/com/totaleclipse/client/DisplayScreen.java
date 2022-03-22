@@ -1,5 +1,6 @@
 package com.totaleclipse.client;
 
+import com.totaleclipse.GameScreen.Game;
 import com.totaleclipse.enemy.Enemy;
 import com.totaleclipse.location.Locations;
 
@@ -12,21 +13,28 @@ import java.awt.event.ActionListener;
 public class DisplayScreen {
     public static String displayConsole(String string){
         System.out.println(string);
+        Game.setGameText(string);
         return string;
     }
 
     public static int displayConsole(String string, Integer integer){
         System.out.println(string + integer);
+        Game.setGameText(string, integer);
+
         return integer;
     }
 
     public static Enemy displayConsole(Enemy enemy){
         System.out.println(enemy);
+        Game.setGameText(enemy);
+
         return enemy;
     }
 
     public static int displayConsole(Integer integer){
         System.out.println(integer);
+        Game.setGameText(integer);
+
         return integer;
     }
 }
