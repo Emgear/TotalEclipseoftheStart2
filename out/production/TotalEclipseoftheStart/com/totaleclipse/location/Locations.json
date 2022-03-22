@@ -28,7 +28,7 @@
     "item": "newspaper",
     "npc": "Librarian",
     "look": [
-      "You throw open the doors to the local library. There is a librarian behind the counter and a newspaper on a table in the middle of the room.",
+      "You throw open the doors to the local library. There is a librarian behind the counter, an old dusty book, and a newspaper on a table in the middle of the room.",
       "you see a road leading to the library in town."
     ]
   },
@@ -105,7 +105,7 @@
     "item": "meteorite",
     "npc": "hiker",
     "look": [
-      "At the end of the well-worn path you enter into a beautiful oasis. You see a meteorite on the ground and a single hiker passing through.",
+      "At the end of the well-worn path you enter into a beautiful oasis. You see a meteorite on the ground, a greenish blue lizard eating flies, and a single hiker passing through.",
       "there is a dusty path leading to an oasis."
     ]
   },
