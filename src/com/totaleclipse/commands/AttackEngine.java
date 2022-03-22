@@ -5,6 +5,9 @@ import com.totaleclipse.enemy.Enemies;
 import com.totaleclipse.enemy.Enemy;
 import com.totaleclipse.player.Player;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
@@ -27,9 +30,20 @@ public class AttackEngine {
         AttackEngine.startingHp = player.getPlayerHp();
         AttackEngine.enemy = enemy;
         parseCommands runOrNO = new parseCommands();
+        parseCommands chooseAction = new parseCommands();
 
-        while (player.getPlayerHp() > 0 || enemy.getEnemyHealth() > 0) {
-            fight();
+        while (player.getPlayerHp() > 0 || enemy.getEnemyHealth() > 0 ) {
+            DisplayScreen.displayConsole("FIGHT THE ZOMBIE");
+
+            ArrayList choiceArray = chooseAction.parseCommand();
+            String chooseActingString = (String) choiceArray.get(0);
+
+            if ((Objects.equals(chooseActingString, "fight")) || (Objects.equals(chooseActingString, "hit")) || (Objects.equals(chooseActingString, "attack"))){
+                fight();
+                System.out.println(choiceArray);
+            } else {
+                DisplayScreen.displayConsole("hmm maybe i should try to (fight, hit, attack)");
+            }
             if (Player.getPlayerHp() <= 0){
                 return;
             }
@@ -46,22 +60,23 @@ public class AttackEngine {
                     String runOrNoString = (String) commandArray.get(0);
                     if (Objects.equals(runOrNoString, "yes") || Objects.equals(runOrNoString, "y")) {
                         DisplayScreen.displayConsole(player.getPlayerName() + " got away!");
-                        break;
-                    } else {
+                        return;
+                    } else if (Objects.equals(runOrNoString, "no") || Objects.equals(runOrNoString, "n")) {
                         halfHealthQuestion = false;
                     }
                 }
-                break;
+//                break;
             }
             // if players health is less than 20;
             if (player.getPlayerHp() <= 20) {
+                halfHealthQuestion = false;
                 while (almostDeadQuestion) {
                     DisplayScreen.displayConsole("You are almost dead. Do you want to run away? (yes or no)");
                     ArrayList commandArray = runOrNO.parseCommand();
                     String runOrNoString = (String) commandArray.get(0);
                     if (Objects.equals(runOrNoString, "yes") || Objects.equals(runOrNoString, "y")) {
                         DisplayScreen.displayConsole(player.getPlayerName() + " got away!");
-                        break;
+                        return;
                     }
                     else {
                         almostDeadQuestion = false;
@@ -72,7 +87,7 @@ public class AttackEngine {
     }
 
     static void fight() {
-        int randomNum = (int) (Math.random() * 4); // 0 to 10
+        int randomNum = (int) (Math.random() * (10-0)) + 0; // 0 to 10
         if (randomNum == 0) {
             DisplayScreen.displayConsole(GREEN_BOLD + "You hit " + enemy.getName() + " with a corn stalk" + RESET);
             enemy.setEnemyHealth(enemy.getEnemyHealth() - 20);
@@ -87,6 +102,23 @@ public class AttackEngine {
         } else if (randomNum == 2) {
             DisplayScreen.displayConsole(RED_BOLD + enemy.getName() + " attacked you!" + RESET);
             player.setPlayerHp(Player.getPlayerHp() - 10);
+            DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
+            DisplayScreen.displayConsole(enemy.getName() + " health: " + enemy.getEnemyHealth());
+
+        } else if (randomNum == 3) {
+            DisplayScreen.displayConsole(GREEN_BOLD + "You kicked dirt in " + enemy.getName() + " eyes" + RESET);
+            enemy.setEnemyHealth(enemy.getEnemyHealth() - 10);
+            DisplayScreen.displayConsole(enemy.getName() + " health is now: " + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
+
+        } else if (randomNum == 4) {
+            DisplayScreen.displayConsole(GREEN_BOLD + "You put " + enemy.getName() + " in a full nelson! He is grasping for air " + RESET);
+            enemy.setEnemyHealth(enemy.getEnemyHealth() - 25);
+            DisplayScreen.displayConsole(enemy.getName() + " health is now: " + enemy.getEnemyHealth());
+            DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
+
+        } else if (randomNum == 5){
+            DisplayScreen.displayConsole(player.getPlayerName() + " tried to attack but got distracted by a buzzing bumble bee...");
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             DisplayScreen.displayConsole(enemy.getName() + " health: " + enemy.getEnemyHealth());
 

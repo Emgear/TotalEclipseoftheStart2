@@ -46,6 +46,7 @@ public class Journal {
         for(String clues : clue.getClues()){
             if (hasClue(clues) && !clues.equalsIgnoreCase("Good luck?")) {
                 hasClue = true;
+                //if same as before if statement but reading the clue string
                 break;
             }
         }
