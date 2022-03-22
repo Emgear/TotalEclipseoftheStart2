@@ -216,32 +216,49 @@ public class Actions {
     protected void get(String noun) {
 //        HashMap<String, Clue> cluesMap = Clues.getClues();
 //        Clue clue;
-        if (noun.equalsIgnoreCase("whisky")) {
-            DisplayScreen.displayConsole("You chug the whisky down in a matter of seconds. So delicious! And you feel great!");
-            if (Player.getPlayerHp() >= 91) {
-                System.out.println("You're so full you feel like you're going to explode!");
+        if (player.getLocation().getLocation().equalsIgnoreCase("bar") && noun.equalsIgnoreCase("whisky")) {
+            if (player.getPlayerHp() == 100) {
+                DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
+                return;
             } else {
+                DisplayScreen.displayConsole("You chug the whisky down in a matter of seconds. So delicious! And you feel great!");
                 player.setPlayerHp(getPlayerHp() + 10);
-                System.out.println("Your health: " + Player.getPlayerHp());
+                DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             }
-            return;
-        } else if (noun.equalsIgnoreCase("coffee")) {
-            DisplayScreen.displayConsole("You ask the barista for a coffee and they hand you a fresh cup. How refreshing!");
-            if (Player.getPlayerHp() >= 91) {
-                System.out.println("You're so full you feel like you're going to explode!");
+        }
+        else if (player.getLocation().getLocation().equalsIgnoreCase("cafe") && noun.equalsIgnoreCase("coffee")) {
+            if (player.getPlayerHp() == 100) {
+                DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
+                return;
             } else {
+                DisplayScreen.displayConsole("You ask the barista for a coffee and they hand you a fresh cup. How refreshing!");
                 player.setPlayerHp(getPlayerHp() + 10);
-                System.out.println("Your health: " + Player.getPlayerHp());
+                DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             }
+        }
+         else if (player.getLocation().getLocation().equalsIgnoreCase("park") && noun.equalsIgnoreCase("dog")) {
+                DisplayScreen.displayConsole("The dog rolls over and absorbs your affection. How cute!");
+                return;
+        } else if (player.getLocation().getLocation().equalsIgnoreCase("crop circle") && noun.equalsIgnoreCase("corn")){
+            if (player.getPlayerHp() == 100) {
+                DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
+                return;
+            } else {
+                DisplayScreen.displayConsole("You pick a husk of corn off the stock and ate it");
+                player.setPlayerHp(getPlayerHp() + 5);
+                DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
+            }
+        } else if (player.getLocation().getLocation().equalsIgnoreCase("oasis") && noun.equalsIgnoreCase("lizard")) {
+            DisplayScreen.displayConsole("The lizard hissed and ran towards you and bit your leg!!! You shake your leg frantically to get it off..");
+            player.setPlayerHp(getPlayerHp() - 8);
+            DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             return;
-        } else if (noun.equalsIgnoreCase("dog")) {
-            DisplayScreen.displayConsole("The dog rolls over and absorbs your affection. How cute!");
+        } else if (player.getLocation().getLocation().equalsIgnoreCase("library") && noun.equalsIgnoreCase("book")) {
+            DisplayScreen.displayConsole("You open the book and all the dust smacks you in the face giving you the sneezes..");
             return;
         } else {
-            DisplayScreen.displayConsole("You cannot grab this item but you can still look at it from afar.");
+            DisplayScreen.displayConsole("Hmm that doesn't seem to be a good idea right now");
         }
-
-        player.setHumanity(-1);
     }
 
     /**
