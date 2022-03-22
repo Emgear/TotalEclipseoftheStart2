@@ -32,6 +32,8 @@ public class Game {
 //    GameActionHandler gameActionHandler1 = new GameActionHandler(); // doesn't work, issues with separating it as external file
     GameActionHandler2 gameActionHandler2 = new GameActionHandler2(); // listener for start game button
     EndGameAction endGameAction = new EndGameAction(); // listener for endgame button
+    CommandAction commandAction = new CommandAction();
+
 
     public Game() {
         setHomeScreen();
@@ -127,7 +129,7 @@ public class Game {
         gameTextArea.setFont(gameFont);
         gameTextArea.setLineWrap(true);
 //        gameTextArea.setText(cow);
-//        gameTextArea.setEditable(false);
+        gameTextArea.setEditable(false);
 
         gameTextPanel.add(gameTextArea);
         container.add(gameTextPanel);
@@ -175,6 +177,7 @@ public class Game {
         userInputText.setBounds(632, 420, 290, 200);
             // user input sumbit button
         inputSubmitButton = new JButton("Run Command!");
+        inputSubmitButton.addActionListener(commandAction);
         userInputPanel.add(userInputText);
         userInputPanel.add(inputSubmitButton);
 
@@ -212,11 +215,18 @@ public class Game {
             setGameScreen();
         }
     }
-
     public class EndGameAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             closeHomeScreen();
+        }
+    }
+    public class CommandAction implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            userInputText.setText("");
+
         }
     }
 
