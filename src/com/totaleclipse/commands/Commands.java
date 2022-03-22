@@ -9,11 +9,11 @@ public enum Commands {
     //save("save", "Saves user data to disk"),
     talk("talk", "Speaks with an NPC, ie: 'talk librarian'", "speak", "tlak", "question", "interrogate", "yell", "shout", "chat"),
     close("close", "Closes Total Eclipse of the Start", "quit", "exit"),
-    attack("attack","attacks an enemy/monster","hit"),
+    attack("attack","Attacks an enemy/monster","hit", "punch", "kick", "fight"),
 //    music("music", "Stops/starts the music","off"),
 //    totaleclipse("title", "Plays total Eclipse of the Heart", ""),
     sound("sound", "Adjusts volume", "music", "volume", "audio", "tunes"),
-    hunt("hunt", "shows enemies in location", "scout", "probe", "find");
+    hunt("hunt", "Shows enemies in location", "scout", "probe", "find");
 
 
     private String keyword;
