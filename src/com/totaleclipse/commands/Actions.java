@@ -15,6 +15,7 @@ import com.totaleclipse.player.Player;
 import java.util.HashMap;
 import java.util.Objects;
 
+import static com.totaleclipse.commands.AttackEngine.zombiesKilled;
 import static com.totaleclipse.player.Player.getPlayerHp;
 import static com.totaleclipse.player.Player.player;
 
@@ -55,11 +56,15 @@ public class Actions {
         Enemy enemy;
 
         switch (noun.toLowerCase()) {
-            case "zombie":
-                enemy = enemyMap.get("MONSTER");
-                DisplayScreen.displayConsole(enemy.getName());
+            case "stats":
+            case "statistics":
+                DisplayScreen.displayConsole("Zombies defeated: " + zombiesKilled);
                 break;
-
+            case "zombie":
+            case "monster":
+            case "enemy":
+                hunt(noun);
+                break;
             case "inventory":
             case "items":
                 DisplayScreen.displayConsole(Journal.getClueString());
@@ -124,7 +129,6 @@ public class Actions {
                     DisplayScreen.displayConsole("Guess what. There's corn.");
                 }
                 break;
-
             case "map":
                 map.printMap(player);
                 break;
@@ -133,8 +137,14 @@ public class Actions {
             case "life":
                 DisplayScreen.displayConsole("Current player health points: " + player.getPlayerHp());
                 break;
+            case "aircraft":
+                DisplayScreen.displayConsole("It appears to be a fresh wreckage");
+                break;
+            case "well":
+                DisplayScreen.displayConsole("It looks historical");
+                break;
             default:
-                DisplayScreen.displayConsole("I don't see any " + noun.toLowerCase() + " around here.");
+                DisplayScreen.displayConsole("It is about what you would expect.");
         }
 
     }
@@ -143,55 +153,55 @@ public class Actions {
         HashMap<String, Enemy> enemyMap = Enemies.makeEnemy();
         Enemy enemy;
 
-      if (noun.equalsIgnoreCase("monster")){
-          switch (player.getLocation().getLocation()){
-              case "bar":
-                  enemy = enemyMap.get("ZOMBIE ZACH");
-                  if(enemy == null) {
-                      System.out.println("The enemy is dead");
-                      break;
-                  }
-                  DisplayScreen.displayConsole(enemy);
-                  AttackEngine.run(player, enemy);
-                  break;
-              case "library":
-                  enemy = enemyMap.get("ZOMBIE BRIT");
-                  if(enemy == null) {
-                      System.out.println("The enemy is dead");
-                      break;
-                  }
-                  DisplayScreen.displayConsole(enemy);
-                  AttackEngine.run(player, enemy);
-                  break;
-              case "bookstore":
-                  enemy = enemyMap.get("ZOMBIE AMY");
-                  if(enemy == null) {
-                      System.out.println("The enemy is dead");
-                      break;
-                  }
-                  DisplayScreen.displayConsole(enemy);
-                  AttackEngine.run(player, enemy);
-                  break;
-              case "cafe":
-                  enemy = enemyMap.get("ZOMBIE JULIAN");
-                  if(enemy == null) {
-                      System.out.println("The enemy is dead");
-                      break;
-                  }
-                  DisplayScreen.displayConsole(enemy);
-                  AttackEngine.run(player, enemy);
-                  break;
-              case "crash site":
-                  enemy = enemyMap.get("ZOMBIE BOSS");
-                  if(enemy == null) {
-                      System.out.println("The enemy is dead");
-                      break;
-                  }
-                  DisplayScreen.displayConsole(enemy);
-                  AttackEngine.run(player, enemy);
-                  break;
-              default:
-                  DisplayScreen.displayConsole("THE COAST IS CLEAR");
+        if (noun.equalsIgnoreCase("monster") || noun.equalsIgnoreCase("zombie") || noun.equalsIgnoreCase("")){
+            switch (player.getLocation().getLocation()) {
+                case "bar":
+                    enemy = enemyMap.get("Zombie Zack");
+                    if ((enemy == null) || (enemy.getEnemyHealth() == 0)) {
+                        DisplayScreen.displayConsole("Zombie Zack is already defeated!");
+                        break;
+                    }
+                    DisplayScreen.displayConsole(enemy.getName() + " appeared!");
+                    AttackEngine.run(player, enemy);
+                    break;
+                case "library":
+                    enemy = enemyMap.get("Zombie Brit");
+                    if ((enemy == null) || (enemy.getEnemyHealth() == 0)) {
+                        DisplayScreen.displayConsole("Zombie Brit is already defeated!");
+                        break;
+                    }
+                    DisplayScreen.displayConsole(enemy.getName() + " appeared!");
+                    AttackEngine.run(player, enemy);
+                    break;
+                case "bookstore":
+                    enemy = enemyMap.get("Zombie Amy");
+                    if ((enemy == null) || (enemy.getEnemyHealth() == 0)) {
+                        DisplayScreen.displayConsole("Zombie Amy is already defeated!");
+                        break;
+                    }
+                    DisplayScreen.displayConsole(enemy.getName() + " appeared!");
+                    AttackEngine.run(player, enemy);
+                    break;
+                case "cafe":
+                    enemy = enemyMap.get("Zombie Julian");
+                    if ((enemy == null) || (enemy.getEnemyHealth() == 0)) {
+                        DisplayScreen.displayConsole("Zombie Julian is already defeated!");
+                        break;
+                    }
+                    DisplayScreen.displayConsole(enemy.getName() + " appeared!");
+                    AttackEngine.run(player, enemy);
+                    break;
+                case "crash site":
+                    enemy = enemyMap.get("ZOMBIE BOSS");
+                    if ((enemy == null) || (enemy.getEnemyHealth() == 0)) {
+                        DisplayScreen.displayConsole("Zombie Boss is already defeated!");
+                        break;
+                    }
+                    DisplayScreen.displayConsole(enemy.getName() + " appeared!");
+                    AttackEngine.run(player, enemy);
+                    break;
+                default:
+                    DisplayScreen.displayConsole("THE COAST IS CLEAR");
 
 
             }
@@ -208,53 +218,26 @@ public class Actions {
 //        Clue clue;
         if (noun.equalsIgnoreCase("whisky")) {
             DisplayScreen.displayConsole("You chug the whisky down in a matter of seconds. So delicious! And you feel great!");
-            if (Player.getPlayerHp() == 100) {
+            if (Player.getPlayerHp() >= 91) {
                 System.out.println("You're so full you feel like you're going to explode!");
             } else {
                 player.setPlayerHp(getPlayerHp() + 10);
-                System.out.println("Your health: " + Player.getPlayerHp()); }
+                System.out.println("Your health: " + Player.getPlayerHp());
+            }
             return;
-        }
-         else if (noun.equalsIgnoreCase("coffee")) {
+        } else if (noun.equalsIgnoreCase("coffee")) {
             DisplayScreen.displayConsole("You ask the barista for a coffee and they hand you a fresh cup. How refreshing!");
-            if (Player.getPlayerHp() == 100) {
+            if (Player.getPlayerHp() >= 91) {
                 System.out.println("You're so full you feel like you're going to explode!");
             } else {
-            player.setPlayerHp(getPlayerHp() + 10);
-            System.out.println("Your health: " + Player.getPlayerHp()); }
+                player.setPlayerHp(getPlayerHp() + 10);
+                System.out.println("Your health: " + Player.getPlayerHp());
+            }
             return;
-        }
-        else if (noun.equalsIgnoreCase("dog")) {
+        } else if (noun.equalsIgnoreCase("dog")) {
             DisplayScreen.displayConsole("The dog rolls over and absorbs your affection. How cute!");
             return;
-        }
-//        if (noun.equalsIgnoreCase(player.getClue().getItem())) {
-//            if (player.getClue().isStory()) {
-//                switch (player.getLocation().getLocation()) {
-//                    case "bunker":
-//                        clue = cluesMap.get("library");
-//                        break;
-//                    case "library":
-//                        clue = cluesMap.get("bar");
-//                        break;
-//                    case "bar":
-//                        clue = cluesMap.get("crash site");
-//                        break;
-//                    case "crash site":
-//                        clue = cluesMap.get("area 51");
-//                        break;
-//                    default:
-//                        clue = cluesMap.get("crop circle");
-//                }
-//            } else {
-//                clue = cluesMap.get(Locations.locationsMap.get(key).getLocation());
-//            }
-//
-//            String clueString = clue.getClue();
-//            Journal.addClue(noun, clueString);
-//            DisplayScreen.displayConsole("The " + player.getClue().getItem() + " tells you " + clueString);
-//            player.getClue().removeItem();
-         else {
+        } else {
             DisplayScreen.displayConsole("You cannot grab this item but you can still look at it from afar.");
         }
 
@@ -303,11 +286,13 @@ public class Actions {
             } else {
                 DisplayScreen.displayConsole(NPC.getRandomDialog());
             }
-        } else if (Objects.equals(player.getLocation().getLocation(), "park")){
+        } else if (Objects.equals(player.getLocation().getLocation(), "park")) {
             if (noun.equalsIgnoreCase("dog")) {
                 DisplayScreen.displayConsole("The " + noun + " says woof.");
             }
-        }else {
+        } else if (noun.equalsIgnoreCase("")) {
+            DisplayScreen.displayConsole("You start talking to yourself.");
+        } else {
             System.out.println("You say hello to the " + noun + " but it does not respond back to you. Not sure what you were expecting?");
         }
     }
@@ -348,11 +333,11 @@ public class Actions {
         } else if (noun.equalsIgnoreCase("south") || noun.equalsIgnoreCase("down")) {
             if (key == 0) {
 //                IF YOU HAVE THE FINAL CLUE AND CAN WIN THE GAME AREA 51 REVEALS ITSELF
-                        if (finalClue) {
-                            player.setLocation(Locations.locationsMap.get(999)); //area 51 location, ends game
-                        } else {
-                            DisplayScreen.displayConsole("You see more corn. Maybe go a different direction?");
-                        }
+                if ((finalClue) && (AttackEngine.bossKilled == true)) {
+                    player.setLocation(Locations.locationsMap.get(999)); //area 51 location, ends game
+                } else {
+                    DisplayScreen.displayConsole("You see more corn. Maybe go a different direction?");
+                }
             } else if (key == 1) {
                 key--;
                 player.setLocation(Locations.locationsMap.get(key));
@@ -482,7 +467,8 @@ public class Actions {
             case "down":
             case "min":
                 if (SoundFx.volume == SoundFx.Volume.LOW) {
-                    DisplayScreen.displayConsole("This is as low as it gets.");}
+                    DisplayScreen.displayConsole("This is as low as it gets.");
+                }
                 SoundFx.volume = SoundFx.Volume.LOW;
                 SoundFx.MUSIC.play();
                 break;

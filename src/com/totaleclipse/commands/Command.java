@@ -5,6 +5,8 @@ import com.totaleclipse.music.Music;
 import com.totaleclipse.music.SoundFx;
 import com.totaleclipse.music.SoundFx.Volume;
 
+import static com.totaleclipse.commands.AttackEngine.zombiesKilled;
+
 public class Command {
     private String noun;
     private String verb;
@@ -64,7 +66,9 @@ public class Command {
                 SoundFx.WALK.sound=true;
         } else if(this.verb.equalsIgnoreCase(Commands.attack.getKeyword())){
             action.attack(this.noun);
-        } else{
+//        } else if(this.verb.equalsIgnoreCase(Commands.stats.getKeyword())) {
+//            DisplayScreen.displayConsole("Zombies defeated: " + zombiesKilled);
+        }else{
             DisplayScreen.displayConsole("This action cannot be executed. Please choose a different command or type \"help\" command for additional info.");
         }
     }
