@@ -15,6 +15,7 @@ import com.totaleclipse.player.Player;
 import java.util.HashMap;
 import java.util.Objects;
 
+import static com.totaleclipse.commands.AttackEngine.zombiesKilled;
 import static com.totaleclipse.player.Player.getPlayerHp;
 import static com.totaleclipse.player.Player.player;
 
@@ -55,11 +56,16 @@ public class Actions {
         Enemy enemy;
 
         switch (noun.toLowerCase()) {
+            case "stats":
+            case "statistics":
+                DisplayScreen.displayConsole("Zombies defeated: " + zombiesKilled);
+                break;
             case "zombie":
+            case "monster":
+            case "enemy":
                 enemy = enemyMap.get("MONSTER");
                 DisplayScreen.displayConsole(enemy.getName());
                 break;
-
             case "inventory":
             case "items":
                 DisplayScreen.displayConsole(Journal.getClueString());
@@ -143,51 +149,51 @@ public class Actions {
         HashMap<String, Enemy> enemyMap = Enemies.makeEnemy();
         Enemy enemy;
 
-      if (noun.equalsIgnoreCase("monster")){
+      if (noun.equalsIgnoreCase("monster") || noun.equalsIgnoreCase("zombie") || noun.equalsIgnoreCase("creature")){
           switch (player.getLocation().getLocation()){
               case "bar":
-                  enemy = enemyMap.get("ZOMBIE ZACH");
-                  if(enemy == null) {
-                      System.out.println("The enemy is dead");
+                  enemy = enemyMap.get("ZOMBIE ZACK");
+                  if((enemy == null) || (enemy.getEnemyHealth() == 0)) {
+                      DisplayScreen.displayConsole("Zombie Zack is already defeated!");
                       break;
                   }
-                  DisplayScreen.displayConsole(enemy);
+                  DisplayScreen.displayConsole(enemy.getName() + " appeared!");
                   AttackEngine.run(player, enemy);
                   break;
               case "library":
                   enemy = enemyMap.get("ZOMBIE BRIT");
-                  if(enemy == null) {
-                      System.out.println("The enemy is dead");
+                  if((enemy == null) || (enemy.getEnemyHealth() == 0)) {
+                      DisplayScreen.displayConsole("Zombie Brit is already defeated!");
                       break;
                   }
-                  DisplayScreen.displayConsole(enemy);
+                  DisplayScreen.displayConsole(enemy.getName() + " appeared!");
                   AttackEngine.run(player, enemy);
                   break;
               case "bookstore":
                   enemy = enemyMap.get("ZOMBIE AMY");
-                  if(enemy == null) {
-                      System.out.println("The enemy is dead");
+                  if((enemy == null) || (enemy.getEnemyHealth() == 0)) {
+                      DisplayScreen.displayConsole("Zombie Amy is already defeated!");
                       break;
                   }
-                  DisplayScreen.displayConsole(enemy);
+                  DisplayScreen.displayConsole(enemy.getName() + " appeared!");
                   AttackEngine.run(player, enemy);
                   break;
               case "cafe":
                   enemy = enemyMap.get("ZOMBIE JULIAN");
-                  if(enemy == null) {
-                      System.out.println("The enemy is dead");
+                  if((enemy == null) || (enemy.getEnemyHealth() == 0)) {
+                      DisplayScreen.displayConsole("Zombie Julian is already defeated!");
                       break;
                   }
-                  DisplayScreen.displayConsole(enemy);
+                  DisplayScreen.displayConsole(enemy.getName() + " appeared!");
                   AttackEngine.run(player, enemy);
                   break;
               case "crash site":
                   enemy = enemyMap.get("ZOMBIE BOSS");
-                  if(enemy == null) {
-                      System.out.println("The enemy is dead");
+                  if((enemy == null) || (enemy.getEnemyHealth() == 0)) {
+                      DisplayScreen.displayConsole("Zombie Boss is already defeated!");
                       break;
                   }
-                  DisplayScreen.displayConsole(enemy);
+                  DisplayScreen.displayConsole(enemy.getName() + " appeared!");
                   AttackEngine.run(player, enemy);
                   break;
               default:
@@ -208,7 +214,7 @@ public class Actions {
 //        Clue clue;
         if (noun.equalsIgnoreCase("whisky")) {
             DisplayScreen.displayConsole("You chug the whisky down in a matter of seconds. So delicious! And you feel great!");
-            if (Player.getPlayerHp() == 100) {
+            if (Player.getPlayerHp() >= 91) {
                 System.out.println("You're so full you feel like you're going to explode!");
             } else {
                 player.setPlayerHp(getPlayerHp() + 10);
@@ -217,7 +223,7 @@ public class Actions {
         }
          else if (noun.equalsIgnoreCase("coffee")) {
             DisplayScreen.displayConsole("You ask the barista for a coffee and they hand you a fresh cup. How refreshing!");
-            if (Player.getPlayerHp() == 100) {
+            if (Player.getPlayerHp() >= 91) {
                 System.out.println("You're so full you feel like you're going to explode!");
             } else {
             player.setPlayerHp(getPlayerHp() + 10);
@@ -348,7 +354,7 @@ public class Actions {
         } else if (noun.equalsIgnoreCase("south") || noun.equalsIgnoreCase("down")) {
             if (key == 0) {
 //                IF YOU HAVE THE FINAL CLUE AND CAN WIN THE GAME AREA 51 REVEALS ITSELF
-                        if (finalClue) {
+                        if ((finalClue) && (AttackEngine.bossKilled == true)){
                             player.setLocation(Locations.locationsMap.get(999)); //area 51 location, ends game
                         } else {
                             DisplayScreen.displayConsole("You see more corn. Maybe go a different direction?");
