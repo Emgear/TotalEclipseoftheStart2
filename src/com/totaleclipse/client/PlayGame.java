@@ -1,5 +1,6 @@
 package com.totaleclipse.client;
 
+import com.totaleclipse.GameScreen.Game;
 import com.totaleclipse.clues.Clue;
 import com.totaleclipse.clues.Clues;
 import com.totaleclipse.commands.Command;
@@ -30,6 +31,7 @@ public class PlayGame {
      * Sets up the game by reading Locations.json and randomizing the order of the interior locations
      */
     public void setUp() throws InterruptedException {
+        new Game();
         /* These outputs will likely be refactored into a separate class after their creation. */
         SoundFx.TOTALECLIPSE.play();
         //Explaining the start of the game
@@ -102,7 +104,7 @@ public class PlayGame {
         DisplayScreen.displayConsole("Welcome to Total Eclipse of the .start()");
         DisplayScreen.displayConsole("A text-based mystery game full of conspiracy! " +
                 "Are you human? Alien? Or something else entirely? " +
-                "Uncover your past and discover your true identity!");
+                "Uncover your past and discover your true identity!" + " Your goal is to find a way out of the corn and bring back your memory. Your actions throughout the game will impact your game result so act wisely!");
         DisplayScreen.displayConsole("\t- To exit the game, simply type \"quit\"\n\n");
 
         HashMap<Integer, Location> locationsMap = Locations.generateLocations();
@@ -132,13 +134,12 @@ public class PlayGame {
 
         DisplayScreen.displayConsole("What is your name?");
         Player player = Player.getInstance(parseName(), locationsMap.get(0), cluesMap.get("crop circle"), 100,enemyHashMap.get("MONSTER"));
-//        Enemy enemy = Enemy.getInstance(enemyHashMap.get(), Enemy.enemy.getEnemyHealth(), 100 , 100);
         DisplayScreen.displayConsole(player.getLocation().getLook(0));
         SoundFx.TOTALECLIPSE.stop();
         SoundFx.MUSIC.play();
         while (playing) {
             if (Player.getPlayerHp() <= 0){
-                System.out.println("You have died.");
+                DisplayScreen.displayConsole("You have died. GAME OVER");
                 playing = false;
                 break;
             }

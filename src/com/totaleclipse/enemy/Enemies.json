@@ -2,26 +2,26 @@
   {
     "name": "ZOMBIE BRIT",
     "enemyHealth": "80",
-    "attackPower": "12"
+    "attackPower": "20"
   },
   {
     "name": "ZOMBIE AMY",
-    "enemyHealth": "100",
-    "attackPower": "15"
+    "enemyHealth": "50",
+    "attackPower": "50"
   },
   {
-    "name": "ZOMBIE ZACH",
-    "enemyHealth": "115",
-    "attackPower": "15"
+    "name": "ZOMBIE Zack",
+    "enemyHealth": "60",
+    "attackPower": "40"
   },
   {
     "name": "ZOMBIE JULIAN",
-    "enemyHealth": "70",
+    "enemyHealth": "75",
     "attackPower": "25"
   },
   {
     "name": "ZOMBIE BOSS",
-    "enemyHealth": "300",
-    "attackPower": "50"
+    "enemyHealth": "100",
+    "attackPower": "30"
   }
 ]
