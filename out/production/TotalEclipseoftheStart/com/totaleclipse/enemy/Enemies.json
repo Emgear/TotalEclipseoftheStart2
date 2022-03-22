@@ -1,21 +1,21 @@
 [
   {
-    "name": "ZOMBIE BRIT",
+    "name": "Zombie Brit",
     "enemyHealth": "80",
     "attackPower": "20"
   },
   {
-    "name": "ZOMBIE AMY",
+    "name": "Zombie Amy",
     "enemyHealth": "50",
     "attackPower": "50"
   },
   {
-    "name": "ZOMBIE Zack",
+    "name": "Zombie Zack",
     "enemyHealth": "60",
     "attackPower": "40"
   },
   {
-    "name": "ZOMBIE JULIAN",
+    "name": "Zombie Julian",
     "enemyHealth": "75",
     "attackPower": "25"
   },
