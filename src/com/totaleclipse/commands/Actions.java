@@ -54,7 +54,6 @@ public class Actions {
         HashMap<String, Enemy> enemyMap = Enemies.makeEnemy();
         Enemy enemy;
 
-
         switch (noun.toLowerCase()) {
             case "zombie":
                 enemy = enemyMap.get("MONSTER");
@@ -205,52 +204,58 @@ public class Actions {
      * @param noun
      */
     protected void get(String noun) {
-        HashMap<String, Clue> cluesMap = Clues.getClues();
-        Clue clue;
+//        HashMap<String, Clue> cluesMap = Clues.getClues();
+//        Clue clue;
         if (noun.equalsIgnoreCase("whisky")) {
             DisplayScreen.displayConsole("You chug the whisky down in a matter of seconds. So delicious! And you feel great!");
-            player.setPlayerHp(getPlayerHp() + 10);
-            System.out.println("Your health: " + Player.getPlayerHp());
+            if (Player.getPlayerHp() == 100) {
+                System.out.println("You're so full you feel like you're going to explode!");
+            } else {
+                player.setPlayerHp(getPlayerHp() + 10);
+                System.out.println("Your health: " + Player.getPlayerHp()); }
             return;
         }
-        if (noun.equalsIgnoreCase("coffee")) {
+         else if (noun.equalsIgnoreCase("coffee")) {
             DisplayScreen.displayConsole("You ask the barista for a coffee and they hand you a fresh cup. How refreshing!");
+            if (Player.getPlayerHp() == 100) {
+                System.out.println("You're so full you feel like you're going to explode!");
+            } else {
             player.setPlayerHp(getPlayerHp() + 10);
-            System.out.println("Your health: " + Player.getPlayerHp());
+            System.out.println("Your health: " + Player.getPlayerHp()); }
             return;
         }
-        if (noun.equalsIgnoreCase("dog")) {
+        else if (noun.equalsIgnoreCase("dog")) {
             DisplayScreen.displayConsole("The dog rolls over and absorbs your affection. How cute!");
             return;
         }
-        if (noun.equalsIgnoreCase(player.getClue().getItem())) {
-            if (player.getClue().isStory()) {
-                switch (player.getLocation().getLocation()) {
-                    case "bunker":
-                        clue = cluesMap.get("library");
-                        break;
-                    case "library":
-                        clue = cluesMap.get("bar");
-                        break;
-                    case "bar":
-                        clue = cluesMap.get("crash site");
-                        break;
-                    case "crash site":
-                        clue = cluesMap.get("area 51");
-                        break;
-                    default:
-                        clue = cluesMap.get("crop circle");
-                }
-            } else {
-                clue = cluesMap.get(Locations.locationsMap.get(key).getLocation());
-            }
-
-            String clueString = clue.getClue();
-            Journal.addClue(noun, clueString);
-            DisplayScreen.displayConsole("The " + player.getClue().getItem() + " tells you " + clueString);
-            player.getClue().removeItem();
-        } else {
-            DisplayScreen.displayConsole("You cannot grab this item.");
+//        if (noun.equalsIgnoreCase(player.getClue().getItem())) {
+//            if (player.getClue().isStory()) {
+//                switch (player.getLocation().getLocation()) {
+//                    case "bunker":
+//                        clue = cluesMap.get("library");
+//                        break;
+//                    case "library":
+//                        clue = cluesMap.get("bar");
+//                        break;
+//                    case "bar":
+//                        clue = cluesMap.get("crash site");
+//                        break;
+//                    case "crash site":
+//                        clue = cluesMap.get("area 51");
+//                        break;
+//                    default:
+//                        clue = cluesMap.get("crop circle");
+//                }
+//            } else {
+//                clue = cluesMap.get(Locations.locationsMap.get(key).getLocation());
+//            }
+//
+//            String clueString = clue.getClue();
+//            Journal.addClue(noun, clueString);
+//            DisplayScreen.displayConsole("The " + player.getClue().getItem() + " tells you " + clueString);
+//            player.getClue().removeItem();
+         else {
+            DisplayScreen.displayConsole("You cannot grab this item but you can still look at it from afar.");
         }
 
         player.setHumanity(-1);
@@ -269,16 +274,16 @@ public class Actions {
             if (player.getClue().isStory()) {
                 switch (player.getLocation().getLocation()) {
                     case "bunker":
-                        clue = cluesMap.get("library");
+                        clue = cluesMap.get("bunker");
                         break;
                     case "library":
-                        clue = cluesMap.get("bar");
+                        clue = cluesMap.get("library");
                         break;
                     case "bar":
-                        clue = cluesMap.get("crash site");
+                        clue = cluesMap.get("bar");
                         break;
                     case "crash site":
-                        clue = cluesMap.get("area 51");
+                        clue = cluesMap.get("crash site");
                         finalClue = true;
                         //trying this for final clue
                         break;
@@ -476,28 +481,44 @@ public class Actions {
             case "low":
             case "down":
             case "min":
+                if (SoundFx.volume == SoundFx.Volume.LOW) {
+                    DisplayScreen.displayConsole("This is as low as it gets.");}
                 SoundFx.volume = SoundFx.Volume.LOW;
                 SoundFx.MUSIC.play();
                 break;
+
             case "medium":
                 SoundFx.volume = SoundFx.Volume.MEDIUM;
                 SoundFx.MUSIC.play();
                 break;
+
             case "high":
             case "up":
             case "loud":
             case "max":
-                SoundFx.volume = SoundFx.Volume.HIGH;
-                SoundFx.MUSIC.play();
+                if (SoundFx.volume == SoundFx.Volume.HIGH) {
+                    DisplayScreen.displayConsole("This is as loud as it gets- wouldn't want to break your computer speakers would we?");
+                    SoundFx.volume = SoundFx.Volume.HIGH;
+                    SoundFx.MUSIC.play();
+                }
                 break;
+
             case "off":
             case "mute":
             case "silence":
+            case "stop":
+                if (SoundFx.volume == SoundFx.Volume.MUTE) {
+                    DisplayScreen.displayConsole("The sound is already muted. If you would like to hear some crunk beats you may enter 'volume on' or another synonym for volume such as 'music' or 'tunes'");
+                }
                 SoundFx.volume = SoundFx.Volume.MUTE;
                 SoundFx.MUSIC.stop();
                 SoundFx.WALK.sound = false;
                 break;
+
             case "on":
+                if (SoundFx.volume == SoundFx.Volume.MEDIUM) {
+                    DisplayScreen.displayConsole("The sound is already on. Do you need some hearing aids? Otherwise, turning up the volume is an option.");
+                }
                 SoundFx.volume = SoundFx.Volume.MEDIUM;
                 SoundFx.MUSIC.play();
                 SoundFx.WALK.sound = true;
