@@ -3,6 +3,9 @@ package com.totaleclipse.client;
 import com.totaleclipse.enemy.Enemy;
 import com.totaleclipse.location.Locations;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  * Encapsulates printing in order to change output type as needed.
  */

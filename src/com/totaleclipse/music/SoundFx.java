@@ -52,13 +52,14 @@ public enum SoundFx {
 
     // Play or Re-play the sound effect from the beginning, by rewinding.
     public void play() {
+        boolean gameStartNotPlayed = true;
         if (volume != Volume.MUTE) {
             if (clip.isRunning())
                 clip.stop();   // Stop the player if it is still running
             clip.setFramePosition(0); // rewind to the beginning
-            if (clip.toString().equalsIgnoreCase("com.sun.media.sound.DirectAudioDevice$DirectClip@6cc4c815")){
+            if(gameStartNotPlayed){
                 clip.setFramePosition(10465000);
-
+                gameStartNotPlayed = false;
             }
             clip.start();     // Start playing
             FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
