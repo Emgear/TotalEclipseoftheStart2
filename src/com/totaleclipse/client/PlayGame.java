@@ -33,7 +33,7 @@ public class PlayGame {
     public void setUp() throws InterruptedException {
         /* These outputs will likely be refactored into a separate class after their creation. */
         SoundFx.volume = SoundFx.Volume.HIGH;
-        SoundFx.TOTALECLIPSE.play();
+        SoundFx.TOTALECLIPSE.play1();
         //Explaining the start of the game
         String cow = GREEN_BRIGHT+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%. .. .  /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(. ...... . ....... .*&@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
