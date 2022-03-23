@@ -95,7 +95,7 @@ public class PlayGame {
 
         for (int i = 0; i < cows.length; i++) {
             System.out.print(cows[i]);
-            Thread.sleep(0);
+            Thread.sleep(1);
         }
 
         //Intro card to the game
