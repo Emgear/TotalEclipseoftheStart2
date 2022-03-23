@@ -211,17 +211,17 @@ public class Actions {
     protected void get(String noun) {
 //        HashMap<String, Clue> cluesMap = Clues.getClues();
 //        Clue clue;
-        if (player.getLocation().getLocation().equalsIgnoreCase("bar") && noun.equalsIgnoreCase("whisky")) {
+        if (player.getLocation().getLocation().equalsIgnoreCase("bar") && (noun.equalsIgnoreCase("whiskey") || noun.equalsIgnoreCase("drink") || noun.equalsIgnoreCase("alcohol"))) {
             if (player.getPlayerHp() >= 91) {
                 DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
                 return;
             } else {
-                DisplayScreen.displayConsole(GREEN_BOLD + "You chug the whisky down in a matter of seconds. So delicious! And you feel great!" + ANSI_RESET);
+                DisplayScreen.displayConsole(GREEN_BOLD + "You chug the whiskey down in a matter of seconds. So delicious! And you feel great!" + ANSI_RESET);
                 player.setPlayerHp(getPlayerHp() + 10);
                 DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             }
         }
-        else if (player.getLocation().getLocation().equalsIgnoreCase("cafe") && noun.equalsIgnoreCase("coffee")) {
+        else if (player.getLocation().getLocation().equalsIgnoreCase("cafe") && (noun.equalsIgnoreCase("coffee") || noun.equalsIgnoreCase("drink") || noun.equalsIgnoreCase("latte"))) {
             if (player.getPlayerHp() >= 91) {
                 DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
                 return;
@@ -312,7 +312,9 @@ public class Actions {
 
         //call walking sound fx
         SoundFx.WALK.play();
-
+        if (noun.equalsIgnoreCase("bookstore") || noun.equalsIgnoreCase("library") || noun.equalsIgnoreCase("bar") || noun.equalsIgnoreCase("crop circle") || noun.equalsIgnoreCase("park") || noun.equalsIgnoreCase("bunker")) {
+            DisplayScreen.displayConsole("You unfortunately do not have teleportation powers and will need to move there on your own");
+        }
         if (noun.equalsIgnoreCase("north") || noun.equalsIgnoreCase("up")) {
             if (key < Locations.locationsMap.size() - 2) {
                 if (key == 0) {
