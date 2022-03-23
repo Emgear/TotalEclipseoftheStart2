@@ -55,7 +55,8 @@ public class AttackEngine {
                 if (enemy.getName() == "ZOMBIE BOSS") {
                     bossKilled = true;
                 }
-                System.out.println(enemy.getName() + " has been defeated.");
+//                System.out.println(enemy.getName() + " has been defeated.");
+                DisplayScreen.displayConsole(enemy.getName() + " has been defeated.");
                 zombiesKilled++;
                 Enemies.enemyMap.remove(enemy.getName());
                 return;

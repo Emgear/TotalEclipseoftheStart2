@@ -12,7 +12,7 @@ import java.util.List;
  * Creates a HashMap of Clue objects
  */
 public class Clues {
-    private static HashMap<String, Clue> cluesMap=new HashMap<>();
+    private static HashMap<String, Clue> cluesMap = new HashMap<>();
     public Clues(){}
 
     /**

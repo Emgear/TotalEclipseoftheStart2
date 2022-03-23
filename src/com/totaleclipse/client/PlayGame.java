@@ -27,6 +27,12 @@ public class PlayGame {
     int rand;
     public static final String GREEN_BRIGHT = "\033[0;92m";  // GREEN
     public static final String ANSI_RESET = "\u001B[0m";
+    public static String[] textInputFromGUI;
+
+    public static void setTextInput(String textInput) {
+        textInputFromGUI = textInput.split(" ");
+    }
+
     /**
      * Sets up the game by reading Locations.json and randomizing the order of the interior locations
      */
@@ -90,22 +96,23 @@ public class PlayGame {
 //                "\t- Type out the action you wish to perform, with a verb first an noun second.\n" +
 //                "\t- For example, you can look around by typing \"look north\" or \"look west\", or look at your map by typing \"look map\".\n" +
 //                "\t\t- For more commands, type \"help\".\n\n";
-
-        String cow = "\nYou wake up in a crop circle, surrounded by corn. Your leather jacket is dirty.\n" +
-                "You can't seem to remember who you are or how you ended up in the midst of all this corn, and you want answers.\n" +
-                "Over the corn in the distance, you can see a cow floating up into a disc-like shape in the sky, before it flies away.\n" +
-                "\t- Type out the action you wish to perform, with a verb first an noun second.\n" +
-                "\t- For example, you can look around by typing \"look north\" or \"look west\", or look at your map by typing \"look map\".\n" +
-                "\t\t- For more commands, type \"help\".\n\n";
-        char[] cows = cow.toCharArray();
-
-
-        // Print a char from the array, then sleep for 1/10 second
-
-        for (int i = 0; i < cows.length; i++) {
-            System.out.print(cows[i]);
-            Thread.sleep(0);
-        }
+//
+//        String cow = "\nYou wake up in a crop circle, surrounded by corn. Your leather jacket is dirty.\n" +
+//                "You can't seem to remember who you are or how you ended up in the midst of all this corn, and you want answers.\n" +
+//                "Over the corn in the distance, you can see a cow floating up into a disc-like shape in the sky, before it flies away.\n" +
+//                "\t- Type out the action you wish to perform, with a verb first an noun second.\n" +
+//                "\t- For example, you can look around by typing \"look north\" or \"look west\", or look at your map by typing \"look map\".\n" +
+//                "\t\t- For more commands, type \"help\".\n\n";
+//        char[] cows = cow.toCharArray();
+//
+//
+//        // Print a char from the array, then sleep for 1/10 second
+//
+//        for (int i = 0; i < cows.length; i++) {
+//            System.out.print(cows[i]);
+//            DisplayScreen.displayConsole(cows[i]);
+//            Thread.sleep(0);
+//        }
 
         //Intro card to the game
         DisplayScreen.displayConsole("Welcome to Total Eclipse of the .start()");

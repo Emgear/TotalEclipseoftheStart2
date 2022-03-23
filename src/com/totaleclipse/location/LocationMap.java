@@ -1,5 +1,6 @@
 package com.totaleclipse.location;
 
+import com.totaleclipse.client.DisplayScreen;
 import com.totaleclipse.player.Player;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +72,8 @@ public class LocationMap {
          */
 
         //top of map
-        System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+//        System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+        DisplayScreen.displayConsole("-------------------------------------------------------------------------------------------------------------------------------");
 
         //fill each random location in map
         for(int i = 0; i < mapHeight; i++){
@@ -86,6 +88,8 @@ public class LocationMap {
             //space each location out, and print another line for readability when printed
             System.out.format("|%32s%32s%32s%32s", row.get(0), row.get(1), row.get(2), "|\n");
             System.out.format("|%126s|\n", "");
+            System.out.format("|%126s|\n", "");
+
         }
 
         //Static locations
@@ -94,7 +98,9 @@ public class LocationMap {
         System.out.format("|%96s%32s", start, "|\n");
 
         //bottom of map
-        System.out.println("-------------------------------------------------------------------------------------------------------------------------------\n");
-        System.out.println("You are currently at the " + player.getLocation().getLocation() + ".\n");
+//        System.out.println("-------------------------------------------------------------------------------------------------------------------------------\n");
+//        System.out.println("You are currently at the " + player.getLocation().getLocation() + ".\n");
+        DisplayScreen.displayConsole("-------------------------------------------------------------------------------------------------------------------------------\n");
+        DisplayScreen.displayConsole("You are currently at the " + player.getLocation().getLocation() + ".\n");
     }
 }

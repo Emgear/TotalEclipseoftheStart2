@@ -13,14 +13,9 @@ public class PlayGameTest {
         playGame.setUp();
     }
 
-    @After
-    public void tearDown() throws Exception {
-        System.out.println("All the tests are finished");
-    }
-
     @Test
     public void testSetUp() {
-
+        assertEquals(true, playGame.playing);
     }
 
     @Test

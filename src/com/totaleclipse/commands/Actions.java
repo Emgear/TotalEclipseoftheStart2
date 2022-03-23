@@ -298,7 +298,9 @@ public class Actions {
             if (!Journal.hasClue(clue)) {
                 String clueString = clue.getClue();
                 Journal.addClue(noun, clueString);
-                System.out.println("You speak to the " + player.getClue().getNpc() + " who tells you " + BLUE + clueString + ANSI_RESET);
+//                System.out.println("You speak to the " + player.getClue().getNpc() + " who tells you " + BLUE + clueString + ANSI_RESET);
+                DisplayScreen.displayConsole("You speak to the " + player.getClue().getNpc() + " who tells you " + BLUE + clueString + ANSI_RESET);
+
                 player.setHumanity(1);
             } else {
                 DisplayScreen.displayConsole(NPC.getRandomDialog());
@@ -310,7 +312,9 @@ public class Actions {
         } else if (noun.equalsIgnoreCase("")) {
             DisplayScreen.displayConsole("You start talking to yourself.");
         } else {
-            System.out.println("You say hello to the " + noun + " but it does not respond back to you. Not sure what you were expecting?");
+//            System.out.println("You say hello to the " + noun + " but it does not respond back to you. Not sure what you were expecting?");
+            DisplayScreen.displayConsole("You say hello to the " + noun + " but it does not respond back to you. Not sure what you were expecting?");
+
         }
     }
 
@@ -460,7 +464,8 @@ public class Actions {
         if (noun.equalsIgnoreCase(player.getLocation().getNpc())) {
             DisplayScreen.displayConsole("The " + noun + " says " + RED + "\"Get away from me!\"" + ANSI_RESET + " and pushes you away.");
             player.setPlayerHp(getPlayerHp() - 10);
-            System.out.println("Your health: " + Player.getPlayerHp());
+//            System.out.println("Your health: " + Player.getPlayerHp());
+            DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             return;
         }
         if (noun.equalsIgnoreCase("")) {
@@ -470,7 +475,8 @@ public class Actions {
         if (noun.equalsIgnoreCase("dog")) {
             DisplayScreen.displayConsole(RED + "Really? You would attack a harmless dog? The dog bites your leg and you cry like a baby." + ANSI_RESET);
             player.setPlayerHp(getPlayerHp() - 10);
-            System.out.println("Your health: " + Player.getPlayerHp());
+//            System.out.println("Your health: " + Player.getPlayerHp());
+            DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             return;
         }
         DisplayScreen.displayConsole("You smashed the " + noun);

@@ -14,6 +14,7 @@ public class DisplayScreen {
     public static String displayConsole(String string){
         System.out.println(string);
         Game.setGameText(string);
+
         return string;
     }
 
@@ -36,5 +37,9 @@ public class DisplayScreen {
         Game.setGameText(integer);
 
         return integer;
+    }
+
+    public static void displayConsole(char cow) {
+        Game.setGameText(String.valueOf(cow));
     }
 }
