@@ -30,6 +30,7 @@ public class Actions {
     public static final String BLUE = "\033[0;34m";
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String RED = "\033[0;31m";
+    public static final String GREEN_BOLD = "\033[1;32m";  // GREEN
     public static boolean finalClue = false;
 
 
@@ -45,7 +46,6 @@ public class Actions {
         }
         DisplayScreen.displayConsole("The actions you can perform are:\n" + helpString);
     }
-
     /**
      * look can be used to look in a direction, at an object, or to get general information about the area.
      *
@@ -102,8 +102,6 @@ public class Actions {
                     DisplayScreen.displayConsole(Locations.locationsMap.get(key - 1).getLook(1));
                 } else
                     DisplayScreen.displayConsole("Corn, more corn.");
-
-
                 break;
             case "south":
             case "down":
@@ -146,7 +144,6 @@ public class Actions {
             default:
                 DisplayScreen.displayConsole("It is about what you would expect.");
         }
-
     }
 
     protected void hunt(String noun) {
@@ -202,8 +199,6 @@ public class Actions {
                     break;
                 default:
                     DisplayScreen.displayConsole("THE COAST IS CLEAR");
-
-
             }
         }
     }
@@ -221,7 +216,7 @@ public class Actions {
                 DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
                 return;
             } else {
-                DisplayScreen.displayConsole("You chug the whisky down in a matter of seconds. So delicious! And you feel great!");
+                DisplayScreen.displayConsole(GREEN_BOLD + "You chug the whisky down in a matter of seconds. So delicious! And you feel great!" + ANSI_RESET);
                 player.setPlayerHp(getPlayerHp() + 10);
                 DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             }
@@ -231,7 +226,7 @@ public class Actions {
                 DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
                 return;
             } else {
-                DisplayScreen.displayConsole("You ask the barista for a coffee and they hand you a fresh cup. How refreshing!");
+                DisplayScreen.displayConsole(GREEN_BOLD + "You ask the barista for a coffee and they hand you a fresh cup. How refreshing!" + ANSI_RESET);
                 player.setPlayerHp(getPlayerHp() + 10);
                 DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             }
@@ -244,12 +239,12 @@ public class Actions {
                 DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
                 return;
             } else {
-                DisplayScreen.displayConsole("You pick a husk of corn off the stock and ate it");
+                DisplayScreen.displayConsole(GREEN_BOLD + "You pick a husk of corn off the stock and eat it" + ANSI_RESET);
                 player.setPlayerHp(getPlayerHp() + 5);
                 DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             }
         } else if (player.getLocation().getLocation().equalsIgnoreCase("oasis") && noun.equalsIgnoreCase("lizard")) {
-            DisplayScreen.displayConsole("The lizard hissed and ran towards you and bit your leg!!! You shake your leg frantically to get it off..");
+            DisplayScreen.displayConsole(RED + "The lizard hissed and ran towards you and bit your leg!!! You shake your leg frantically to get it off." + ANSI_RESET);
             player.setPlayerHp(getPlayerHp() - 8);
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             return;
@@ -260,7 +255,6 @@ public class Actions {
             DisplayScreen.displayConsole("Hmm that doesn't seem to be a good idea right now");
         }
     }
-
     /**
      * Player talks to the NPC at a given location. The first time the player speaks to them, the player receives a Clue. After
      *
@@ -292,7 +286,6 @@ public class Actions {
                 }
             } else {
                 clue = cluesMap.get(Locations.locationsMap.get(key).getLocation());
-
             }
             //if the player doesn't have the clue, the npc will give it to them. If they do have the clue, the npc spouts nonsense.
             if (!Journal.hasClue(clue)) {
@@ -327,7 +320,6 @@ public class Actions {
                     player.setLocation(Locations.locationsMap.get(key));
                     player.setClue(Clues.getClues().get(player.getLocation().getLocation()));
                     DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 1).getLook(1) + "\nTo the south " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the east is corn\nTo the west is... corn");
-
                 } else if (key == 1) {
                     key++;
                     player.setLocation(Locations.locationsMap.get(key));
@@ -387,7 +379,6 @@ public class Actions {
                         DisplayScreen.displayConsole("There's nothing but corn");
                     }
                 }
-
             }
         } else if (noun.equalsIgnoreCase("west") || noun.equalsIgnoreCase("left")) {
             if (key % 3 == 1) {
@@ -407,7 +398,6 @@ public class Actions {
                 }
             }
         }
-
     }
 
     public void printMap() {
@@ -437,7 +427,6 @@ public class Actions {
                 DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south is simply corn" + "\nTo the east is " + Locations.locationsMap.get(key - 1).getLook(1) + "\nTo the west is corn");
             } catch (Exception e) {
                 DisplayScreen.displayConsole(player.getLocation().getLook(0) + "\nTo the north " + Locations.locationsMap.get(key + 3).getLook(1) + "\nTo the south is simply corn" + "\nTo the east is more corn" + "\nTo the west is corn");
-
             }
         } else {
             if (key < 5) {
@@ -473,6 +462,10 @@ public class Actions {
             System.out.println("Your health: " + Player.getPlayerHp());
             return;
         }
+        if (noun.equalsIgnoreCase("zombie") || noun.equalsIgnoreCase("monster")) {
+            DisplayScreen.displayConsole("You don't see any monsters right now...maybe try hunting for one first?");
+            return;
+        }
         DisplayScreen.displayConsole("You smashed the " + noun);
         return;
 //        AttackEngine.run(player, player.getEnemy());
@@ -489,12 +482,10 @@ public class Actions {
                 SoundFx.volume = SoundFx.Volume.LOW;
                 SoundFx.MUSIC.play();
                 break;
-
             case "medium":
                 SoundFx.volume = SoundFx.Volume.MEDIUM;
                 SoundFx.MUSIC.play();
                 break;
-
             case "high":
             case "up":
             case "loud":
@@ -505,7 +496,6 @@ public class Actions {
                 SoundFx.volume = SoundFx.Volume.HIGH;
                 SoundFx.MUSIC.play();
                 break;
-
             case "off":
             case "mute":
             case "silence":
