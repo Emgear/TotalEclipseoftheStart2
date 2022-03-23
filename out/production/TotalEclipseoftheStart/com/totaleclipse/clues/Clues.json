@@ -17,7 +17,7 @@
     "clue": [
       "\"There be monsters afoot in these here cornfields...I tried to 'hunt' them by myself but wasn't able to make much progress without having to run away.\"",
       "\"People say I'm a crazed old man, but I'm just misunderstood.\"",
-      "\"I've heard people call me 'crazed' before. Why do they think that? Is my hair too wild-looking? Well, I can't do too much about that. There's no salon in this town.\"?"
+      "\"There be monsters afoot in these here cornfields...I tried to 'hunt' them by myself but wasn't able to make much progress without having to run away.\""
     ],
     "item": "map",
     "npc": "man",
@@ -45,7 +45,7 @@
     "clue": [
       "\"That book about Mt. Everest had quite the cliff-hanger.\"",
       "\"I started reading a book about corn mazes—I got lost in it.\"",
-      "\"What is a car’s favorite genre? Auto-biography.\""
+      "\"Fresh corn from the crop circle tastes excellent!\""
     ],
     "item": "book",
     "npc": "employee",
@@ -59,7 +59,7 @@
   {
     "clue": [
       "\"Some of the townsfolk have tried to 'hunt' monsters that have been showing up around town.\"",
-      "\"I saw a crazed man by the old bunker. His hair looked completely wild!\"",
+      "\"Some of the townsfolk have tried to 'hunt' monsters that have been showing up around town.\"",
       "\"Would you like to pet my dog?\""
     ],
     "item": "carving",

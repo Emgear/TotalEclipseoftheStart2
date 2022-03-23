@@ -212,7 +212,7 @@ public class Actions {
 //        HashMap<String, Clue> cluesMap = Clues.getClues();
 //        Clue clue;
         if (player.getLocation().getLocation().equalsIgnoreCase("bar") && noun.equalsIgnoreCase("whisky")) {
-            if (player.getPlayerHp() == 100) {
+            if (player.getPlayerHp() >= 91) {
                 DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
                 return;
             } else {
@@ -222,7 +222,7 @@ public class Actions {
             }
         }
         else if (player.getLocation().getLocation().equalsIgnoreCase("cafe") && noun.equalsIgnoreCase("coffee")) {
-            if (player.getPlayerHp() == 100) {
+            if (player.getPlayerHp() >= 91) {
                 DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
                 return;
             } else {
@@ -235,7 +235,7 @@ public class Actions {
                 DisplayScreen.displayConsole("The dog rolls over and absorbs your affection. How cute!");
                 return;
         } else if (player.getLocation().getLocation().equalsIgnoreCase("crop circle") && noun.equalsIgnoreCase("corn")){
-            if (player.getPlayerHp() == 100) {
+            if (player.getPlayerHp() >= 91) {
                 DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
                 return;
             } else {
