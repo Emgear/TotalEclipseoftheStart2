@@ -60,7 +60,7 @@
     "clue": [
       "\"Some of the townsfolk have tried to 'hunt' monsters that have been showing up around town.\"",
       "\"Some of the townsfolk have tried to 'hunt' monsters that have been showing up around town.\"",
-      "\"Would you like to pet my dog?\""
+      "\"Some of the townsfolk have tried to 'hunt' monsters that have been showing up around town.\""
     ],
     "item": "carving",
     "npc": "woman",
@@ -102,7 +102,7 @@
   {
     "clue": [
       "\"Why am I a tourist in this town you ask? I'm a corn enthusiast!\"",
-      "\"I stopped by the bar for a local concoction and loved their corn whisky! Fun fact, unlike other American whiskey styles, corn whiskey is not required to be aged in wood.\"",
+      "\"I stopped by the bar for a local concoction and loved their corn whiskey! \"",
       "\"*Achoo* I guess I visited the wrong location. This town isn't made for someone allergic to corn...\""
     ],
     "item": "paper",
