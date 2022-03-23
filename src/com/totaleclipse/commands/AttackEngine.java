@@ -104,8 +104,15 @@ public class AttackEngine {
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
 
         } else if (randomNum == 1) {
-            DisplayScreen.displayConsole(GREEN_BOLD + enemy.getName() + " stumbled towards you but fell over so you kick them in the head" + RESET);
-            enemy.setEnemyHealth(enemy.getEnemyHealth() - 20);
+            int randomNum2 = (int) (Math.random() * (2-0)) + 0; // 0 to
+            if (randomNum == 1){
+                DisplayScreen.displayConsole(GREEN_BOLD + "You punched " + enemy.getName() + " right in the FACE" + RESET);
+                enemy.setEnemyHealth(enemy.getEnemyHealth() - 15);
+            }
+            else {
+                DisplayScreen.displayConsole(GREEN_BOLD + enemy.getName() + " stumbled towards you but fell over so you kick them in the head" + RESET);
+                enemy.setEnemyHealth(enemy.getEnemyHealth() - 20);
+            }
             DisplayScreen.displayConsole("Your health: " + Player.getPlayerHp());
             DisplayScreen.displayConsole(enemy.getName() + " health: " + enemy.getEnemyHealth());
 
