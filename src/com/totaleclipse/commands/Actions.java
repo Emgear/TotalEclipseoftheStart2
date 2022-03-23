@@ -219,7 +219,7 @@ public class Actions {
 //        Clue clue;
         if (player.getLocation().getLocation().equalsIgnoreCase("bar") && noun.equalsIgnoreCase("whisky")) {
             if (player.getPlayerHp() == 100) {
-                DisplayScreen.displayConsole("You're so full you feel like you're going to explode!");
+               DisplayScreen.displayConsole(GREEN_BOLD + "You're so full you feel like you're going to explode!"+ ANSI_RESET) ;
                 return;
             } else {
                 DisplayScreen.displayConsole("You chug the whisky down in a matter of seconds. So delicious! And you feel great!");
