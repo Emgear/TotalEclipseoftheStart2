@@ -27,7 +27,6 @@ public class PlayGame {
     public static final String GREEN_BRIGHT = "\033[0;92m";  // GREEN
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String RED_BACKGROUND_BRIGHT = "\033[0;101m";// RED
-    public static final String GREEN_BACKGROUND_BRIGHT = "\033[0;102m";// GREEN
     /**
      * Sets up the game by reading Locations.json and randomizing the order of the interior locations
      */
@@ -106,9 +105,9 @@ public class PlayGame {
         DisplayScreen.displayConsole("A text-based mystery game full of conspiracy! " +
                 "Are you human? Alien? Or something else entirely? " +
                 "Uncover your past and discover your true identity!" + " \nYour goal is to find a way out of the corn and bring back your memory. Your actions throughout the game will impact your game result so act wisely!");
-        DisplayScreen.displayConsole("\t- To exit the game, simply type \"quit\"\n \n");
-        DisplayScreen.displayConsole("\t- You can look at all of the clues that you have collected by looking at your inventory. \n");
-        DisplayScreen.displayConsole("\t- You begin the game with only a map. \n");
+        DisplayScreen.displayConsole("\t- To exit the game, simply type \"quit\".");
+        DisplayScreen.displayConsole("\t- You can look at all of the clues that you have collected by looking at your inventory.");
+        DisplayScreen.displayConsole("\t- You begin the game with only a map.");
         HashMap<Integer, Location> locationsMap = Locations.generateLocations();
         ArrayList range = new ArrayList();
         for (int i = 0; i < locationsMap.size() - 3; i++) {
@@ -157,11 +156,11 @@ public class PlayGame {
                 if (player.getLocation().getLocation().equalsIgnoreCase("area 51")) {
                     DisplayScreen.displayConsole(player.getLocation().getLook(0));
                     if (player.getHumanity() > 0) {
-                        DisplayScreen.displayConsole(GREEN_BACKGROUND_BRIGHT + "You are a human and have discovered proof of alien life!!!" + ANSI_RESET);
+                        DisplayScreen.displayConsole(GREEN_BRIGHT + "You are a human and have discovered proof of alien life!!!" + ANSI_RESET);
                     } else if (player.getHumanity() < 0) {
-                        DisplayScreen.displayConsole(GREEN_BACKGROUND_BRIGHT + "You are an alien and you have sent a message that Earth is ripe for the taking!!!" + ANSI_RESET);
+                        DisplayScreen.displayConsole(GREEN_BRIGHT + "You are an alien and you have sent a message that Earth is ripe for the taking!!!" + ANSI_RESET);
                     } else {
-                        DisplayScreen.displayConsole(GREEN_BACKGROUND_BRIGHT + "You are a cow. MOOOOOOOOOOOO!" + ANSI_RESET);
+                        DisplayScreen.displayConsole(GREEN_BRIGHT + "You are a cow. MOOOOOOOOOOOO!" + ANSI_RESET);
                     }
                     playing = false;
                 }
