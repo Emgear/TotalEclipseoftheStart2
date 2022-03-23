@@ -49,13 +49,23 @@ public enum SoundFx {
             e.printStackTrace();
         }
     }
-
+    boolean gameStartNotPlayed = true;
     // Play or Re-play the sound effect from the beginning, by rewinding.
     public void play() {
+//        if (volume != Volume.MUTE) {
+//            if (clip.isRunning())
+//                clip.stop();   // Stop the player if it is still running
+//            clip.setFramePosition(0); // rewind to the beginning
+//            clip.start();     // Start playing
+//        boolean gameStartNotPlayed = true;
         if (volume != Volume.MUTE) {
             if (clip.isRunning())
                 clip.stop();   // Stop the player if it is still running
             clip.setFramePosition(0); // rewind to the beginning
+            if(gameStartNotPlayed){
+                clip.setFramePosition(10465000);
+                gameStartNotPlayed = false;
+            }
             clip.start();     // Start playing
             FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
             if (volume == Volume.LOW) {

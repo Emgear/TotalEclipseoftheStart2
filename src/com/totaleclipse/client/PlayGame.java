@@ -26,11 +26,13 @@ public class PlayGame {
     int rand;
     public static final String GREEN_BRIGHT = "\033[0;92m";  // GREEN
     public static final String ANSI_RESET = "\u001B[0m";
+    public static final String RED_BACKGROUND_BRIGHT = "\033[0;101m";// RED
     /**
      * Sets up the game by reading Locations.json and randomizing the order of the interior locations
      */
     public void setUp() throws InterruptedException {
         /* These outputs will likely be refactored into a separate class after their creation. */
+        SoundFx.volume = SoundFx.Volume.HIGH;
         SoundFx.TOTALECLIPSE.play();
         //Explaining the start of the game
         String cow = GREEN_BRIGHT+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%. .. .  /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
@@ -95,7 +97,7 @@ public class PlayGame {
 
         for (int i = 0; i < cows.length; i++) {
             System.out.print(cows[i]);
-            Thread.sleep(0);
+            Thread.sleep(1);
         }
 
         //Intro card to the game
@@ -137,7 +139,7 @@ public class PlayGame {
         SoundFx.MUSIC.play();
         while (playing) {
             if (Player.getPlayerHp() <= 0){
-                DisplayScreen.displayConsole("You have died. GAME OVER");
+                DisplayScreen.displayConsole(RED_BACKGROUND_BRIGHT + "You have died. GAME OVER" + ANSI_RESET);
                 playing = false;
                 break;
             }
