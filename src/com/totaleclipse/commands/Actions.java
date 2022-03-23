@@ -30,6 +30,7 @@ public class Actions {
     public static final String BLUE = "\033[0;34m";
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String RED = "\033[0;31m";
+    public static final String GREEN_BOLD = "\033[1;32m";  // GREEN
     public static boolean finalClue = false;
 
 
