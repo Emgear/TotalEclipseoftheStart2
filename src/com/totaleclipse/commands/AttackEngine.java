@@ -52,7 +52,7 @@ public class AttackEngine {
                 return;
             }
             if (enemy.getEnemyHealth() <= 0){
-                if (enemy.getName() == "ZOMBIE BOSS") {
+                if (Objects.equals(enemy.getName(), "ZOMBIE BOSS")) {
                     bossKilled = true;
                 }
                 System.out.println(enemy.getName() + " has been defeated.");

@@ -153,7 +153,7 @@ public class Actions {
         HashMap<String, Enemy> enemyMap = Enemies.makeEnemy();
         Enemy enemy;
 
-        if (noun.equalsIgnoreCase("monster") || noun.equalsIgnoreCase("zombie") || noun.equalsIgnoreCase("")){
+        if (noun.equalsIgnoreCase("monster") || noun.equalsIgnoreCase("monsters") || noun.equalsIgnoreCase("zombie") || noun.equalsIgnoreCase("")){
             switch (player.getLocation().getLocation()) {
                 case "bar":
                     enemy = enemyMap.get("Zombie Zack");
@@ -350,7 +350,7 @@ public class Actions {
         } else if (noun.equalsIgnoreCase("south") || noun.equalsIgnoreCase("down")) {
             if (key == 0) {
 //                IF YOU HAVE THE FINAL CLUE AND CAN WIN THE GAME AREA 51 REVEALS ITSELF
-                if ((finalClue) && (AttackEngine.bossKilled == true)) {
+                if ((finalClue) && (AttackEngine.bossKilled)) {
                     player.setLocation(Locations.locationsMap.get(999)); //area 51 location, ends game
                 } else {
                     DisplayScreen.displayConsole("You see more corn. Maybe go a different direction?");
