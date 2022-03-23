@@ -501,9 +501,9 @@ public class Actions {
             case "max":
                 if (SoundFx.volume == SoundFx.Volume.HIGH) {
                     DisplayScreen.displayConsole("This is as loud as it gets- wouldn't want to break your computer speakers would we?");
-                    SoundFx.volume = SoundFx.Volume.HIGH;
-                    SoundFx.MUSIC.play();
                 }
+                SoundFx.volume = SoundFx.Volume.HIGH;
+                SoundFx.MUSIC.play();
                 break;
 
             case "off":
